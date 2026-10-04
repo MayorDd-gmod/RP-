@@ -23,7 +23,7 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
-      /* ФОН С FORBES */
+      /* ФОН */
       background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
       background-size: cover;
       background-position: center;
@@ -31,25 +31,17 @@
       min-height: 100vh;
     }
 
-    /* Затемнение фона для читаемости текста */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.6);
       z-index: -1;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* HEADER STYLES */
+    /* HEADER */
     .site-header {
       background-color: var(--header-bg);
       border-bottom: 1px solid var(--border-color);
@@ -73,36 +65,15 @@
       text-decoration: none;
       color: #fff;
       font-weight: bold;
-      font-size: 1.1rem;
     }
 
-    .logo-img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
+    .logo-img { width: 40px; height: 40px; object-fit: contain; border-radius: 4px; }
+    
+    .logo-text-main { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; }
+    .logo-text-sub { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; font-weight: 600; }
 
-    .logo-text-main {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-
-    .logo-text-sub {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* NAVIGATION STYLES */
-    .main-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 5px;
-    }
+    /* NAVIGATION */
+    .main-nav ul { list-style: none; display: flex; gap: 5px; }
 
     .main-nav a {
       color: var(--text-main);
@@ -119,9 +90,7 @@
       text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
     }
 
-    .dropdown {
-      position: relative;
-    }
+    .dropdown { position: relative; }
 
     .dropdown-menu {
       position: absolute;
@@ -130,15 +99,15 @@
       background-color: #111;
       border: 1px solid var(--border-color);
       min-width: 220px;
-      display: none;
+      display: none; /* Скрыто по умолчанию */
       flex-direction: column;
       z-index: 1001;
       padding: 10px 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
 
-    .dropdown:hover .dropdown-menu {
-      display: flex;
-    }
+    /* Логика открытия меню ТОЛЬКО при наличии класса .open */
+    .dropdown.open .dropdown-menu { display: flex; }
 
     .dropdown-menu li a {
       padding: 10px 20px;
@@ -151,22 +120,10 @@
       color: var(--accent);
     }
 
-    .arrow {
-      font-size: 0.7rem;
-      margin-left: 5px;
-      color: #888;
-    }
+    .arrow { font-size: 0.7rem; margin-left: 5px; color: #888; }
+    .search-btn { background: none; border: none; color: #fff; cursor: pointer; font-size: 1.2rem; padding: 5px; }
 
-    .search-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 5px;
-    }
-
-    /* HERO SECTION STYLES */
+    /* HERO SECTION */
     .hero {
       padding: 120px 0 60px 0;
       text-align: center;
@@ -189,7 +146,7 @@
       line-height: 1.5;
     }
 
-    /* BUTTON STYLES */
+    /* BUTTONS */
     .btn {
       display: inline-block;
       padding: 15px 40px;
@@ -215,53 +172,14 @@
       box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
     }
 
-    /* CONTENT GRID STYLES */
-    .charter-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      padding: 40px 0;
-    }
-
-    .charter-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 2.5rem;
-      border-radius: 8px;
-      transition: 0.3s;
-      backdrop-filter: blur(5px);
-    }
-
-    .charter-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .charter-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-      filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
-    }
-
-    .charter-card h3 {
-      color: #fff;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .charter-card p {
-      color: var(--text-muted);
-    }
-
-    /* FOOTER STYLES */
+    /* FOOTER */
     .site-footer {
       background-color: rgba(0, 0, 0, 0.8);
       border-top: 1px solid var(--border-color);
       padding: 40px 0;
       margin-top: 60px;
       color: #555;
+      text-align: center;
     }
 
     .disclaimer {
@@ -273,33 +191,10 @@
     }
 
     @media (max-width: 768px) {
-      .header-inner {
-        flex-direction: column;
-        height: auto;
-        padding: 15px 0;
-      }
-      
-      .main-nav ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        margin-top: 15px;
-      }
-
-      .dropdown-menu {
-        position: static;
-        border: none;
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #1a1a1a;
-      }
-
-      .dropdown.active-mobile .dropdown-menu {
-        display: flex;
-      }
-
-      .hero h1 { font-size: 2.2rem; }
+      .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
+      .main-nav ul { flex-direction: column; width: 100%; text-align: center; }
+      .dropdown-menu { position: static; box-shadow: none; border: none; }
+      .dropdown.open .dropdown-menu { display: flex; }
     }
   </style>
 </head>
@@ -307,23 +202,21 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo">
-        <!-- ЛОГОТИП DISCORD (ССЫЛКА УЖЕ ВСТАВЛЕНА) -->
-        <img src="https://cdn.discordapp.com/attachments/1546768051851235358/1556326482429747483/cO_8TogzwToBwpiTWMI6Tm4cKeYlNIUNMstcTqyXRi8.png?backend=b2&ex=6ac3c17c&is=6ac26ffc&hm=a53ee1834935688b44ab2fb5d49d1ed96366864d7f424bb3877be77da06e78c4&" 
-             alt="Logo" class="logo-img">
+      <a href="#" class="logo">
+        <!-- Вставь сюда ссылку на свой Discord лого -->
+        <img src="ССЫЛКА_НА_ТВОЙ_ЛОГО_DISCORD" alt="Logo" class="logo-img">
         <div>
-          <span class="logo-text-main">Разлом:</span>
-          <br>
-          <span class="logo-text-sub">Марш Справедливости 2023</span>
+          <span class="logo-text-main">URF.im</span>
+          <span class="logo-text-sub">| Сирия</span>
         </div>
       </a>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="/">Главная</a></li>
+          <li><a href="#">Главная</a></li>
           
           <li class="dropdown">
-            <a href="#">Общевойсковой Устав <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">Общевойсковой устав <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Руководство</a></li>
               <li><a href="#">Правопорядок и надзор</a></li>
@@ -334,16 +227,16 @@
           </li>
 
           <li class="dropdown">
-            <a href="#">Регламенты <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">Регламенты <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Дежурства и награды</a></li>
+              <li><a href="#">Дежурства и наряды</a></li>
               <li><a href="#">Учебные стрельбы</a></li>
               <li><a href="#">Эксплуатация техники</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#">НПА <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">НПА <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Федеральные законы</a></li>
               <li><a href="#">Указы Президента</a></li>
@@ -352,56 +245,35 @@
           </li>
 
           <li class="dropdown">
-            <a href="#">Уставы подразделений <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">Уставы подразделений <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Сухопутные войска</a></li>
-              <li><a href="#">ВКС</a></li>
-              <li><a href="#">ССО</a></li>
+              <li><a href="#">Раздел 1</a></li>
+              <li><a href="#">Раздел 2</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#">Государственные награды <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">Государственные награды <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Ордена</a></li>
               <li><a href="#">Медали</a></li>
               <li><a href="#">Нагрудные знаки</a></li>
             </ul>
           </li>
-
-          <li>
-            <button class="search-btn">🔍</button>
-          </li>
+          
+          <li><button class="search-btn">🔍</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Общевойсковой Устав</h1>
-      <p>Нормативно-правовые акты и регламенты для участников проекта «Разлом: Марш Справедливости 2023».</p>
-      <a href="#content" class="btn btn-primary">Изучить Устав</a>
-    </section>
-
-    <section id="content" class="charter-grid">
-      <article class="charter-card">
-        <span class="charter-icon">📜</span>
-        <h3>Руководство и Устав</h3>
-        <p>Основные положения, структура командования и базовые правила поведения на проекте.</p>
-      </article>
-      <article class="charter-card">
-        <span class="charter-icon">⚖️</span>
-        <h3>Правопорядок и надзор</h3>
-        <p>Система дисциплинарных взысканий, правила задержания и взаимодействия с военной полицией.</p>
-      </article>
-      <article class="charter-card">
-        <span class="charter-icon">🎖️</span>
-        <h3>Награды и поощрения</h3>
-        <p>Полный список орденов, медалей и нагрудных знаков, доступных для получения на проекте.</p>
-      </article>
-    </section>
-  </main>
+  <section class="hero">
+    <div class="container">
+      <h1>Общевойсковой устав</h1>
+      <p>Нормативно-правовые акты и регламенты для участников проекта «Марш Справедливости 2023».</p>
+      <a href="#" class="btn btn-primary">Изучить устав</a>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="container">
@@ -412,5 +284,45 @@
     </div>
   </footer>
 
+  <!-- ВАЖНЫЙ СКРИПТ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Логика для открытия/закрытия меню по КЛИКУ (работает и на ПК, и на телефоне)
+      const dropdowns = document.querySelectorAll('.dropdown');
+      
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.toggle-dropdown');
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault(); // Чтобы страница не прыгала вверх
+          dropdown.classList.toggle('open');
+        });
+      });
+
+      // 2. Закрывать меню, если кликнули в любое другое место экрана
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          dropdowns.forEach(d => d.classList.remove('open'));
+        }
+      });
+
+      // 3. Блокировка ссылок (чтобы сайт не выдавал ошибку 404, пока мы не создали страницы)
+      const links = document.querySelectorAll('a[href^="#"], a:not([href])');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Эта страница еще в разработке! Скоро здесь будет контент.');
+        });
+      });
+      
+      // Обработка кнопки "Изучить устав"
+      const btn = document.querySelector('.btn-primary');
+      if(btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Переход к тексту устава... (Здесь будет ссылка на PDF или новую страницу)');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
