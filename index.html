@@ -11,7 +11,7 @@
       --header-bg: rgba(0, 0, 0, 0.85);
       --text-main: #ffffff;
       --text-muted: #aaaaaa;
-      --accent: #ff4d4d; /* Красный акцент */
+      --accent: #ff4d4d;
       --card-bg: rgba(255, 255, 255, 0.05);
       --border-color: rgba(255, 255, 255, 0.1);
     }
@@ -23,15 +23,15 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
-      /* ГЛАВНЫЙ ФОН - ТВОЯ ССЫЛКА */
+      /* ФОН С FORBES */
       background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed; /* Чтобы фон не "ездил" при скролле */
+      background-attachment: fixed;
       min-height: 100vh;
     }
 
-    /* Затемнение фона, чтобы текст читался */
+    /* Затемнение фона для читаемости текста */
     body::before {
       content: "";
       position: fixed;
@@ -49,7 +49,7 @@
       padding: 0 20px;
     }
 
-    /* --- HEADER --- */
+    /* HEADER STYLES */
     .site-header {
       background-color: var(--header-bg);
       border-bottom: 1px solid var(--border-color);
@@ -97,7 +97,7 @@
       font-weight: 600;
     }
 
-    /* --- NAVIGATION --- */
+    /* NAVIGATION STYLES */
     .main-nav ul {
       list-style: none;
       display: flex;
@@ -166,7 +166,7 @@
       padding: 5px;
     }
 
-    /* --- HERO SECTION --- */
+    /* HERO SECTION STYLES */
     .hero {
       padding: 120px 0 60px 0;
       text-align: center;
@@ -189,7 +189,7 @@
       line-height: 1.5;
     }
 
-    /* --- BUTTONS --- */
+    /* BUTTON STYLES */
     .btn {
       display: inline-block;
       padding: 15px 40px;
@@ -215,7 +215,7 @@
       box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
     }
 
-    /* --- CONTENT GRID --- */
+    /* CONTENT GRID STYLES */
     .charter-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -255,7 +255,7 @@
       color: var(--text-muted);
     }
 
-    /* --- FOOTER --- */
+    /* FOOTER STYLES */
     .site-footer {
       background-color: rgba(0, 0, 0, 0.8);
       border-top: 1px solid var(--border-color);
@@ -272,13 +272,6 @@
       padding-top: 20px;
     }
 
-    .copyright {
-      text-align: center;
-      color: #333;
-      font-size: 0.8rem;
-    }
-
-    /* --- MOBILE ADAPTIVE --- */
     @media (max-width: 768px) {
       .header-inner {
         flex-direction: column;
@@ -312,39 +305,38 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- ЛОГОТИП И НАЗВАНИЕ -->
       <a href="/" class="logo">
+        <!-- ЛОГОТИП DISCORD (ССЫЛКА УЖЕ ВСТАВЛЕНА) -->
         <img src="https://cdn.discordapp.com/attachments/1546768051851235358/1556326482429747483/cO_8TogzwToBwpiTWMI6Tm4cKeYlNIUNMstcTqyXRi8.png?backend=b2&ex=6ac3c17c&is=6ac26ffc&hm=a53ee1834935688b44ab2fb5d49d1ed96366864d7f424bb3877be77da06e78c4&" 
-             alt="Logo" class="logo-img" />
+             alt="Logo" class="logo-img">
         <div>
-          <div class="logo-text-main">Разлом:</div>
-          <div class="logo-text-sub">Марш Справедливости 2023</div>
+          <span class="logo-text-main">Разлом:</span>
+          <br>
+          <span class="logo-text-sub">Марш Справедливости 2023</span>
         </div>
       </a>
-      
+
       <nav class="main-nav">
-        <ul class="nav-list">
-          <!-- ГЛАВНАЯ: просто ссылка на / -->
+        <ul>
           <li><a href="/">Главная</a></li>
           
-          <li class="dropdown active">
-            <a href="#">Общевойсковой устав <span class="arrow">▼</span></a>
+          <li class="dropdown">
+            <a href="#">Общевойсковой Устав <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#руководство">Руководство</a></li>
-              <li><a href="#правопорядок">Правопорядок и надзор</a></li>
-              <li><a href="#сухопутные">Сухопутные войска</a></li>
-              <li><a href="#спецназ">Силы Специальных Операций</a></li>
-              <li><a href="#вкс">ВКС</a></li>
+              <li><a href="#">Руководство</a></li>
+              <li><a href="#">Правопорядок и надзор</a></li>
+              <li><a href="#">Сухопутные войска</a></li>
+              <li><a href="#">Силы Специальных Операций</a></li>
+              <li><a href="#">ВКС</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="#">Регламенты <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Дежурства и наряды</a></li>
+              <li><a href="#">Дежурства и награды</a></li>
               <li><a href="#">Учебные стрельбы</a></li>
               <li><a href="#">Эксплуатация техники</a></li>
             </ul>
@@ -359,7 +351,14 @@
             </ul>
           </li>
 
-          <li><a href="#">Уставы подразделений</a></li>
+          <li class="dropdown">
+            <a href="#">Уставы подразделений <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Сухопутные войска</a></li>
+              <li><a href="#">ВКС</a></li>
+              <li><a href="#">ССО</a></li>
+            </ul>
+          </li>
 
           <li class="dropdown">
             <a href="#">Государственные награды <span class="arrow">▼</span></a>
@@ -369,125 +368,49 @@
               <li><a href="#">Нагрудные знаки</a></li>
             </ul>
           </li>
+
+          <li>
+            <button class="search-btn">🔍</button>
+          </li>
         </ul>
       </nav>
-
-      <button class="search-btn"><span>🔍</span></button>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Общевойсковой устав</h1>
-      <p>Нормативно-правовые акты и регламенты для участников проекта «Разлом: Марш Справедливости 2023».</p>
-      <a href="#руководство" class="btn btn-primary">Изучить устав</a>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
   <main class="container">
-    <div class="charter-grid">
-      
-      <section id="руководство" class="charter-card">
-        <span class="charter-icon">🎖️</span>
-        <h3>Руководство</h3>
-        <p>Структура командования, порядок подчинения, права и обязанности командиров и подчинённых. Иерархия в рамках проекта.</p>
-      </section>
+    <section class="hero">
+      <h1>Общевойсковой Устав</h1>
+      <p>Нормативно-правовые акты и регламенты для участников проекта «Разлом: Марш Справедливости 2023».</p>
+      <a href="#content" class="btn btn-primary">Изучить Устав</a>
+    </section>
 
-      <section id="правопорядок" class="charter-card">
-        <span class="charter-icon">👮</span>
+    <section id="content" class="charter-grid">
+      <article class="charter-card">
+        <span class="charter-icon">📜</span>
+        <h3>Руководство и Устав</h3>
+        <p>Основные положения, структура командования и базовые правила поведения на проекте.</p>
+      </article>
+      <article class="charter-card">
+        <span class="charter-icon">⚖️</span>
         <h3>Правопорядок и надзор</h3>
-        <p>Порядок несения службы, дисциплинарные меры, взаимодействие с военной полицией и надзорными органами.</p>
-      </section>
-
-      <section id="сухопутные" class="charter-card">
-        <span class="charter-icon">🪖</span>
-        <h3>Сухопутные войска</h3>
-        <p>Особенности службы в СВ, порядок применения вооружения, взаимодействие подразделений.</p>
-      </section>
-
-      <section id="спецназ" class="charter-card">
-        <span class="charter-icon">🦉</span>
-        <h3>Силы Специальных Операций</h3>
-        <p>Специфика службы в ССО, особые требования к личному составу, порядок применения спецсредств.</p>
-      </section>
-
-      <section id="вкс" class="charter-card">
-        <span class="charter-icon">🚀</span>
-        <h3>ВКС</h3>
-        <p>Особенности службы в Воздушно-космических силах, порядок взаимодействия с авиацией и ПВО.</p>
-      </section>
-
-    </div>
+        <p>Система дисциплинарных взысканий, правила задержания и взаимодействия с военной полицией.</p>
+      </article>
+      <article class="charter-card">
+        <span class="charter-icon">🎖️</span>
+        <h3>Награды и поощрения</h3>
+        <p>Полный список орденов, медалей и нагрудных знаков, доступных для получения на проекте.</p>
+      </article>
+    </section>
   </main>
 
-  <!-- CTA STRIP -->
-  <section class="cta-strip" style="padding: 40px 0; text-align: center;">
-    <div class="container">
-      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" 
-         style="color: #fff; text-decoration: none; font-size: 1.2rem; border: 2px solid #fff; padding: 15px 40px; border-radius: 5px; transition: 0.3s;">
-        Discord сервер проекта
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="disclaimer">
-        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологию или организации, запрещённые на территории Российской Федерации. Любые демонстрации символики, униформы или атрибутики террористических организаций носят исключительно историко-документальный характер, и не являются целью пропаганды или оправдания их действий.</p>
+        Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме.
       </div>
-      <div class="copyright">
-        <p>&copy; 2023 Разлом: Марш Справедливости 2023. Любое копирование материалов допускается лишь с разрешения создателя.</p>
-      </div>
+      <p>&copy; 2023 URF.im. Любое копирование материалов допускается только с разрешения создателя.</p>
     </div>
   </footer>
 
-  <!-- ВСТРОЕННЫЙ JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Плавный скролл для якорных ссылок
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-
-      // 2. Логика мобильного меню (клик для открытия)
-      const dropdowns = document.querySelectorAll('.dropdown');
-      
-      dropdowns.forEach(dd => {
-        dd.addEventListener('click', (e) => {
-          if (window.innerWidth <= 768) {
-            e.preventDefault();
-            
-            // Закрываем другие
-            dropdowns.forEach(otherDd => {
-              if (otherDd !== dd) {
-                otherDd.classList.remove('active-mobile');
-              }
-            });
-
-            // Переключаем текущее
-            dd.classList.toggle('active-mobile');
-          }
-        });
-      });
-
-      // 3. Кнопка поиска
-      const searchBtn = document.querySelector('.search-btn');
-      if (searchBtn) {
-        searchBtn.addEventListener('click', () => {
-          alert('Функция поиска в разработке. Присоединяйтесь к Discord!');
-        });
-      }
-    });
-  </script>
 </body>
 </html>
