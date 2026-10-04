@@ -11,7 +11,7 @@
       --header-bg: rgba(0, 0, 0, 0.95);
       --text-main: #ffffff;
       --text-muted: #aaaaaa;
-      --accent: #ff4d4d; /* Красный цвет акцента */
+      --accent: #ff4d4d;
       --card-bg: rgba(255, 255, 255, 0.03);
       --border-color: rgba(255, 255, 255, 0.1);
     }
@@ -23,7 +23,7 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
-      /* Фон (можно заменить на свою картинку) */
+      /* Фоновое изображение (можно заменить на свое) */
       background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
       background-size: cover;
       background-position: center;
@@ -31,7 +31,7 @@
       min-height: 100vh;
     }
 
-    /* Затемнение фона */
+    /* Затемнение фона для читаемости текста */
     body::before {
       content: "";
       position: fixed;
@@ -42,7 +42,7 @@
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* HEADER */
+    /* HEADER STYLES */
     .site-header {
       background-color: var(--header-bg);
       border-bottom: 1px solid var(--border-color);
@@ -68,11 +68,18 @@
       font-weight: bold;
     }
 
-    .logo-img { width: 40px; height: 40px; object-fit: contain; border-radius: 4px; }
+    .logo-img { 
+      width: 40px; 
+      height: 40px; 
+      object-fit: contain; 
+      border-radius: 4px; 
+      background-color: rgba(255,255,255,0.1); /* Подложка, если картинка грузится долго */
+    }
+    
     .logo-text-main { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; }
     .logo-text-sub { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; font-weight: 600; }
 
-    /* NAVIGATION */
+    /* NAVIGATION STYLES */
     .main-nav ul { list-style: none; display: flex; gap: 5px; }
     .main-nav a {
       color: var(--text-main);
@@ -99,7 +106,7 @@
       background-color: #111;
       border: 1px solid var(--border-color);
       min-width: 220px;
-      display: none; /* СКРЫТО */
+      display: none; /* СКРЫТО ПРИ ЗАГРУЗКЕ */
       flex-direction: column;
       z-index: 1001;
       padding: 10px 0;
@@ -127,7 +134,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SECTIONS STYLES */
+    /* CONTENT STYLES */
     section { padding: 60px 0; }
     .section-title {
       font-size: 2.5rem;
@@ -232,8 +239,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <!-- !!! ВСТАВЬ СЮДА СВОЮ ССЫЛКУ НА ЛОГО ВМЕСТО ТЕСТОВОЙ !!! -->
-        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img">
+        <!-- ЛОГОТИП: Вставлена твоя новая ссылка -->
+        <img src="https://fotora.ru/uploaded/?ID=VTBOH04102026165821" alt="Logo" class="logo-img">
         <div>
           <span class="logo-text-main">URF.im</span>
           <span class="logo-text-sub">| Разлом: Марш Войны</span>
@@ -408,14 +415,13 @@
           // 1. Сначала закрываем ВСЕ открытые меню
           dropdowns.forEach(d => d.classList.remove('open'));
           
-          // 2. Проверяем, не было ли уже открыто это меню (чтобы можно было закрыть повторным кликом)
+          // 2. Проверяем, не было ли уже открыто это меню
           const isCurrentlyOpen = dropdown.classList.contains('open');
           
           // 3. Если не было открыто - открываем его
           if (!isCurrentlyOpen) {
             dropdown.classList.add('open');
           }
-          // Если было открыто - мы его уже закрыли в пункте 1, так что ничего не делаем (оно останется закрытым)
         });
       });
 
