@@ -20,14 +20,13 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Courier New', Courier, monospace; /* Военный/технический стиль */
+      font-family: 'Courier New', Courier, monospace;
       color: var(--text-main);
       background-color: var(--bg-dark);
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Фоновое изображение */
     .background-layer {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -37,7 +36,7 @@
       background-position: center;
       opacity: 0.5;
       pointer-events: none;
-      filter: blur(2px); /* Легкое размытие для читаемости текста поверх */
+      filter: blur(2px);
     }
 
     .overlay {
@@ -99,7 +98,6 @@
       box-shadow: 0 0 15px var(--accent-gold);
     }
 
-    /* Табы (Вкладки) */
     .tabs {
       display: flex;
       flex-wrap: wrap;
@@ -137,7 +135,6 @@
     .tab-btn.active.fsb-btn { background: var(--accent-red); color: #fff; }
     .tab-btn.active.msp-btn { background: var(--accent-blue); color: #fff; }
 
-    /* Контент вкладок */
     .tab-content {
       display: none;
       background: var(--panel-bg);
@@ -242,7 +239,6 @@
   <div class="overlay">
     <header>
       <div class="logo-container">
-        <!-- Ссылка на логотип -->
         <img src="https://fotora.ru/uploaded/?ID=VTBOH04102026165821" alt="Логотип Разлом" class="logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<h3>Логотип не загружен</h3>'"/>
       </div>
       <h1>Разлом: Марш Справедливости</h1>
@@ -251,14 +247,12 @@
       </a>
     </header>
 
-    <!-- Кнопки переключения -->
     <div class="tabs">
       <button class="tab-btn active sso-btn" data-tab="sso">Силы Специальных Операций (ССО)</button>
       <button class="tab-btn fsb-btn" data-tab="fsb">Федеральная Служба Безопасности (ФСБ)</button>
       <button class="tab-btn msp-btn" data-tab="msp">252-й Гвардейский МСП</button>
     </div>
 
-    <!-- Вкладка 1: ССО -->
     <div id="sso" class="tab-content active">
       <h2><span class="badge badge-sso">ССО</span> Регламент подразделения</h2>
       
@@ -283,7 +277,6 @@
       <p>В ходе операции действует правило «Радиомолчание». Связь осуществляется только по закрытым каналам в экстренных случаях. Командир группы имеет право принимать тактические решения без согласования с штабом, если это необходимо для выполнения задачи.</p>
     </div>
 
-    <!-- Вкладка 2: ФСБ -->
     <div id="fsb" class="tab-content">
       <h2><span class="badge badge-fsb">ФСБ</span> Регламент службы</h2>
 
@@ -305,7 +298,6 @@
       </ul>
     </div>
 
-    <!-- Вкладка 3: 252 МСП -->
     <div id="msp" class="tab-content">
       <h2><span class="badge badge-msp">252 МСП</span> Регламент полка</h2>
 
@@ -343,7 +335,6 @@
     <footer>
       <p>Проект «Разлом: Марш Справедливости».</p>
       <p>Материалы носят исключительно ролевой (RP) характер и не являются пропагандой или призывом к реальным действиям.</p>
-      <p>&copy; 2023 URF.Im</p>
     </footer>
   </div>
 
@@ -353,16 +344,14 @@
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Сброс стилей
         tabs.forEach(t => {
           t.classList.remove('active');
-          t.classList.remove('sso-btn-active'); // сброс цветов
+          t.classList.remove('sso-btn-active');
           t.classList.remove('fsb-btn-active');
           t.classList.remove('msp-btn-active');
         });
         contents.forEach(c => c.classList.remove('active'));
 
-        // Активация выбранной
         tab.classList.add('active');
         const targetId = tab.getAttribute('data-tab');
         document.getElementById(targetId).classList.add('active');
