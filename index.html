@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>URF.im | Сирия RolePlay</title>
+  <title>Разлом: Марш Справедливости 2023</title>
   
-  <!-- ВСТРОЕННЫЕ СТИЛИ (CSS) -->
   <style>
     :root {
-      --bg-color: #0f0f0f;
-      --header-bg: #1a1a1a;
-      --text-main: #e0e0e0;
-      --text-muted: #888;
-      --accent: #c0392b; /* Красный цвет акцента */
-      --card-bg: rgba(255, 255, 255, 0.03);
+      --bg-color: #050505;
+      --header-bg: rgba(0, 0, 0, 0.85);
+      --text-main: #ffffff;
+      --text-muted: #aaaaaa;
+      --accent: #ff4d4d; /* Красный акцент */
+      --card-bg: rgba(255, 255, 255, 0.05);
       --border-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -24,6 +23,24 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
+      /* ГЛАВНЫЙ ФОН - ТВОЯ ССЫЛКА */
+      background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Чтобы фон не "ездил" при скролле */
+      min-height: 100vh;
+    }
+
+    /* Затемнение фона, чтобы текст читался */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     .container {
@@ -39,6 +56,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
     .header-inner {
@@ -55,13 +73,28 @@
       text-decoration: none;
       color: #fff;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .logo-img {
       width: 40px;
       height: 40px;
       object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .logo-text-main {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .logo-text-sub {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     /* --- NAVIGATION --- */
@@ -77,11 +110,13 @@
       padding: 10px 15px;
       display: block;
       transition: 0.3s;
+      font-size: 0.9rem;
+      text-transform: uppercase;
     }
 
     .main-nav a:hover, .main-nav a.active {
       color: var(--accent);
-      text-shadow: 0 0 10px rgba(192, 57, 43, 0.5);
+      text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
     }
 
     .dropdown {
@@ -92,22 +127,23 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: var(--header-bg);
+      background-color: #111;
       border: 1px solid var(--border-color);
-      min-width: 200px;
-      display: none; /* Скрыто по умолчанию */
+      min-width: 220px;
+      display: none;
       flex-direction: column;
       z-index: 1001;
+      padding: 10px 0;
     }
 
     .dropdown:hover .dropdown-menu {
-      display: flex; /* Показываем при наведении на ПК */
+      display: flex;
     }
 
     .dropdown-menu li a {
-      padding: 10px 15px;
-      border-bottom: 1px solid var(--border-color);
-      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-bottom: 1px solid #222;
+      color: #ccc;
     }
 
     .dropdown-menu li a:hover {
@@ -116,8 +152,9 @@
     }
 
     .arrow {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       margin-left: 5px;
+      color: #888;
     }
 
     .search-btn {
@@ -126,98 +163,92 @@
       color: #fff;
       cursor: pointer;
       font-size: 1.2rem;
+      padding: 5px;
     }
 
     /* --- HERO SECTION --- */
     .hero {
-      /* Если есть картинка - она будет фоном, если нет - просто темный фон */
-      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); 
-      background-size: cover;
-      background-position: center;
-      padding: 100px 0;
+      padding: 120px 0 60px 0;
       text-align: center;
+      color: #fff;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      line-height: 1.5;
     }
 
     /* --- BUTTONS --- */
     .btn {
       display: inline-block;
-      padding: 12px 30px;
+      padding: 15px 40px;
       text-decoration: none;
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .btn-primary {
       background-color: var(--accent);
-      color: #fff;
+      color: #000;
       border: 2px solid var(--accent);
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
     }
 
     .btn-primary:hover {
-      background-color: transparent;
-      color: #fff;
-      box-shadow: 0 0 15px var(--accent);
-    }
-
-    .btn-dark {
-      background-color: transparent;
-      color: #fff;
-      border: 2px solid #fff;
-    }
-
-    .btn-dark:hover {
       background-color: #fff;
       color: #000;
+      box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
     }
 
     /* --- CONTENT GRID --- */
     .charter-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      gap: 2.5rem;
       padding: 40px 0;
     }
 
     .charter-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: 8px;
       transition: 0.3s;
+      backdrop-filter: blur(5px);
     }
 
     .charter-card:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .charter-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
       display: block;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
     }
 
     .charter-card h3 {
       color: #fff;
       margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     .charter-card p {
@@ -226,15 +257,15 @@
 
     /* --- FOOTER --- */
     .site-footer {
-      background-color: #000;
+      background-color: rgba(0, 0, 0, 0.8);
       border-top: 1px solid var(--border-color);
       padding: 40px 0;
-      margin-top: 40px;
+      margin-top: 60px;
+      color: #555;
     }
 
     .disclaimer {
       font-size: 0.75rem;
-      color: #555;
       line-height: 1.5;
       margin-bottom: 2rem;
       border-top: 1px solid var(--border-color);
@@ -243,8 +274,8 @@
 
     .copyright {
       text-align: center;
-      color: #444;
-      font-size: 0.9rem;
+      color: #333;
+      font-size: 0.8rem;
     }
 
     /* --- MOBILE ADAPTIVE --- */
@@ -265,17 +296,17 @@
       .dropdown-menu {
         position: static;
         border: none;
-        display: none; /* Скрыто */
+        display: none;
         flex-direction: column;
         width: 100%;
-        background: #222;
+        background: #1a1a1a;
       }
 
       .dropdown.active-mobile .dropdown-menu {
-        display: flex; /* Показываем при клике через JS */
+        display: flex;
       }
 
-      .hero h1 { font-size: 2rem; }
+      .hero h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -284,14 +315,19 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
+      <!-- ЛОГОТИП И НАЗВАНИЕ -->
       <a href="/" class="logo">
-        <!-- Заглушка логотипа. Если есть свой файл, замени src -->
-        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img" />
-        <span class="logo-text">URF.im | Сирия RolePlay</span>
+        <img src="https://cdn.discordapp.com/attachments/1546768051851235358/1556326482429747483/cO_8TogzwToBwpiTWMI6Tm4cKeYlNIUNMstcTqyXRi8.png?backend=b2&ex=6ac3c17c&is=6ac26ffc&hm=a53ee1834935688b44ab2fb5d49d1ed96366864d7f424bb3877be77da06e78c4&" 
+             alt="Logo" class="logo-img" />
+        <div>
+          <div class="logo-text-main">Разлом:</div>
+          <div class="logo-text-sub">Марш Справедливости 2023</div>
+        </div>
       </a>
       
       <nav class="main-nav">
         <ul class="nav-list">
+          <!-- ГЛАВНАЯ: просто ссылка на / -->
           <li><a href="/">Главная</a></li>
           
           <li class="dropdown active">
@@ -344,7 +380,7 @@
   <section class="hero">
     <div class="container hero-content">
       <h1>Общевойсковой устав</h1>
-      <p>Нормативно-правовые акты и регламенты для участников проекта URF.im</p>
+      <p>Нормативно-правовые акты и регламенты для участников проекта «Разлом: Марш Справедливости 2023».</p>
       <a href="#руководство" class="btn btn-primary">Изучить устав</a>
     </div>
   </section>
@@ -356,7 +392,7 @@
       <section id="руководство" class="charter-card">
         <span class="charter-icon">🎖️</span>
         <h3>Руководство</h3>
-        <p>Структура командования, порядок подчинения, права и обязанности командиров и подчинённых. Иерархия в рамках проекта URF.im.</p>
+        <p>Структура командования, порядок подчинения, права и обязанности командиров и подчинённых. Иерархия в рамках проекта.</p>
       </section>
 
       <section id="правопорядок" class="charter-card">
@@ -387,9 +423,12 @@
   </main>
 
   <!-- CTA STRIP -->
-  <section class="cta-strip">
+  <section class="cta-strip" style="padding: 40px 0; text-align: center;">
     <div class="container">
-      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Discord сервер</a>
+      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" 
+         style="color: #fff; text-decoration: none; font-size: 1.2rem; border: 2px solid #fff; padding: 15px 40px; border-radius: 5px; transition: 0.3s;">
+        Discord сервер проекта
+      </a>
     </div>
   </section>
 
@@ -400,7 +439,7 @@
         <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологию или организации, запрещённые на территории Российской Федерации. Любые демонстрации символики, униформы или атрибутики террористических организаций носят исключительно историко-документальный характер, и не являются целью пропаганды или оправдания их действий.</p>
       </div>
       <div class="copyright">
-        <p>&copy; 2023 URF.im. Любое копирование материалов допускается лишь с разрешения создателя.</p>
+        <p>&copy; 2023 Разлом: Марш Справедливости 2023. Любое копирование материалов допускается лишь с разрешения создателя.</p>
       </div>
     </div>
   </footer>
@@ -425,24 +464,23 @@
       
       dropdowns.forEach(dd => {
         dd.addEventListener('click', (e) => {
-          // Проверяем, что мы на мобильном (ширина экрана <= 768px)
           if (window.innerWidth <= 768) {
-            e.preventDefault(); // Отменяем переход по ссылке в заголовке
+            e.preventDefault();
             
-            // Закрываем другие открытые меню
+            // Закрываем другие
             dropdowns.forEach(otherDd => {
               if (otherDd !== dd) {
                 otherDd.classList.remove('active-mobile');
               }
             });
 
-            // Переключаем текущее меню
+            // Переключаем текущее
             dd.classList.toggle('active-mobile');
           }
         });
       });
 
-      // 3. Кнопка поиска (заглушка)
+      // 3. Кнопка поиска
       const searchBtn = document.querySelector('.search-btn');
       if (searchBtn) {
         searchBtn.addEventListener('click', () => {
