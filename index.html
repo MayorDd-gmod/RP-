@@ -4,124 +4,298 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>URF.im | Сирия RolePlay</title>
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- ВСТРОЕННЫЕ СТИЛИ (CSS) -->
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --header-bg: #1a1a1a;
+      --text-main: #e0e0e0;
+      --text-muted: #888;
+      --accent: #c0392b; /* Красный цвет акцента */
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- HEADER --- */
+    .site-header {
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    /* --- NAVIGATION --- */
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 5px;
+    }
+
+    .main-nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .main-nav a:hover, .main-nav a.active {
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(192, 57, 43, 0.5);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--header-bg);
+      border: 1px solid var(--border-color);
+      min-width: 200px;
+      display: none; /* Скрыто по умолчанию */
+      flex-direction: column;
+      z-index: 1001;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: flex; /* Показываем при наведении на ПК */
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255,255,255,0.05);
+      color: var(--accent);
+    }
+
+    .arrow {
+      font-size: 0.8rem;
+      margin-left: 5px;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      /* Если есть картинка - она будет фоном, если нет - просто темный фон */
+      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); 
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: #fff;
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    .btn-dark {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+    .btn-dark:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* --- CONTENT GRID --- */
+    .charter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 40px 0;
+    }
+
+    .charter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .charter-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .charter-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .charter-card h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .charter-card p {
+      color: var(--text-muted);
+    }
+
+    /* --- FOOTER --- */
+    .site-footer {
+      background-color: #000;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      margin-top: 40px;
+    }
+
+    .disclaimer {
+      font-size: 0.75rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    /* --- MOBILE ADAPTIVE --- */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+      }
+      
+      .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .dropdown-menu {
+        position: static;
+        border: none;
+        display: none; /* Скрыто */
+        flex-direction: column;
+        width: 100%;
+        background: #222;
+      }
+
+      .dropdown.active-mobile .dropdown-menu {
+        display: flex; /* Показываем при клике через JS */
+      }
+
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo">
+        <!-- Заглушка логотипа. Если есть свой файл, замени src -->
         <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img" />
         <span class="logo-text">URF.im | Сирия RolePlay</span>
       </a>
+      
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="/">Главная страница</a></li>
-          <li class="dropdown">
-            <a href="charter.html">Общевойсковой устав <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="charter.html#руководство">Руководство</a></li>
-              <li><a href="charter.html#правопорядок">Правопорядок и надзор</a></li>
-              <li><a href="charter.html#сухопутные">Сухопутные войска</a></li>
-              <li><a href="charter.html#спецназ">Силы Специальных Операций</a></li>
-              <li><a href="charter.html#вкс">ВКС</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="regulations.html">Регламенты <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="regulations.html#дежурства">Дежурства и наряды</a></li>
-              <li><a href="regulations.html#стрельбы">Учебные стрельбы</a></li>
-              <li><a href="regulations.html#техника">Эксплуатация техники</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">НПА <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Федеральные законы</a></li>
-              <li><a href="#">Указы Президента</a></li>
-              <li><a href="#">Приказы МО</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Уставы подразделений</a></li>
-          <li class="dropdown">
-            <a href="awards.html">Государственные награды <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="awards.html#ордена">Ордена</a></li>
-              <li><a href="awards.html#медали">Медали</a></li>
-              <li><a href="awards.html#знаки">Нагрудные знаки</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="search-btn"><span>🔍</span></button>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>Общевойсковой устав</h1>
-      <p>Нормативно-правовые акты и регламенты для участников проекта URF.im</p>
-      <a href="charter.html" class="btn btn-primary">Перейти к уставу</a>
-    </div>
-  </section>
-
-  <section class="cta-strip">
-    <div class="container">
-      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Discord сервер</a>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-col">
-          <h4>URF.im</h4>
-          <p>Сирия RolePlay — проект с упором на реализм и дисциплину.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Навигация</h4>
-          <ul class="footer-links">
-            <li><a href="/">Главная</a></li>
-            <li><a href="charter.html">Устав</a></li>
-            <li><a href="regulations.html">Регламенты</a></li>
-            <li><a href="awards.html">Награды</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="disclaimer">
-        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме… (полный текст как на скриншоте)</p>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2023 URF.im. Любое копирование материалов допускается лишь с разрешения создателя.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Общевойсковой устав | URF.im</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <!-- То же header, что и в index.html -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img" />
-        <span class="logo-text">URF.im | Сирия RolePlay</span>
-      </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="/">Главная страница</a></li>
+          <li><a href="/">Главная</a></li>
+          
           <li class="dropdown active">
-            <a href="charter.html">Общевойсковой устав <span class="arrow">▼</span></a>
+            <a href="#">Общевойсковой устав <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
               <li><a href="#руководство">Руководство</a></li>
               <li><a href="#правопорядок">Правопорядок и надзор</a></li>
@@ -130,14 +304,16 @@
               <li><a href="#вкс">ВКС</a></li>
             </ul>
           </li>
+
           <li class="dropdown">
-            <a href="regulations.html">Регламенты <span class="arrow">▼</span></a>
+            <a href="#">Регламенты <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="regulations.html#дежурства">Дежурства и наряды</a></li>
-              <li><a href="regulations.html#стрельбы">Учебные стрельбы</a></li>
-              <li><a href="regulations.html#техника">Эксплуатация техники</a></li>
+              <li><a href="#">Дежурства и наряды</a></li>
+              <li><a href="#">Учебные стрельбы</a></li>
+              <li><a href="#">Эксплуатация техники</a></li>
             </ul>
           </li>
+
           <li class="dropdown">
             <a href="#">НПА <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
@@ -146,65 +322,82 @@
               <li><a href="#">Приказы МО</a></li>
             </ul>
           </li>
+
           <li><a href="#">Уставы подразделений</a></li>
+
           <li class="dropdown">
-            <a href="awards.html">Государственные награды <span class="arrow">▼</span></a>
+            <a href="#">Государственные награды <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="awards.html#ордена">Ордена</a></li>
-              <li><a href="awards.html#медали">Медали</a></li>
-              <li><a href="awards.html#знаки">Нагрудные знаки</a></li>
+              <li><a href="#">Ордена</a></li>
+              <li><a href="#">Медали</a></li>
+              <li><a href="#">Нагрудные знаки</a></li>
             </ul>
           </li>
         </ul>
       </nav>
+
       <button class="search-btn"><span>🔍</span></button>
     </div>
   </header>
 
-  <section class="page-title">
-    <div class="container">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content">
       <h1>Общевойсковой устав</h1>
       <p>Нормативно-правовые акты и регламенты для участников проекта URF.im</p>
+      <a href="#руководство" class="btn btn-primary">Изучить устав</a>
     </div>
   </section>
 
-  <main class="container content-wrapper">
-    <section id="руководство" class="section-block">
-      <h2>Руководство</h2>
-      <p>Здесь размещается текст устава о структуре командования, порядке подчинения, правах и обязанностях командиров и подчинённых. Вставь сюда свой текст.</p>
-    </section>
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <div class="charter-grid">
+      
+      <section id="руководство" class="charter-card">
+        <span class="charter-icon">🎖️</span>
+        <h3>Руководство</h3>
+        <p>Структура командования, порядок подчинения, права и обязанности командиров и подчинённых. Иерархия в рамках проекта URF.im.</p>
+      </section>
 
-    <section id="правопорядок" class="section-block">
-      <h2>Правопорядок и надзор</h2>
-      <p>Порядок несения службы, дисциплинарные меры, взаимодействие с военной полицией и надзорными органами. Вставь сюда свой текст.</p>
-    </section>
+      <section id="правопорядок" class="charter-card">
+        <span class="charter-icon">👮</span>
+        <h3>Правопорядок и надзор</h3>
+        <p>Порядок несения службы, дисциплинарные меры, взаимодействие с военной полицией и надзорными органами.</p>
+      </section>
 
-    <section id="сухопутные" class="section-block">
-      <h2>Сухопутные войска</h2>
-      <p>Особенности службы в СВ, порядок применения вооружения, взаимодействие подразделений. Вставь сюда свой текст.</p>
-    </section>
+      <section id="сухопутные" class="charter-card">
+        <span class="charter-icon">🪖</span>
+        <h3>Сухопутные войска</h3>
+        <p>Особенности службы в СВ, порядок применения вооружения, взаимодействие подразделений.</p>
+      </section>
 
-    <section id="спецназ" class="section-block">
-      <h2>Силы Специальных Операций</h2>
-      <p>Специфика службы в ССО, особые требования к личному составу, порядок применения спецсредств. Вставь сюда свой текст.</p>
-    </section>
+      <section id="спецназ" class="charter-card">
+        <span class="charter-icon">🦉</span>
+        <h3>Силы Специальных Операций</h3>
+        <p>Специфика службы в ССО, особые требования к личному составу, порядок применения спецсредств.</p>
+      </section>
 
-    <section id="вкс" class="section-block">
-      <h2>ВКС</h2>
-      <p>Особенности службы в Воздушно-космических силах, порядок взаимодействия с авиацией и ПВО. Вставь сюда свой текст.</p>
-    </section>
+      <section id="вкс" class="charter-card">
+        <span class="charter-icon">🚀</span>
+        <h3>ВКС</h3>
+        <p>Особенности службы в Воздушно-космических силах, порядок взаимодействия с авиацией и ПВО.</p>
+      </section>
+
+    </div>
   </main>
 
+  <!-- CTA STRIP -->
   <section class="cta-strip">
     <div class="container">
       <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Discord сервер</a>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="disclaimer">
-        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме… (полный текст как на скриншоте)</p>
+        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологию или организации, запрещённые на территории Российской Федерации. Любые демонстрации символики, униформы или атрибутики террористических организаций носят исключительно историко-документальный характер, и не являются целью пропаганды или оправдания их действий.</p>
       </div>
       <div class="copyright">
         <p>&copy; 2023 URF.im. Любое копирование материалов допускается лишь с разрешения создателя.</p>
@@ -212,456 +405,51 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Регламенты | URF.im</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <!-- Header (аналогично предыдущим страницам) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img" />
-        <span class="logo-text">URF.im | Сирия RolePlay</span>
-      </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="/">Главная страница</a></li>
-          <li class="dropdown">
-            <a href="charter.html">Общевойсковой устав <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="charter.html#руководство">Руководство</a></li>
-              <li><a href="charter.html#правопорядок">Правопорядок и надзор</a></li>
-              <li><a href="charter.html#сухопутные">Сухопутные войска</a></li>
-              <li><a href="charter.html#спецназ">Силы Специальных Операций</a></li>
-              <li><a href="charter.html#вкс">ВКС</a></li>
-            </ul>
-          </li>
-          <li class="dropdown active">
-            <a href="regulations.html">Регламенты <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#дежурства">Дежурства и наряды</a></li>
-              <li><a href="#стрельбы">Учебные стрельбы</a></li>
-              <li><a href="#техника">Эксплуатация техники</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">НПА <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Федеральные законы</a></li>
-              <li><a href="#">Указы Президента</a></li>
-              <li><a href="#">Приказы МО</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Уставы подразделений</a></li>
-          <li class="dropdown">
-            <a href="awards.html">Государственные награды <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="awards.html#ордена">Ордена</a></li>
-              <li><a href="awards.html#медали">Медали</a></li>
-              <li><a href="awards.html#знаки">Нагрудные знаки</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="search-btn"><span>🔍</span></button>
-    </div>
-  </header>
+  <!-- ВСТРОЕННЫЙ JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Плавный скролл для якорных ссылок
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
 
-  <section class="page-title">
-    <div class="container">
-      <h1>Регламенты</h1>
-      <p>Порядок выполнения задач, несения службы и эксплуатации техники.</p>
-    </div>
-  </section>
+      // 2. Логика мобильного меню (клик для открытия)
+      const dropdowns = document.querySelectorAll('.dropdown');
+      
+      dropdowns.forEach(dd => {
+        dd.addEventListener('click', (e) => {
+          // Проверяем, что мы на мобильном (ширина экрана <= 768px)
+          if (window.innerWidth <= 768) {
+            e.preventDefault(); // Отменяем переход по ссылке в заголовке
+            
+            // Закрываем другие открытые меню
+            dropdowns.forEach(otherDd => {
+              if (otherDd !== dd) {
+                otherDd.classList.remove('active-mobile');
+              }
+            });
 
-  <main class="container content-wrapper">
-    <section id="дежурства" class="section-block">
-      <h2>Дежурства и наряды</h2>
-      <p>Порядок заступления на дежурство, обязанности дежурного, порядок смены. Вставь сюда свой текст.</p>
-    </section>
+            // Переключаем текущее меню
+            dd.classList.toggle('active-mobile');
+          }
+        });
+      });
 
-    <section id="стрельбы" class="section-block">
-      <h2>Учебные стрельбы</h2>
-      <p>Требования безопасности, порядок проведения стрельб, нормативы. Вставь сюда свой текст.</p>
-    </section>
-
-    <section id="техника" class="section-block">
-      <h2>Эксплуатация техники</h2>
-      <p>Порядок использования и обслуживания техники, ответственность за сохранность. Вставь сюда свой текст.</p>
-    </section>
-  </main>
-
-  <section class="cta-strip">
-    <div class="container">
-      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Discord сервер</a>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="disclaimer">
-        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме… (полный текст как на скриншоте)</p>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2023 URF.im. Любое копирование материалов допускается лишь с разрешения создателя.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Государственные награды | URF.im</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <!-- Header (аналогично предыдущим страницам) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img" />
-        <span class="logo-text">URF.im | Сирия RolePlay</span>
-      </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="/">Главная страница</a></li>
-          <li class="dropdown">
-            <a href="charter.html">Общевойсковой устав <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="charter.html#руководство">Руководство</a></li>
-              <li><a href="charter.html#правопорядок">Правопорядок и надзор</a></li>
-              <li><a href="charter.html#сухопутные">Сухопутные войска</a></li>
-              <li><a href="charter.html#спецназ">Силы Специальных Операций</a></li>
-              <li><a href="charter.html#вкс">ВКС</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="regulations.html">Регламенты <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="regulations.html#дежурства">Дежурства и наряды</a></li>
-              <li><a href="regulations.html#стрельбы">Учебные стрельбы</a></li>
-              <li><a href="regulations.html#техника">Эксплуатация техники</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">НПА <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Федеральные законы</a></li>
-              <li><a href="#">Указы Президента</a></li>
-              <li><a href="#">Приказы МО</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Уставы подразделений</a></li>
-          <li class="dropdown active">
-            <a href="awards.html">Государственные награды <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#ордена">Ордена</a></li>
-              <li><a href="#медали">Медали</a></li>
-              <li><a href="#знаки">Нагрудные знаки</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="search-btn"><span>🔍</span></button>
-    </div>
-  </header>
-
-  <section class="page-title" style="background-image: url('https://via.placeholder.com/1920x600/2b2b2b/fff&text=Awards+Background');">
-    <div class="container">
-      <h1>Государственные награды</h1>
-      <p>Перечень наград, порядок представления и вручения.</p>
-    </div>
-  </section>
-
-  <main class="container content-wrapper">
-    <section id="ордена" class="section-block">
-      <h2>Ордена</h2>
-      <p>Список орденов, которыми могут награждаться участники проекта. Вставь сюда свой текст.</p>
-    </section>
-
-    <section id="медали" class="section-block">
-      <h2>Медали</h2>
-      <p>Перечень медалей, условия награждения, порядок ношения. Вставь сюда свой текст.</p>
-    </section>
-
-    <section id="знаки" class="section-block">
-      <h2>Нагрудные знаки</h2>
-      <p>Ведомственные и памятные знаки отличия. Вставь сюда свой текст.</p>
-    </section>
-  </main>
-
-  <section class="cta-strip">
-    <div class="container">
-      <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Discord сервер</a>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="disclaimer">
-        <p>Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме… (полный текст как на скриншоте)</p>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2023 URF.im. Любое копирование материалов допускается лишь с разрешения создателя.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
-:root {
-  --bg-dark: #121212;
-  --bg-panel: #1e1e1e;
-  --text-main: #e0e0e0;
-  --text-muted: #aaaaaa;
-  --accent: #c0392b;
-  --accent-hover: #a02a1e;
-  --border: #333333;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: var(--bg-dark);
-  color: var(--text-main);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.site-header {
-  background: #000;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 5px;
-}
-
-.main-nav a {
-  color: var(--text-main);
-  text-decoration: none;
-  padding: 0 12px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
-}
-
-.main-nav a:hover { color: var(--accent); }
-
-.dropdown { position: relative; }
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #000;
-  border: 1px solid var(--border);
-  min-width: 200px;
-  display: none;
-  flex-direction: column;
-  z-index: 1001;
-}
-
-.dropdown:hover .dropdown-menu { display: block; }
-.dropdown-menu a { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-.dropdown-menu a:last-child { border-bottom: none; }
-
-.search-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.hero {
-  position: relative;
-  height: 600px;
-  background: url('https://via.placeholder.com/1920x600/1a1a1a/fff&text=Military+Background') no-repeat center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.page-title {
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.page-title h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
-
-.content-wrapper { padding: 2rem 0; }
-
-.section-block {
-  background: var(--bg-panel);
-  padding: 2rem;
-  border-left: 4px solid var(--accent);
-  margin-bottom: 2rem;
-}
-
-.section-block h2 {
-  color: var(--accent);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.cta-strip {
-  background: #000;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-
-.btn-primary:hover { background: var(--accent-hover); }
-
-.btn-dark {
-  background: #333;
-  color: #fff;
-}
-
-.btn-dark:hover { background: #555; }
-
-.site-footer {
-  background: #000;
-  color: var(--text-muted);
-  padding: 3rem 0 1rem;
-  border-top: 1px solid var(--border);
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-col h4 { color: #fff; margin-bottom: 1rem; }
-.footer-links li { margin-bottom: 0.5rem; }
-.footer-links a { color: var(--text-muted); text-decoration: none; }
-.footer-links a:hover { color: #fff; }
-
-.disclaimer {
-  font-size: 0.8rem;
-  margin-bottom: 1.5rem;
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-}
-
-.copyright {
-  text-align: center;
-  font-size: 0.8rem;
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-}
-
-.arrow { margin-left: 6px; font-size: 0.7rem; }
-
-@media (max-width: 768px) {
-  .header-inner { flex-direction: column; height: auto; padding: 1rem 0; }
-  .main-nav ul { flex-wrap: wrap; justify-content: center; }
-  .hero { height: 400px; }
-  .hero-content h1 { font-size: 2.5rem; }
-}
-document.addEventListener('DOMContentLoaded', () => {
-  // Плавный скролл для якорных ссылок
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+      // 3. Кнопка поиска (заглушка)
+      const searchBtn = document.querySelector('.search-btn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          alert('Функция поиска в разработке. Присоединяйтесь к Discord!');
+        });
       }
     });
-  });
-
-  // Мобильное меню (базовая логика)
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dd => {
-    dd.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const menu = dd.querySelector('.dropdown-menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-      }
-    });
-  });
-});
+  </script>
+</body>
+</html>
