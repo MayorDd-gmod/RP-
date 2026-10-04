@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Разлом: Марш Войны | URF.im</title>
-  
+  <title>Разлом: Марш Войны | База Знаний</title>
   <style>
     :root {
       --bg-color: #050505;
@@ -14,6 +13,7 @@
       --accent: #ff4d4d;
       --card-bg: rgba(255, 255, 255, 0.03);
       --border-color: rgba(255, 255, 255, 0.1);
+      --dropdown-bg: #0a0a0a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,26 +23,25 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
-      /* Фоновое изображение (можно заменить на свое) */
-      background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
+      background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Фоновое фото */
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
       min-height: 100vh;
+      position: relative;
     }
 
-    /* Затемнение фона для читаемости текста */
+    /* Затемнение фона для читаемости */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.85);
       z-index: -1;
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* HEADER STYLES */
+    /* HEADER */
     .site-header {
       background-color: var(--header-bg);
       border-bottom: 1px solid var(--border-color);
@@ -50,6 +49,7 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(10px);
+      padding: 0;
     }
 
     .header-inner {
@@ -59,27 +59,46 @@
       height: 70px;
     }
 
-    .logo {
+    .logo-area {
       display: flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
+      gap: 15px;
+      cursor: pointer;
     }
 
     .logo-img { 
-      width: 40px; 
-      height: 40px; 
+      width: 50px; height: 50px; 
       object-fit: contain; 
       border-radius: 4px; 
-      background-color: rgba(255,255,255,0.1); /* Подложка, если картинка грузится долго */
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 1.2rem;
     }
     
-    .logo-text-main { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; }
-    .logo-text-sub { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; font-weight: 600; }
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    
+    .project-subtitle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
 
-    /* NAVIGATION STYLES */
+    /* NAVIGATION */
     .main-nav ul { list-style: none; display: flex; gap: 5px; }
     .main-nav a {
       color: var(--text-main);
@@ -87,8 +106,9 @@
       padding: 10px 15px;
       display: block;
       transition: 0.3s;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .main-nav a:hover, .main-nav a.active {
@@ -97,45 +117,44 @@
     }
 
     .dropdown { position: relative; }
-    
-    /* ВАЖНО: Меню скрыто по умолчанию */
     .dropdown-menu {
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #111;
+      background-color: var(--dropdown-bg);
       border: 1px solid var(--border-color);
-      min-width: 220px;
-      display: none; /* СКРЫТО ПРИ ЗАГРУЗКЕ */
+      min-width: 240px;
+      display: none;
       flex-direction: column;
       z-index: 1001;
       padding: 10px 0;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-      animation: fadeIn 0.2s ease-out;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
-
-    /* Показываем меню ТОЛЬКО когда есть класс .open */
     .dropdown.open .dropdown-menu { display: flex; }
     
     .dropdown-menu li a {
-      padding: 10px 20px;
-      border-bottom: 1px solid #222;
+      padding: 12px 20px;
+      border-bottom: 1px solid #1a1a1a;
       color: #ccc;
+      transition: 0.2s;
     }
     .dropdown-menu li a:hover {
       background-color: rgba(255,255,255,0.05);
       color: var(--accent);
+      padding-left: 25px;
     }
 
-    .arrow { font-size: 0.7rem; margin-left: 5px; color: #888; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* MOBILE HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
     }
+    .bar { width: 25px; height: 3px; background: var(--text-main); }
 
-    /* CONTENT STYLES */
-    section { padding: 60px 0; }
+    /* CONTENT */
+    section { padding: 80px 0; }
     .section-title {
       font-size: 2.5rem;
       color: var(--accent);
@@ -147,7 +166,7 @@
     .section-title::after {
       content: '';
       display: block;
-      width: 80px;
+      width: 100px;
       height: 3px;
       background: var(--accent);
       margin: 10px auto 0;
@@ -156,8 +175,8 @@
     .content-box {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 30px;
-      border-radius: 8px;
+      padding: 40px;
+      border-radius: 4px;
       max-width: 900px;
       margin: 0 auto;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -165,292 +184,316 @@
 
     .content-box h3 {
       color: var(--accent);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--border-color);
       padding-bottom: 10px;
     }
 
+    .content-box p { margin-bottom: 15px; color: #ddd; }
     .content-box ul { margin-top: 15px; }
     .content-box ul li { margin-bottom: 10px; color: #ccc; }
     .content-box ul li::before { content: "•"; color: var(--accent); margin-right: 10px; }
 
-    /* HERO SECTION */
-    .hero {
-      padding: 120px 0 60px 0;
-      text-align: center;
-      color: #fff;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 3rem auto;
-    }
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; color: #ccc; font-size: 0.9rem; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+    th { color: var(--accent); border-bottom: 2px solid var(--accent); }
+    tr:hover { background-color: rgba(255,255,255,0.05); }
 
-    .btn {
+    /* GRID FOR SSO */
+    .sso-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 25px; }
+    .sso-card { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 4px; }
+    .sso-card h4 { color: var(--accent); margin-bottom: 10px; }
+
+    /* VKS CARDS */
+    .vks-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; }
+    .vks-item { flex: 1; min-width: 250px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 4px; border-left: 3px solid var(--accent); }
+    .vks-item h4 { color: var(--accent); margin-top: 0; margin-bottom: 10px; }
+
+    /* BUTTON */
+    .btn-primary {
       display: inline-block;
       padding: 15px 40px;
+      background: var(--accent);
+      color: #000;
       text-decoration: none;
-      border-radius: 4px;
       font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
       text-transform: uppercase;
-      font-size: 0.95rem;
-      background-color: var(--accent);
-      color: #000;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+      border-radius: 4px;
+      transition: 0.3s;
+      margin-top: 20px;
     }
-    .btn:hover {
-      background-color: #fff;
-      color: #000;
-      box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
-    }
+    .btn-primary:hover { background: #cc0000; transform: scale(1.05); }
 
     /* FOOTER */
-    .site-footer {
-      background-color: rgba(0, 0, 0, 0.9);
-      border-top: 1px solid var(--border-color);
-      padding: 40px 0;
-      margin-top: 60px;
-      color: #555;
+    footer {
       text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--border-color);
+      color: #555;
+      font-size: 0.8rem;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
-      .main-nav ul { flex-direction: column; width: 100%; text-align: center; }
-      .dropdown-menu { position: static; box-shadow: none; border: none; }
-      .dropdown.open .dropdown-menu { display: flex; }
-      .hero h1 { font-size: 2.2rem; }
+      .hamburger { display: flex; }
+      .main-nav { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--header-bg); padding: 20px 0; }
+      .main-nav.active { display: block; }
+      .main-nav ul { flex-direction: column; width: 100%; }
+      .dropdown-menu { position: static; display: block; box-shadow: none; border: none; }
+      .dropdown-menu li a { padding: 15px; border-bottom: 1px solid #222; }
+      .sso-grid { grid-template-columns: 1fr; }
+      .vks-grid { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo">
-        <!-- ЛОГОТИП: Вставлена твоя новая ссылка -->
-        <img src="https://fotora.ru/uploaded/?ID=VTBOH04102026165821" alt="Logo" class="logo-img">
+      <div class="logo-area">
+        <div class="logo-img">RMW</div>
         <div>
-          <span class="logo-text-main">URF.im</span>
-          <span class="logo-text-sub">| Разлом: Марш Войны</span>
+          <div class="project-title">РАЗЛОМ: МАРШ ВОЙНЫ</div>
+          <div class="project-subtitle">База знаний проекта</div>
         </div>
-      </a>
+      </div>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="#home">Главная</a></li>
+          <li><a href="#" class="active">Главная</a></li>
           
           <li class="dropdown">
-            <a href="#" class="toggle-dropdown">Общевойсковой устав <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#guidance">Руководство</a></li>
-              <li><a href="#law-order">Правопорядок и надзор</a></li>
-              <li><a href="#ground-forces">Сухопутные войска</a></li>
-              <li><a href="#special-ops">Силы Специальных Операций</a></li>
-              <li><a href="#vks">ВКС</a></li>
+            <a href="#" onclick="toggleDropdown('ustav-dd')">Общевойсковой Устав <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu" id="ustav-dd">
+              <li><a href="#ustav">Устав и дисциплина</a></li>
+              <li><a href="#penalties">Таблица взысканий</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#" class="toggle-dropdown">Регламенты <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#duty">Дежурства и наряды</a></li>
-              <li><a href="#shooting">Учебные стрельбы</a></li>
-              <li><a href="#tech">Эксплуатация техники</a></li>
+            <a href="#" onclick="toggleDropdown('forces-dd')">Вооруженные силы <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu" id="forces-dd">
+              <li><a href="#sso">Силы ССО (Спецназ)</a></li>
+              <li><a href="#vks">Воздушно-космические силы</a></li>
+              <li><a href="#ground">Сухопутные войска</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#" class="toggle-dropdown">НПА <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#laws">Федеральные законы</a></li>
-              <li><a href="#decrees">Указы Президента</a></li>
-              <li><a href="#orders">Приказы МО</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#" class="toggle-dropdown">Уставы подразделений <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#reg-1">Раздел 1</a></li>
-              <li><a href="#reg-2">Раздел 2</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#" class="toggle-dropdown">Гос. награды <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
+            <a href="#" onclick="toggleDropdown('awards-dd')">Награды <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu" id="awards-dd">
               <li><a href="#orders">Ордена</a></li>
               <li><a href="#medals">Медали</a></li>
-              <li><a href="#signs">Нагрудные знаки</a></li>
             </ul>
           </li>
         </ul>
       </nav>
+
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
-  <!-- ГЛАВНЫЙ ЭКРАН -->
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Разлом: Марш Войны</h1>
-      <p>Акты и регламенты для участников проекта «Марш Справедливости 2023».</p>
-      <a href="#guidance" class="btn">Изучить устав</a>
-    </div>
-  </section>
-
-  <!-- РАЗДЕЛ: РУКОВОДСТВО -->
-  <section id="guidance">
-    <div class="container">
-      <h2 class="section-title">Руководство</h2>
-      <div class="content-box">
-        <h3>Полномочия высшего командования</h3>
-        <p>Руководство является высшим звеном управления в структуре проекта. В пределах предоставленных полномочий руководство утверждает нормативные правовые акты, приказы и иные официальные документы, регулирующие деятельность подразделений.</p>
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section style="padding: 150px 0; text-align: center;">
+      <div class="container">
+        <h1 style="font-size: 3.5rem; color: #fff; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; text-shadow: 0 0 20px rgba(0,0,0,0.8);">
+          БАЗА ЗНАНИЙ<br>ПРОЕКТА
+        </h1>
+        <p style="font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto;">
+          Здесь собраны все регламенты, уставы и описания подразделений для участников проекта «Разлом: Марш Войны». Изучите материал перед началом службы.
+        </p>
         <br>
-        <p>Основные функции руководства:</p>
-        <ul>
-          <li>Утверждение структуры подразделений и штатного расписания.</li>
-          <li>Издание распоряжений, обязательных к исполнению всеми подчиненными органами.</li>
-          <li>Контроль за соблюдением законности и правопорядка в рядах участников.</li>
-          <li>Принятие решений по вопросам дисциплинарной ответственности.</li>
-        </ul>
+        <a href="#ustav" class="btn-primary">Изучить Устав</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- РАЗДЕЛ: ПРАВОПОРЯДОК И НАДЗОР -->
-  <section id="law-order">
-    <div class="container">
-      <h2 class="section-title">Правопорядок и надзор</h2>
-      <div class="content-box">
-        <h3>Военно-правовые органы и Военная полиция</h3>
-        <p>Военно-правовые органы — это особая юридическая служба армии. Их главная задача — следить, чтобы внутри вооружённых сил всё происходило по закону. Командиры не злоупотребляли властью, а солдаты соблюдали порядок.</p>
-        
-        <h4>Основные подразделения:</h4>
-        <ul>
-          <li><strong>Военная полиция:</strong> Обеспечивает порядок и безопасность в армии, следит за выполнением воинской дисциплины, предотвращает преступления среди военнослужащих.</li>
-          <li><strong>Военная прокуратура:</strong> Надзирает за соблюдением законодательства, расследует военные преступления и поддерживает обвинение в суде.</li>
-        </ul>
+    <!-- УСТАВ -->
+    <section id="ustav">
+      <div class="container">
+        <h2 class="section-title">Общевойсковой Устав Проекта</h2>
+        <div class="content-box">
+          <p style="color: #ccc; margin-bottom: 20px;">
+            Настоящий Устав является основным регламентирующим документом для всех участников проекта «Разлом: Марш Войны». Незнание положений Устава не освобождает от ответственности.
+          </p>
+          <h3>Ключевые положения</h3>
+          <ul>
+            <li><strong>Субординация:</strong> Обращение к старшим по званию строго регламентировано. Доклад осуществляется по форме: «Товарищ [Звание], [Должность] [Фамилия], пост №[X], обстановка спокойная».</li>
+            <li><strong>Дисциплина:</strong> Самовольное оставление поста, сон на посту или игнорирование рации приравнивается к дезертирству и карается исключением из подразделения.</li>
+            <li><strong>Применение силы:</strong> Огонь на поражение открывается только по команде старшего офицера или при прямой угрозе жизни личного состава. Стрельба в воздух запрещена.</li>
+            <li><strong>Форма одежды:</strong> Ношение формы вне игрового времени или использование её в неигровых целях запрещено. Форма — символ чести подразделения.</li>
+          </ul>
+
+          <h3 id="penalties" style="margin-top: 40px;">Таблица взысканий</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Нарушение</th>
+                <th>Взыскание</th>
+                <th>Срок действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Опоздание на построение</td>
+                <td>Выговор</td>
+                <td>72 часа</td>
+              </tr>
+              <tr>
+                <td>Сон на посту / АФК более 5 минут</td>
+                <td>Строгий выговор + понижение в должности</td>
+                <td>168 часов</td>
+              </tr>
+              <tr>
+                <td>Необоснованный огонь по союзникам</td>
+                <td>Исключение из подразделения + ЧС проекта</td>
+                <td>Бессрочно</td>
+              </tr>
+              <tr>
+                <td>Нарушение радиомолчания в зоне операции</td>
+                <td>Запрет на участие в операциях на 3 дня</td>
+                <td>72 часа</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- РАЗДЕЛ: СУХОПУТНЫЕ ВОЙСКА -->
-  <section id="ground-forces">
-    <div class="container">
-      <h2 class="section-title">Сухопутные войска</h2>
-      <div class="content-box">
-        <h3>Структура и задачи</h3>
-        <p>Сухопутные войска (СВ) являются основным видом вооружённых сил, предназначенным для ведения боевых действий преимущественно на суше. В рамках проекта они отвечают за наземные операции, удержание территорий и взаимодействие с гражданскими властями.</p>
-        <ul>
-          <li>Ведение оборонительных и наступательных операций.</li>
-          <li>Обеспечение безопасности ключевых объектов инфраструктуры.</li>
-          <li>Проведение гуманитарных миссий и эвакуация гражданского населения.</li>
-        </ul>
+    <!-- СИЛЫ ССО -->
+    <section id="sso">
+      <div class="container">
+        <h2 class="section-title">Силы Специальных Операций (ССО)</h2>
+        <div class="content-box">
+          <p style="color: #ccc; margin-bottom: 20px;">
+            Подразделения ССО — это элита вооруженных сил проекта. Они выполняют задачи повышенной сложности, требующие максимальной скрытности, профессионализма и слаженности действий.
+          </p>
+          
+          <div class="sso-grid">
+            <div class="sso-card">
+              <h4>Основные задачи</h4>
+              <ul>
+                <li>Разведывательно-диверсионные действия в глубоком тылу противника.</li>
+                <li>Ликвидация ключевых целей (командиры, техника, склады).</li>
+                <li>Освобождение заложников и эвакуация важных персон.</li>
+                <li>Проведение операций под прикрытием (шпионаж, внедрение).</li>
+              </ul>
+            </div>
+            <div class="sso-card">
+              <h4>Требования к кандидатам</h4>
+              <ul>
+                <li>Опыт службы в других подразделениях не менее 30 дней.</li>
+                <li>Идеальное знание устава и тактики малых групп.</li>
+                <li>Высокий уровень владения оружием и вождением техники.</li>
+                <li>Психологическая устойчивость (проверка у штатного психолога).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="background: rgba(255, 77, 77, 0.1); padding: 15px; border-left: 4px solid var(--accent); color: #fff; margin-top: 20px;">
+            <strong>ВАЖНО:</strong> Операции ССО проводятся только по приказу Командующего округом. Самостоятельные действия без санкции штаба запрещены и расцениваются как саботаж.
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- РАЗДЕЛ: ССО -->
-  <section id="special-ops">
-    <div class="container">
-      <h2 class="section-title">Силы Специальных Операций (ССО)</h2>
-      <div class="content-box">
-        <h3>Особенности применения</h3>
-        <p>ССО — это элитные подразделения, предназначенные для выполнения задач в глубоком тылу противника, разведки, диверсий и освобождения заложников. Действуют малыми группами с максимальной скрытностью.</p>
-        <ul>
-          <li>Проведение точечных операций высокой сложности.</li>
-          <li>Сбор разведывательных данных в тылу врага.</li>
-          <li>Обучение и консультирование местных сил.</li>
-        </ul>
+    <!-- ВКС -->
+    <section id="vks">
+      <div class="container">
+        <h2 class="section-title">Воздушно-космические Силы (ВКС)</h2>
+        <div class="content-box">
+          <p style="color: #ccc; margin-bottom: 20px;">
+            ВКС проекта «Разлом: Марш Войны» отвечают за господство в воздухе, поддержку наземных войск с воздуха, а также за переброску десанта и грузов.
+          </p>
+
+          <div class="vks-grid">
+            <div class="vks-item">
+              <h4>Истребительная авиация</h4>
+              <p>Перехват воздушных целей, завоевание превосходства в воздухе. Используются модели Су-35 и МиГ-31.</p>
+            </div>
+            <div class="vks-item">
+              <h4>Штурмовая авиация</h4>
+              <p>Поддержка пехоты и бронетехники. Основной рабочий инструмент — Су-25.</p>
+            </div>
+            <div class="vks-item">
+              <h4>Транспортная авиация</h4>
+              <p>Десантирование, перевозка грузов, эвакуация раненых. Используются Ил-76 и Ан-26.</p>
+            </div>
+          </div>
+
+          <h3>Порядок запроса авиаудара</h3>
+          <ol style="color: #ddd; margin-left: 20px; line-height: 1.8;">
+            <li>Командир группы докладывает в штаб координаты цели (X, Y) и тип угрозы.</li>
+            <li>Штаб подтверждает запрос и назначает борт (время подлета — 3–5 минут).</li>
+            <li>За 30 секунд до удара личный состав обязан покинуть радиус 150 метров от точки удара.</li>
+            <li>После удара производится доклад о результатах и необходимости повторной обработки.</li>
+          </ol>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- РАЗДЕЛ: ВКС -->
-  <section id="vks">
-    <div class="container">
-      <h2 class="section-title">Воздушно-космические силы (ВКС)</h2>
-      <div class="content-box">
-        <h3>Воздушная поддержка</h3>
-        <p>ВКС обеспечивают господство в воздухе, поддержку наземных войск с воздуха, а также стратегическую разведку. В рамках проекта функции ВКС могут быть ограничены симуляцией авиаударов или координацией с наземными силами.</p>
-        <ul>
-          <li>Авиационная поддержка наступающих подразделений.</li>
-          <li>Переброска грузов и десанта.</li>
-          <li>Контроль воздушного пространства над зоной ответственности.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container">
-      <p>&copy; 2023 URF.im. Все права защищены. Проект носит исключительно игровой характер.</p>
-      <p style="font-size: 0.8rem; margin-top: 10px; color: #333;">Материалы основаны на открытых источниках и адаптированы для ролевой игры.</p>
+      <p>&copy; 2023 Проект «Разлом: Марш Войны». Все права защищены. Для участников RP-сообщества.</p>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT ДЛЯ МЕНЮ -->
+  <!-- SCRIPT -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const dropdowns = document.querySelectorAll('.dropdown');
-      
-      // Открытие/закрытие меню по клику (ЛКМ)
-      dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.toggle-dropdown');
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          
-          // 1. Сначала закрываем ВСЕ открытые меню
-          dropdowns.forEach(d => d.classList.remove('open'));
-          
-          // 2. Проверяем, не было ли уже открыто это меню
-          const isCurrentlyOpen = dropdown.classList.contains('open');
-          
-          // 3. Если не было открыто - открываем его
-          if (!isCurrentlyOpen) {
-            dropdown.classList.add('open');
-          }
-        });
-      });
+    // Функция для открытия/закрытия выпадающих меню
+    function toggleDropdown(id) {
+      const menu = document.getElementById(id);
+      if (menu) {
+        menu.classList.toggle('open');
+      }
+      return false;
+    }
 
-      // Закрытие меню при клике в любое другое место экрана
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown')) {
-          dropdowns.forEach(d => d.classList.remove('open'));
+    // Функция для мобильного меню
+    function toggleMobileMenu() {
+      const nav = document.querySelector('.main-nav');
+      nav.classList.toggle('active');
+    }
+
+    // Автоматическое закрытие меню при клике на ссылку
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
+        if(window.innerWidth <= 768) {
+          document.querySelector('.main-nav').classList.remove('active');
         }
       });
+    });
 
-      // Плавный скролл к якорям
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          
-          if (targetSection) {
-            targetSection.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-          
-          // Подсветка активной ссылки
-          document.querySelectorAll('.main-nav a').forEach(link => link.classList.remove('active'));
-          this.classList.add('active');
+    // Плавный скролл для всех якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
       });
     });
+
+    // Убираем всплывающее окно про "страницу в разработке", если оно есть в браузере
+    // (Это скрипт для очистки экрана от лишних уведомлений)
+    const observer = new MutationObserver(() => {
+      const modal = document.querySelector('[style*="z-index"]') || document.querySelector('.modal');
+      if(modal && modal.innerText.includes("в разработке")) {
+        modal.style.display = 'none';
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   </script>
 </body>
 </html>
