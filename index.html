@@ -1,287 +1,804 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>РАЗЛОМ · Марш справедливости</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        ::-webkit-scrollbar { width: 10px; height: 10px; }
-        ::-webkit-scrollbar-track { background: #0d0e0a; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8a6f2e, #4a5a2e); border-radius: 5px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>РАЗЛОМ.im | Сирия RolePlay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #8B0000; border-radius: 5px; }
 
-        :root {
-            --accent: #c9a961;
-            --accent-2: #8a6f2e;
-            --accent-olive: #6b7d3e;
-            --accent-red: #b8342a;
-            --accent-green: #7ba05b;
-            --bg-dark: #0d0e0a;
-            --bg-panel: #14160f;
-            --bg-card: #1c1f14;
-            --bg-input: #0f110b;
-            --border: #2b3020;
-            --text: #e8e4d4;
-            --text-dim: #8a8a70;
-            --gradient: linear-gradient(135deg, #c9a961 0%, #8a6f2e 100%);
-            --gradient-soft: linear-gradient(135deg, rgba(201,169,97,0.12), rgba(107,125,62,0.12));
-            --gradient-military: linear-gradient(135deg, #2b3020 0%, #0d0e0a 100%);
-        }
-        body[data-theme="light"] {
-            --bg-dark: #ede4d0;
-            --bg-panel: #f5efe0;
-            --bg-card: #faf6ea;
-            --bg-input: #ffffff;
-            --border: #d4c8a8;
-            --text: #1a1a10;
-            --text-dim: #6b6b50;
-        }
+:root {
+    --accent: #8B0000;
+    --accent-2: #4B5320;
+    --accent-olive: #4B5320;
+    --accent-red: #8B0000;
+    --accent-green: #2E7D32;
+    --bg: #ffffff;
+    --bg-panel: #f8f8f8;
+    --bg-card: #ffffff;
+    --bg-input: #ffffff;
+    --bg-dark: #000000;
+    --border: #d0d0d0;
+    --text: #000000;
+    --text-dim: #555555;
+    --link: #0000EE;
+    --gradient: linear-gradient(135deg, #8B0000 0%, #4B5320 100%);
+}
 
-        body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text); line-height: 1.6; min-height: 100vh; overflow-x: hidden; font-size: 14px; position: relative; }
+body {
+    font-family: 'PT Sans', Arial, sans-serif;
+    background: #ffffff;
+    color: #000000;
+    line-height: 1.7;
+    min-height: 100vh;
+    font-size: 15px;
+}
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(201,169,97,0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(107,125,62,0.08) 0%, transparent 40%),
-                linear-gradient(180deg, #0d0e0a 0%, #14160f 50%, #0d0e0a 100%);
-            z-index: -2;
-        }
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(201,169,97,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(201,169,97,0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-        }
+/* ============ ШАПКА ============ */
+.top-bar {
+    background: #000000;
+    color: #ffffff;
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.top-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+.top-brand .eagle {
+    width: 34px;
+    height: 34px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23c9a961"/><text x="50" y="65" text-anchor="middle" font-size="55" fill="%23000">🦅</text></svg>') center/contain no-repeat;
+    border-radius: 50%;
+}
+.top-brand .brand-sep { color: #666; font-weight: 400; }
+.top-brand .brand-sub { color: #dddddd; font-weight: 400; font-size: 1rem; }
 
-        .auth-screen { position: fixed; inset: 0; background: rgba(13,14,10,0.96); backdrop-filter: blur(20px); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
-        .auth-box { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; padding: 48px 44px; max-width: 440px; width: 100%; box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(201,169,97,0.15); position: relative; overflow: hidden; }
-        .auth-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
-        .auth-box::after { content: 'CLASSIFIED'; position: absolute; bottom: 12px; right: 16px; font-family: 'Share Tech Mono', monospace; font-size: 0.55rem; color: var(--accent); opacity: 0.3; letter-spacing: 4px; }
-        .auth-logo { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 4px; text-align: center; margin-bottom: 6px; color: var(--accent); text-transform: uppercase; }
-        .auth-logo span { color: var(--accent-olive); }
-        .auth-sub { text-align: center; font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 4px; margin-bottom: 32px; text-transform: uppercase; }
-        .auth-tabs { display: flex; gap: 4px; margin-bottom: 24px; background: var(--bg-input); padding: 4px; border-radius: 3px; }
-        .auth-tabs button { flex: 1; background: transparent; border: none; color: var(--text-dim); padding: 10px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: 0.2s; }
-        .auth-tabs button.active { background: var(--gradient); color: #0d0e0a; }
+.main-nav {
+    display: flex;
+    gap: 4px;
+    margin-left: 40px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+.main-nav .nav-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.95rem;
+    padding: 20px 14px;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.main-nav .nav-item:hover,
+.main-nav .nav-item.active {
+    border-bottom-color: #8B0000;
+    color: #ffffff;
+    background: rgba(139,0,0,0.15);
+}
+.main-nav .nav-item i { font-size: 0.7rem; opacity: 0.7; }
+.nav-search {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.2s;
+}
+.nav-search:hover { color: #8B0000; }
 
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-family: 'Share Tech Mono', monospace; font-weight: 600; font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 13px 16px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 3px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: 0.2s; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(201,169,97,0.15); }
-        .form-group select option { background: var(--bg-panel); color: var(--text); }
+.top-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+    padding: 6px 14px 6px 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.top-user:hover { background: rgba(255,255,255,0.12); border-color: #8B0000; }
+.top-user .avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #8B0000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'PT Serif', serif; font-weight: 700; font-size: 0.9rem; color: #fff;
+    background-size: cover; background-position: center;
+    flex-shrink: 0;
+}
+.top-user .info { display: flex; flex-direction: column; line-height: 1.2; }
+.top-user .name { color: #fff; font-size: 0.8rem; font-weight: 700; }
+.top-user .rank { color: #c9a961; font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; }
 
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 12px 24px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.25s; border-radius: 3px; text-decoration: none; }
-        .btn:hover { background: var(--accent); color: #0d0e0a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,97,0.4); }
-        .btn-primary { background: var(--gradient); color: #0d0e0a; border: none; }
-        .btn-primary:hover { box-shadow: 0 8px 30px rgba(201,169,97,0.5); }
-        .btn-olive { color: var(--accent-olive); border-color: var(--accent-olive); }
-        .btn-olive:hover { background: var(--accent-olive); color: #0d0e0a; }
-        .btn-red { color: var(--accent-red); border-color: var(--accent-red); }
-        .btn-red:hover { background: var(--accent-red); color: #fff; }
-        .btn-green { color: var(--accent-green); border-color: var(--accent-green); }
-        .btn-green:hover { background: var(--accent-green); color: #0d0e0a; }
-        .btn-ghost { border-color: var(--border); color: var(--text-dim); }
-        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
-        .btn-full { width: 100%; }
-        .btn-sm { padding: 8px 16px; font-size: 0.65rem; }
+/* ============ HERO ============ */
+.hero {
+    position: relative;
+    height: 420px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+.hero > * { position: relative; z-index: 2; }
+.hero h1 {
+    font-family: 'PT Serif', serif;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+    letter-spacing: 2px;
+    max-width: 900px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.hero .hero-sub {
+    color: #dddddd;
+    font-size: 1rem;
+    max-width: 700px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.hero .btn-discord {
+    display: inline-block;
+    padding: 12px 36px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-family: 'PT Serif', serif;
+    font-size: 1rem;
+    background: transparent;
+    text-decoration: none;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.hero .btn-discord:hover {
+    background: #ffffff;
+    color: #000000;
+}
+.hero .btn-discord i { margin-right: 8px; }
 
-        .app { display: none; }
-        .app.active { display: block; }
+/* ============ КОНТЕНТ ============ */
+.content {
+    background: #ffffff;
+    padding: 50px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'PT Sans', sans-serif;
+    color: #000000;
+    min-height: calc(100vh - 400px);
+}
+.content-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #4B5320;
+}
+.content-header h1 {
+    font-family: 'PT Serif', serif;
+    color: #4B5320;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.content-header .breadcrumb {
+    color: #777;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+.content-header .breadcrumb span { color: #8B0000; }
 
-        .top-bar { position: sticky; top: 0; z-index: 100; background: rgba(20,22,15,0.95); backdrop-filter: blur(20px); border-bottom: 2px solid var(--accent-2); padding: 14px 32px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-        body[data-theme="light"] .top-bar { background: rgba(245,239,224,0.95); }
-        .top-brand { font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; }
-        .top-brand span { color: var(--accent-olive); }
-        .top-divider { width: 1px; height: 24px; background: var(--border); }
-        .top-online { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: var(--text-dim); font-family: 'Share Tech Mono', monospace; }
-        .top-online .dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); animation: onlinePulse 2s infinite; }
-        @keyframes onlinePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .top-actions { display: flex; gap: 8px; margin-left: auto; align-items: center; flex-wrap: wrap; }
-        .top-profile { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; cursor: pointer; transition: 0.2s; }
-        .top-profile:hover { border-color: var(--accent); }
-        .top-profile .tp-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.9rem; color: #0d0e0a; background-size: cover; background-position: center; flex-shrink: 0; }
-        .top-profile .tp-info { display: flex; flex-direction: column; font-size: 0.7rem; line-height: 1.2; }
-        .top-profile .tp-name { color: var(--text); font-weight: 700; font-size: 0.75rem; }
-        .top-profile .tp-rank { color: var(--accent); font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; }
-        .top-profile .tp-tags { display: flex; gap: 4px; margin-top: 2px; flex-wrap: wrap; }
+.content h2 {
+    font-family: 'PT Serif', serif;
+    color: #4B5320;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4B5320;
+}
+.content h3 {
+    font-family: 'PT Serif', serif;
+    color: #8B0000;
+    font-size: 1.2rem;
+    margin: 24px 0 12px;
+}
+.content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    color: #000000;
+}
+.content ul, .content ol {
+    margin: 12px 0 20px 24px;
+    color: #000000;
+}
+.content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+.content a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+.content a:hover { color: #8B0000; }
+.content strong { color: #000000; font-weight: 700; }
+.content em { font-style: italic; }
 
-        .sidebar-toggle { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 3px; cursor: pointer; }
+.section-sep {
+    width: 100%;
+    height: 3px;
+    background: #4B5320;
+    margin: 30px 0;
+}
 
-        .main-layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 70px); }
-        .sidebar { background: var(--bg-panel); border-right: 1px solid var(--border); position: sticky; top: 70px; max-height: calc(100vh - 70px); overflow-y: auto; padding: 20px 0; }
-        .sidebar-section { padding: 12px 20px 6px; font-family: 'Oswald', sans-serif; font-size: 0.6rem; font-weight: 600; color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; }
-        .sidebar-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; margin: 2px 10px; color: var(--text-dim); font-weight: 500; font-size: 0.85rem; cursor: pointer; border-radius: 3px; transition: 0.15s; border-left: 3px solid transparent; }
-        .sidebar-item:hover { background: var(--gradient-soft); color: var(--text); }
-        .sidebar-item.active { background: var(--gradient-soft); color: var(--accent); font-weight: 600; border-left-color: var(--accent); }
-        .sidebar-item i { width: 20px; text-align: center; font-size: 0.95rem; }
-        .sidebar-item .badge-count { margin-left: auto; background: var(--accent-red); color: #fff; font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
-        .sidebar-item .badge-count.hidden { display: none; }
+/* ============ КАРТОЧКИ / ПАНЕЛИ ============ */
+.panel {
+    background: #f8f8f8;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 28px;
+    margin-bottom: 24px;
+    border-left: 4px solid #8B0000;
+}
+.panel-title {
+    font-family: 'PT Serif', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #8B0000;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d0d0d0;
+}
+.panel-title i { color: #4B5320; }
 
-        .content { padding: 32px 40px; max-width: 1400px; }
-        .content-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); position: relative; }
-        .content-header::before { content: ''; position: absolute; left: 0; bottom: -1px; width: 80px; height: 2px; background: var(--accent); }
-        .content-header h1 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-        .content-header .breadcrumb { font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 1px; }
-        .content-header .breadcrumb span { color: var(--accent); }
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+.stat-card {
+    background: #f8f8f8;
+    border: 1px solid #d0d0d0;
+    border-top: 4px solid #8B0000;
+    border-radius: 3px;
+    padding: 24px;
+    text-align: center;
+}
+.stat-card .stat-icon {
+    font-size: 2rem;
+    color: #8B0000;
+    margin-bottom: 12px;
+}
+.stat-card .stat-value {
+    font-family: 'PT Serif', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-card .stat-label {
+    font-size: 0.85rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .panel { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; padding: 28px; margin-bottom: 20px; position: relative; }
-        .panel::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px; background: var(--accent); }
-        .panel-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: var(--accent); }
-        .panel-title i { color: var(--accent); }
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-left: 4px solid #4B5320;
+    border-radius: 3px;
+    padding: 24px;
+    transition: 0.2s;
+}
+.card:hover {
+    border-color: #8B0000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+.card-icon {
+    font-size: 1.8rem;
+    color: #8B0000;
+    margin-bottom: 12px;
+}
+.card h3 {
+    font-family: 'PT Serif', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 8px;
+}
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
 
-        .hero { background: var(--gradient-military); border: 1px solid var(--border); border-radius: 4px; padding: 70px 40px; text-align: center; margin-bottom: 24px; position: relative; overflow: hidden; }
-        .hero::before { content: 'الرمل · РАЗЛОМ'; position: absolute; top: 20px; left: 30px; font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; color: var(--accent); opacity: 0.4; letter-spacing: 6px; }
-        .hero::after { content: ''; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,169,97,0.08) 0%, transparent 70%); }
-        .hero h2 { font-family: 'Oswald', sans-serif; font-size: 2.8rem; font-weight: 700; margin-bottom: 16px; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
-        .hero h2 span { color: var(--accent); }
-        .hero p { font-size: 1rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 12px; position: relative; z-index: 1; }
-        .hero .hero-motto { font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--accent-olive); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 28px; position: relative; z-index: 1; }
-        .hero .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+/* ============ СОБЫТИЯ ============ */
+.event-card {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-left: 4px solid #4B5320;
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.event-card:hover { border-color: #8B0000; }
+.event-status {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+}
+.event-status.planned { background: #8a6f2e; }
+.event-status.active { background: #2E7D32; box-shadow: 0 0 10px #2E7D32; }
+.event-status.done { background: #999; }
+.event-info { flex: 1; min-width: 220px; }
+.event-info h4 {
+    font-family: 'PT Serif', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 6px;
+}
+.event-info p { font-size: 0.9rem; color: #555; margin: 0; }
+.event-meta {
+    display: flex; gap: 14px; font-size: 0.8rem; color: #777;
+    margin-top: 8px; flex-wrap: wrap;
+}
+.event-meta i { color: #8B0000; margin-right: 4px; }
 
-        .disclaimer { background: rgba(184,52,42,0.06); border: 1px solid rgba(184,52,42,0.3); border-left: 4px solid var(--accent-red); border-radius: 4px; padding: 20px 24px; margin-bottom: 24px; font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; font-family: 'Inter', sans-serif; }
-        .disclaimer strong { color: var(--accent-red); }
+/* ============ БЕЙДЖИ ============ */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 12px;
+    border-radius: 2px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid;
+}
+.role-badge.founder { background: #8B0000; color: #fff; border-color: #8B0000; }
+.role-badge.curator { background: #4B5320; color: #fff; border-color: #4B5320; }
+.role-badge.staff { background: #fff; color: #8B0000; border-color: #8B0000; }
+.role-badge.member { background: #fff; color: #4B5320; border-color: #4B5320; }
+.role-badge.user { background: #f0f0f0; color: #666; border-color: #ccc; }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 24px; text-align: center; transition: 0.2s; position: relative; }
-        .stat-card::after { content: ''; position: absolute; top: 0; right: 0; width: 30px; height: 30px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
-        .stat-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(201,169,97,0.1); }
-        .stat-card .stat-icon { width: 48px; height: 48px; border-radius: 4px; background: var(--gradient-soft); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent); margin: 0 auto 12px; }
-        .stat-card .stat-value { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
-        .stat-card .stat-label { font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+.tag-pill {
+    display: inline-flex;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid;
+    font-family: 'PT Sans', sans-serif;
+}
+.tag-pill.purple { background: #f3e5f5; color: #6a1b9a; border-color: #6a1b9a; }
+.tag-pill.cyan { background: #e0f7fa; color: #006064; border-color: #006064; }
+.tag-pill.gold { background: #fff8e1; color: #b8860b; border-color: #b8860b; }
+.tag-pill.red { background: #ffebee; color: #8B0000; border-color: #8B0000; }
+.tag-pill.green { background: #e8f5e9; color: #2E7D32; border-color: #2E7D32; }
 
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: 0.2s; position: relative; }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .card-icon { width: 44px; height: 44px; border-radius: 4px; background: var(--gradient-soft); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent); margin-bottom: 14px; }
-        .card h3 { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-        .card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+/* ============ УЧАСТНИКИ ============ */
+.member-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-left: 4px solid #4B5320;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    transition: 0.2s;
+}
+.member-card:hover { border-color: #8B0000; }
+.member-avatar {
+    width: 56px; height: 56px; border-radius: 4px;
+    background: #8B0000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'PT Serif', serif; font-weight: 700; font-size: 1.4rem;
+    color: #fff; background-size: cover; background-position: center;
+    flex-shrink: 0;
+}
+.member-info { flex: 1; min-width: 180px; }
+.member-info .member-name {
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #000;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+.member-info .member-meta {
+    font-size: 0.8rem;
+    color: #777;
+    font-family: 'PT Sans', sans-serif;
+}
+.member-actions { display: flex; gap: 6px; flex-wrap: wrap; }
 
-        .event-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent-olive); border-radius: 4px; padding: 20px; margin-bottom: 12px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; transition: 0.2s; }
-        .event-card:hover { border-color: var(--accent); }
-        .event-status { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-        .event-status.planned { background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
-        .event-status.active { background: var(--accent-green); box-shadow: 0 0 15px var(--accent-green); animation: onlinePulse 1.5s infinite; }
-        .event-status.done { background: var(--text-dim); }
-        .event-info { flex: 1; min-width: 200px; }
-        .event-info h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
-        .event-info p { font-size: 0.8rem; color: var(--text-dim); }
-        .event-meta { display: flex; gap: 12px; font-size: 0.7rem; color: var(--text-dim); margin-top: 6px; flex-wrap: wrap; font-family: 'Share Tech Mono', monospace; }
-        .event-actions { display: flex; gap: 8px; }
+/* ============ КНОПКИ ============ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #8B0000;
+    border: 1px solid #8B0000;
+    padding: 10px 22px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 3px;
+    text-decoration: none;
+}
+.btn:hover { background: #8B0000; color: #fff; }
+.btn-primary { background: #8B0000; color: #fff; border-color: #8B0000; }
+.btn-primary:hover { background: #a00; border-color: #a00; }
+.btn-olive { color: #4B5320; border-color: #4B5320; }
+.btn-olive:hover { background: #4B5320; color: #fff; }
+.btn-green { color: #2E7D32; border-color: #2E7D32; }
+.btn-green:hover { background: #2E7D32; color: #fff; }
+.btn-red { color: #8B0000; border-color: #8B0000; }
+.btn-red:hover { background: #8B0000; color: #fff; }
+.btn-ghost { color: #666; border-color: #ccc; }
+.btn-ghost:hover { border-color: #8B0000; color: #8B0000; background: transparent; }
+.btn-full { width: 100%; }
+.btn-sm { padding: 6px 14px; font-size: 0.75rem; }
 
-        .role-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 2px; font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
-        .role-badge.founder { background: linear-gradient(135deg, #c9a961, #8a6f2e); color: #0d0e0a; }
-        .role-badge.curator { background: linear-gradient(135deg, #6b7d3e, #4a5a2e); color: #e8e4d4; }
-        .role-badge.staff { background: rgba(184,52,42,0.15); color: #b8342a; border: 1px solid #b8342a; }
-        .role-badge.member { background: rgba(201,169,97,0.15); color: #c9a961; border: 1px solid #c9a961; }
-        .role-badge.user { background: rgba(138,138,112,0.15); color: #8a8a70; border: 1px solid var(--border); }
+/* ============ ФОРМЫ ============ */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+    display: block;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    color: #000;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8B0000;
+    box-shadow: 0 0 0 3px rgba(139,0,0,0.1);
+}
 
-        .tag-pill { display: inline-flex; padding: 3px 10px; border-radius: 2px; font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid; }
-        .tag-pill.purple { background: rgba(201,169,97,0.15); color: #c9a961; border-color: #c9a961; }
-        .tag-pill.cyan { background: rgba(107,125,62,0.15); color: #7ba05b; border-color: #7ba05b; }
-        .tag-pill.gold { background: rgba(201,169,97,0.2); color: #d4b869; border-color: #d4b869; }
-        .tag-pill.red { background: rgba(184,52,42,0.15); color: #b8342a; border-color: #b8342a; }
-        .tag-pill.green { background: rgba(123,160,91,0.15); color: #7ba05b; border-color: #7ba05b; }
+/* ============ АВТОРИЗАЦИЯ ============ */
+.auth-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+.auth-box {
+    background: #ffffff;
+    border-top: 4px solid #8B0000;
+    padding: 48px 44px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+}
+.auth-logo {
+    font-family: 'PT Serif', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin-bottom: 4px;
+}
+.auth-logo span { color: #8B0000; }
+.auth-sub {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    font-style: italic;
+}
+.auth-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    background: #f0f0f0;
+    padding: 4px;
+}
+.auth-tabs button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #777;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.auth-tabs button.active {
+    background: #8B0000;
+    color: #fff;
+}
+.alert {
+    padding: 12px 16px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    border-left: 3px solid;
+}
+.alert-success { background: #e8f5e9; color: #2E7D32; border-color: #2E7D32; }
+.alert-danger { background: #ffebee; color: #8B0000; border-color: #8B0000; }
+.alert-info { background: #fff8e1; color: #b8860b; border-color: #b8860b; }
+.hidden { display: none !important; }
 
-        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .data-table th { text-align: left; padding: 14px 16px; background: var(--bg-input); color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.65rem; font-weight: 700; border-bottom: 1px solid var(--border); font-family: 'Oswald', sans-serif; }
-        .data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); }
-        .data-table tr:hover td { background: rgba(201,169,97,0.04); }
+/* ============ МОДАЛКИ ============ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9997;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+.modal {
+    background: #ffffff;
+    border-top: 4px solid #8B0000;
+    padding: 32px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.modal h3 {
+    font-family: 'PT Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #4B5320;
+}
+.modal h3 i { color: #8B0000; margin-right: 8px; }
 
-        .member-card { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-olive); border-radius: 4px; margin-bottom: 10px; flex-wrap: wrap; transition: 0.2s; }
-        .member-card:hover { border-color: var(--accent); }
-        .member-avatar { width: 52px; height: 52px; border-radius: 4px; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.3rem; color: #0d0e0a; background-size: cover; background-position: center; flex-shrink: 0; }
-        .member-info { flex: 1; min-width: 180px; }
-        .member-info .member-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .member-info .member-meta { font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
-        .member-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+/* ============ ЗАЯВКИ ============ */
+.application-card {
+    background: #f8f8f8;
+    border: 1px solid #d0d0d0;
+    border-left: 4px solid #8B0000;
+    padding: 22px;
+    margin-bottom: 12px;
+}
+.application-card h4 {
+    font-family: 'PT Serif', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.application-field { margin-bottom: 8px; font-size: 0.9rem; }
+.application-field .label {
+    color: #777;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-right: 6px;
+}
+.application-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 9997; display: flex; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
-        .modal { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; padding: 36px; max-width: 520px; width: 100%; box-shadow: 0 30px 80px rgba(0,0,0,0.8); max-height: 90vh; overflow-y: auto; position: relative; }
-        .modal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gradient); }
-        .modal h3 { font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 22px; }
-        .modal h3 i { color: var(--accent); margin-right: 8px; }
+/* ============ ФУТЕР ============ */
+footer {
+    background: #000000;
+    color: #999999;
+    padding: 40px 40px 30px;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+footer .social {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+footer .social a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: 0.2s;
+    text-decoration: none;
+}
+footer .social a:hover { color: #8B0000; }
+footer .disclaimer-text {
+    max-width: 950px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+    color: #bbbbbb;
+    font-size: 0.85rem;
+    text-align: justify;
+}
+footer .footer-bottom {
+    max-width: 950px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.8;
+}
+footer .footer-bottom .copy { margin-bottom: 6px; }
+footer .footer-bottom .motto {
+    font-style: italic;
+    color: #666;
+    margin: 8px 0;
+}
+footer .footer-bottom .slogan {
+    color: #8B0000;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 1px;
+}
 
-        .application-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; padding: 22px; margin-bottom: 12px; }
-        .application-card h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .application-field { margin-bottom: 8px; font-size: 0.85rem; }
-        .application-field .label { color: var(--text-dim); font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .application-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+/* ============ TOAST ============ */
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+.toast {
+    background: #ffffff;
+    border-left: 4px solid #8B0000;
+    padding: 16px 20px;
+    min-width: 280px;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    pointer-events: auto;
+    animation: toastIn 0.3s ease, toastOut 0.3s ease 3.7s forwards;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.toast.success { border-left-color: #2E7D32; }
+.toast.danger { border-left-color: #8B0000; }
+.toast.warning { border-left-color: #b8860b; }
+@keyframes toastIn { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes toastOut { to { opacity: 0; transform: translateX(100px); } }
+.toast .toast-icon { font-size: 1.3rem; flex-shrink: 0; color: #8B0000; }
+.toast.success .toast-icon { color: #2E7D32; }
+.toast.danger .toast-icon { color: #8B0000; }
+.toast.warning .toast-icon { color: #b8860b; }
+.toast .toast-title {
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    color: #000;
+}
+.toast .toast-msg { font-size: 0.8rem; color: #666; }
 
-        .alert { padding: 14px 18px; border-radius: 3px; margin-bottom: 16px; font-size: 0.85rem; border-left: 3px solid; }
-        .alert-success { background: rgba(123,160,91,0.1); color: #7ba05b; border-color: #7ba05b; }
-        .alert-danger { background: rgba(184,52,42,0.1); color: #b8342a; border-color: #b8342a; }
-        .alert-info { background: rgba(201,169,97,0.1); color: #c9a961; border-color: #c9a961; }
-        .hidden { display: none !important; }
-
-        .toast-container { position: fixed; top: 90px; right: 20px; z-index: 10001; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
-        .toast { background: var(--bg-panel); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 3px; padding: 16px 22px; font-size: 0.85rem; color: var(--text); box-shadow: 0 15px 40px rgba(0,0,0,0.7); min-width: 300px; max-width: 420px; pointer-events: auto; animation: toastIn 0.3s ease, toastOut 0.3s ease 3.7s forwards; display: flex; align-items: center; gap: 14px; }
-        .toast.success { border-left-color: var(--accent-green); }
-        .toast.danger { border-left-color: var(--accent-red); }
-        .toast.warning { border-left-color: var(--accent-2); }
-        @keyframes toastIn { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes toastOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100px); } }
-        .toast .toast-icon { font-size: 1.3rem; flex-shrink: 0; color: var(--accent); }
-        .toast.success .toast-icon { color: var(--accent-green); }
-        .toast.danger .toast-icon { color: var(--accent-red); }
-        .toast.warning .toast-icon { color: var(--accent-2); }
-        .toast .toast-title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
-        .toast .toast-msg { font-size: 0.75rem; color: var(--text-dim); }
-
-        .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 16px; }
-        .theme-item { background: var(--bg-card); border: 2px solid var(--border); border-radius: 4px; padding: 24px; text-align: center; cursor: pointer; transition: 0.25s; }
-        .theme-item:hover { transform: translateY(-4px); }
-        .theme-item.active { border-color: var(--accent); box-shadow: 0 0 30px rgba(201,169,97,0.2); }
-        .theme-item .theme-preview { width: 60px; height: 60px; border-radius: 4px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; }
-        .theme-item .theme-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
-        .theme-item .theme-desc { font-size: 0.7rem; color: var(--text-dim); font-family: 'Share Tech Mono', monospace; }
-
-        .custom-context-menu { position: fixed; z-index: 100000; background: var(--bg-panel); border: 1px solid var(--accent-2); border-radius: 4px; box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 20px rgba(201,169,97,0.15); padding: 6px 0; min-width: 210px; animation: ctxIn 0.15s ease; }
-        @keyframes ctxIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        .custom-context-menu .ctx-item { display: flex; align-items: center; gap: 12px; padding: 11px 16px; color: var(--text); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: 0.15s; }
-        .custom-context-menu .ctx-item:hover { background: var(--gradient-soft); color: var(--accent); }
-        .custom-context-menu .ctx-item.danger:hover { background: rgba(184,52,42,0.15); color: var(--accent-red); }
-        .custom-context-menu .ctx-item i { width: 16px; text-align: center; font-size: 0.85rem; }
-        .custom-context-menu .ctx-sep { height: 1px; background: var(--border); margin: 5px 10px; }
-        .custom-context-menu .ctx-item.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
-
-        @media (max-width: 900px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .sidebar { position: fixed; left: -280px; top: 0; bottom: 0; z-index: 999; width: 260px; transition: 0.3s; max-height: 100vh; }
-            .sidebar.open { left: 0; }
-            .sidebar-toggle { display: block; }
-            .content { padding: 20px; }
-            .top-bar { padding: 12px 16px; gap: 12px; }
-            .hero { padding: 40px 24px; }
-            .hero h2 { font-size: 1.8rem; letter-spacing: 2px; }
-            .hero::before { display: none; }
-        }
-        @media (max-width: 600px) {
-            .content-header h1 { font-size: 1.5rem; }
-            .top-brand { font-size: 0.95rem; letter-spacing: 2px; }
-            .top-profile .tp-info { display: none; }
-            .modal { padding: 24px; }
-        }
-    </style>
+/* ============ АДАПТИВ ============ */
+@media (max-width: 900px) {
+    .top-bar { padding: 0 16px; flex-wrap: wrap; height: auto; }
+    .main-nav { margin-left: 0; order: 3; width: 100%; overflow-x: auto; padding-bottom: 6px; }
+    .main-nav .nav-item { padding: 12px 10px; font-size: 0.85rem; }
+    .content { padding: 30px 20px; }
+    .hero { height: 320px; }
+    .hero h1 { font-size: 2rem; }
+    .top-user .info { display: none; }
+}
+@media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .top-brand { font-size: 0.95rem; }
+    .content-header h1 { font-size: 1.5rem; }
+    .modal { padding: 24px; }
+}
+</style>
 </head>
-
-<body data-theme="dark">
+<body>
 
 <!-- АВТОРИЗАЦИЯ -->
 <div class="auth-screen" id="authScreen">
     <div class="auth-box">
-        <div class="auth-logo">РАЗЛОМ<span>·</span>RP</div>
-        <div class="auth-sub">// Марш справедливости //</div>
+        <div class="auth-logo">РАЗЛОМ<span>.im</span></div>
+        <div class="auth-sub">// Сирия RolePlay //</div>
         <div class="auth-tabs">
             <button id="tabLogin" class="active">Войти</button>
             <button id="tabRegister">Регистрация</button>
@@ -314,61 +831,62 @@
 </div>
 
 <!-- ОСНОВНОЕ -->
-<div class="app" id="app">
+<div class="app" id="app" style="display:none;">
+    <!-- ШАПКА -->
     <div class="top-bar">
-        <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-        <div class="top-brand" id="topBrand">РАЗЛОМ<span>·</span>RP</div>
-        <div class="top-divider"></div>
-        <div class="top-online">
-            <div class="dot"></div>
-            <span><strong id="onlineCount">0</strong> в сети</span>
-        </div>
-        <div class="top-actions">
-            <button class="btn btn-ghost btn-sm" onclick="openSettingsModal()"><i class="fas fa-palette"></i> Тема</button>
-            <div class="top-profile" onclick="openMyProfileModal()" title="Профиль">
-                <div class="tp-avatar" id="topAvatar">?</div>
-                <div class="tp-info">
-                    <div class="tp-name" id="topName">---</div>
-                    <div class="tp-rank" id="topRank">---</div>
-                    <div class="tp-tags" id="topTags"></div>
-                </div>
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="logout()" style="border-color:var(--accent-red); color:var(--accent-red);"><i class="fas fa-sign-out-alt"></i></button>
-        </div>
-    </div>
-
-    <div class="main-layout">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-section">// Штаб</div>
-            <div class="sidebar-item active" data-section="dashboard" onclick="switchSection('dashboard')"><i class="fas fa-tachometer-alt"></i> Штаб</div>
-            <div class="sidebar-item" data-section="factions" onclick="switchSection('factions')"><i class="fas fa-flag"></i> Фракции</div>
-            <div class="sidebar-item" data-section="operations" onclick="switchSection('operations')"><i class="fas fa-crosshairs"></i> Операции</div>
-            <div class="sidebar-item" data-section="news" onclick="switchSection('news')"><i class="fas fa-newspaper"></i> Сводки</div>
-
-            <div class="sidebar-section">// Подразделение</div>
-            <div class="sidebar-item" data-section="personnel" onclick="switchSection('personnel')"><i class="fas fa-users"></i> Личный состав</div>
-            <div class="sidebar-item" data-section="apply" onclick="switchSection('apply')"><i class="fas fa-file-signature"></i> Рапорт о зачислении</div>
-            <div class="sidebar-item" data-section="music" onclick="switchSection('music')"><i class="fas fa-music"></i> Радиостанция</div>
-
-            <div class="sidebar-section" id="adminSectionTitle" style="display:none;">// Командование</div>
-            <div class="sidebar-item admin-only hidden" data-section="applications" onclick="switchSection('applications')">
+        <a class="top-brand" href="#" onclick="switchSection('dashboard'); return false;">
+            <div class="eagle"></div>
+            <span>РАЗЛОМ<span class="brand-sep">.im</span></span>
+            <span class="brand-sep">|</span>
+            <span class="brand-sub">Сирия RolePlay</span>
+        </a>
+        <nav class="main-nav" id="mainNav">
+            <a class="nav-item active" data-section="dashboard" onclick="switchSection('dashboard')"><i class="fas fa-home"></i> Главная страница</a>
+            <a class="nav-item" data-section="rules" onclick="switchSection('rules')">Общевойсковой устав</a>
+            <a class="nav-item" data-section="operations" onclick="switchSection('operations')">Регламенты</a>
+            <a class="nav-item" data-section="factions" onclick="switchSection('factions')">НПА</a>
+            <a class="nav-item" data-section="personnel" onclick="switchSection('personnel')">Уставы подразделений</a>
+            <a class="nav-item" data-section="news" onclick="switchSection('news')">Государственные награды</a>
+            <a class="nav-item admin-only hidden" data-section="applications" onclick="switchSection('applications')">
                 <i class="fas fa-inbox"></i> Рапорты
-                <span class="badge-count hidden" id="appBadgeSidebar">0</span>
+                <span id="appBadgeSidebar" style="background:#8B0000; color:#fff; border-radius:10px; padding:1px 8px; font-size:0.7rem; margin-left:4px;" class="hidden">0</span>
+            </a>
+            <a class="nav-item admin-only hidden" data-section="manage_members" onclick="switchSection('manage_members')">Командование</a>
+        </nav>
+        <button class="nav-search" onclick="showToast('Поиск', 'Функция в разработке', 'info')"><i class="fas fa-search"></i></button>
+        <div class="top-user" id="topUser" onclick="openMyProfileModal()">
+            <div class="avatar" id="topAvatar">?</div>
+            <div class="info">
+                <div class="name" id="topName">---</div>
+                <div class="rank" id="topRank">---</div>
             </div>
-            <div class="sidebar-item admin-only hidden" data-section="manage_members" onclick="switchSection('manage_members')"><i class="fas fa-user-cog"></i> Управление ЛС</div>
-            <div class="sidebar-item admin-only hidden" data-section="manage_operations" onclick="switchSection('manage_operations')"><i class="fas fa-plus-circle"></i> Операции</div>
-            <div class="sidebar-item admin-only hidden" data-section="manage_roles" onclick="switchSection('manage_roles')"><i class="fas fa-medal"></i> Звания</div>
-            <div class="sidebar-item admin-only hidden" data-section="manage_tags" onclick="switchSection('manage_tags')"><i class="fas fa-award"></i> Награды</div>
-            <div class="sidebar-item admin-only hidden" data-section="adminlogs" onclick="switchSection('adminlogs')"><i class="fas fa-terminal"></i> Журнал</div>
-
-            <div class="sidebar-section">// Прочее</div>
-            <div class="sidebar-item" data-section="rules" onclick="switchSection('rules')"><i class="fas fa-scroll"></i> Устав</div>
-            <div class="sidebar-item" data-section="partners" onclick="switchSection('partners')"><i class="fas fa-handshake"></i> Союзники</div>
-            <div class="sidebar-item" data-section="settings" onclick="switchSection('settings')"><i class="fas fa-cog"></i> Настройки</div>
-        </aside>
-        <div class="content" id="content"></div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="color:#fff; border-color:#666; margin-left:8px;" onclick="logout()" title="Выход">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
     </div>
+
+    <!-- КОНТЕНТ -->
+    <div id="content"></div>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="social">
+            <a href="https://discord.gg/WHDbNy2BaF" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" title="VK"><i class="fab fa-vk"></i></a>
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="disclaimer-text">
+            Все материалы, представленные на данном проекте, носят исключительно познавательный и исторический характер. Проект не пропагандирует: терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологии или организации, запрещённые на территории Российской Федерации. Любая демонстрация символики, униформы или атрибутики носит исключительно историко-документальный характер. Проект не пропагандирует табачную и алкогольную продукцию, а также употребление наркотических и психотропных средств. Организации, упоминаемые в проекте как террористические, признаны таковыми и запрещены на территории РФ в соответствии с законодательством и решениями международных судов.
+        </div>
+        <div class="footer-bottom">
+            <div class="copy">© разлом.im русское RP сообщество серверов в garry's mod.</div>
+            <div class="motto">Любое использование, либо копирование материалов документа допускается лишь с разрешения создателя.</div>
+            <div class="slogan">garry's mod — значит разлом.im</div>
+        </div>
+    </footer>
 </div>
+
 <!-- МОДАЛКИ -->
 
 <div class="modal-overlay hidden" id="myProfileModal">
@@ -376,7 +894,7 @@
         <h3><i class="fas fa-user-circle"></i> Личное дело</h3>
         <form id="myProfileForm">
             <div class="form-group" style="text-align:center;">
-                <div id="myProfilePreview" style="width:120px; height:120px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-size:3rem; font-weight:700; color:#0d0e0a; margin:0 auto 12px; background-size:cover; background-position:center; border:3px solid var(--accent);">?</div>
+                <div id="myProfilePreview" style="width:120px; height:120px; border-radius:50%; background:#8B0000; display:flex; align-items:center; justify-content:center; font-family:'PT Serif',serif; font-size:3rem; font-weight:700; color:#fff; margin:0 auto 12px; background-size:cover; background-position:center; border:3px solid #8B0000;">?</div>
             </div>
             <div class="form-group"><label>Позывной</label><input type="text" id="myProfileName" disabled style="opacity:0.6;" /></div>
             <div class="form-group"><label>Звание</label><input type="text" id="myProfileRole" disabled style="opacity:0.6;" /></div>
@@ -387,28 +905,6 @@
                 <button type="button" class="btn btn-ghost" style="flex:1;" onclick="closeMyProfileModal()">Отмена</button>
             </div>
         </form>
-    </div>
-</div>
-
-<div class="modal-overlay hidden" id="settingsModal">
-    <div class="modal" style="max-width:640px;">
-        <h3><i class="fas fa-palette"></i> Настройки интерфейса</h3>
-        <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:16px;">Выберите тему оформления терминала.</p>
-        <div class="theme-grid">
-            <div class="theme-item" data-theme-name="dark" onclick="setTheme('dark')">
-                <div class="theme-preview" style="background: linear-gradient(135deg, #c9a961, #6b7d3e);"><i class="fas fa-moon"></i></div>
-                <div class="theme-name">Полевая</div>
-                <div class="theme-desc">#c9a961 / #6b7d3e</div>
-            </div>
-            <div class="theme-item" data-theme-name="light" onclick="setTheme('light')">
-                <div class="theme-preview" style="background: linear-gradient(135deg, #ede4d0, #8a6f2e); color: #000;"><i class="fas fa-sun"></i></div>
-                <div class="theme-name">Пустынная</div>
-                <div class="theme-desc">#ede4d0 / #8a6f2e</div>
-            </div>
-        </div>
-        <div style="display:flex; gap:10px; margin-top: 24px;">
-            <button type="button" class="btn btn-ghost btn-full" onclick="closeSettingsModal()">Закрыть</button>
-        </div>
     </div>
 </div>
 
@@ -488,20 +984,20 @@
             <div class="form-group"><label for="roleColor">Цвет</label>
                 <select id="roleColor">
                     <option value="user">Серый</option>
-                    <option value="member">Золотой</option>
+                    <option value="member">Зелёный</option>
                     <option value="staff">Красный</option>
                     <option value="curator">Оливковый</option>
-                    <option value="founder">Песочный</option>
+                    <option value="founder">Тёмно-красный</option>
                 </select>
             </div>
             <div class="form-group"><label>Права доступа</label>
-                <div style="display:flex; flex-direction:column; gap:8px; font-size:0.85rem;">
+                <div style="display:flex; flex-direction:column; gap:8px; font-size:0.9rem;">
                     <label style="display:flex; gap:8px; cursor:pointer; align-items:center;"><input type="checkbox" id="permViewApps" style="width:auto;" /> Видеть рапорты</label>
                     <label style="display:flex; gap:8px; cursor:pointer; align-items:center;"><input type="checkbox" id="permManageMembers" style="width:auto;" /> Управлять личным составом</label>
                     <label style="display:flex; gap:8px; cursor:pointer; align-items:center;"><input type="checkbox" id="permManageOperations" style="width:auto;" /> Управлять операциями</label>
                     <label style="display:flex; gap:8px; cursor:pointer; align-items:center;"><input type="checkbox" id="permManageRoles" style="width:auto;" /> Управлять званиями</label>
                     <label style="display:flex; gap:8px; cursor:pointer; align-items:center;"><input type="checkbox" id="permManageTags" style="width:auto;" /> Управлять наградами</label>
-                    <label style="display:flex; gap:8px; cursor:pointer; align-items:center; color:#c9a961; font-weight:700;"><input type="checkbox" id="permAdmin" style="width:auto;" /> 👑 Командование</label>
+                    <label style="display:flex; gap:8px; cursor:pointer; align-items:center; color:#8B0000; font-weight:700;"><input type="checkbox" id="permAdmin" style="width:auto;" /> Командование</label>
                 </div>
             </div>
             <div style="display:flex; gap:10px;">
@@ -520,14 +1016,14 @@
             <div class="form-group"><label for="tagName">Название награды</label><input type="text" id="tagName" required placeholder="Например: ЗА ОТВАГУ" /></div>
             <div class="form-group"><label for="tagColor">Цвет</label>
                 <select id="tagColor">
-                    <option value="purple">Песочный</option>
-                    <option value="cyan">Оливковый</option>
+                    <option value="purple">Фиолетовый</option>
+                    <option value="cyan">Голубой</option>
                     <option value="gold">Золотой</option>
                     <option value="red">Красный</option>
                     <option value="green">Зелёный</option>
                 </select>
             </div>
-            <div class="form-group"><label for="tagDesc">Описание (необязательно)</label><input type="text" id="tagDesc" placeholder="За что выдаётся" /></div>
+            <div class="form-group"><label for="tagDesc">Описание</label><input type="text" id="tagDesc" placeholder="За что выдаётся" /></div>
             <div style="display:flex; gap:10px;">
                 <button type="submit" class="btn btn-primary" style="flex:1;">Сохранить</button>
                 <button type="button" class="btn btn-ghost" style="flex:1;" onclick="closeTagModal()">Отмена</button>
@@ -542,7 +1038,7 @@
         <form id="editMemberForm">
             <input type="hidden" id="editMemberId" />
             <div class="form-group" style="text-align:center;">
-                <div id="editMemberPreview" style="width:100px; height:100px; border-radius:4px; background:var(--gradient); display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-size:2.5rem; font-weight:700; color:#0d0e0a; margin:0 auto 12px; background-size:cover; background-position:center;">?</div>
+                <div id="editMemberPreview" style="width:100px; height:100px; border-radius:4px; background:#8B0000; display:flex; align-items:center; justify-content:center; font-family:'PT Serif',serif; font-size:2.5rem; font-weight:700; color:#fff; margin:0 auto 12px; background-size:cover; background-position:center;">?</div>
             </div>
             <div class="form-group"><label for="editMemberName">Позывной</label><input type="text" id="editMemberName" required /></div>
             <div class="form-group"><label for="editMemberAvatar">Фото</label><input type="file" id="editMemberAvatar" accept="image/*" /></div>
@@ -557,9 +1053,9 @@
 </div>
 
 <div class="modal-overlay hidden" id="confirmModal">
-    <div class="modal" style="max-width:400px;">
+    <div class="modal" style="max-width:420px;">
         <h3 id="confirmTitle"><i class="fas fa-question-circle"></i> Подтверждение</h3>
-        <p id="confirmText" style="color:var(--text-dim); font-size:0.9rem; margin-bottom:22px;">Вы уверены?</p>
+        <p id="confirmText" style="color:#555; font-size:0.95rem; margin-bottom:22px;">Вы уверены?</p>
         <div style="display:flex; gap:10px;">
             <button type="button" class="btn btn-red" style="flex:1;" id="confirmYes">Да</button>
             <button type="button" class="btn btn-ghost" style="flex:1;" id="confirmNo">Отмена</button>
@@ -570,7 +1066,7 @@
 <div class="toast-container" id="toastContainer"></div>
 
 <script>
-(function() {
+    (function() {
     'use strict';
 
     // ============ БАЗА ДАННЫХ ============
@@ -579,22 +1075,16 @@
         setUsers(u) { localStorage.setItem('rzl_users', JSON.stringify(u)); },
         getCurrent() { try { return JSON.parse(localStorage.getItem('rzl_current')) || null; } catch(e) { return null; } },
         setCurrent(u) { if (u) localStorage.setItem('rzl_current', JSON.stringify(u)); else localStorage.removeItem('rzl_current'); },
-
         getOperations() { try { return JSON.parse(localStorage.getItem('rzl_operations')) || []; } catch(e) { return []; } },
         setOperations(o) { localStorage.setItem('rzl_operations', JSON.stringify(o)); },
-
         getNews() { try { return JSON.parse(localStorage.getItem('rzl_news')) || []; } catch(e) { return []; } },
         setNews(n) { localStorage.setItem('rzl_news', JSON.stringify(n)); },
-
         getApps() { try { return JSON.parse(localStorage.getItem('rzl_apps')) || []; } catch(e) { return []; } },
         setApps(a) { localStorage.setItem('rzl_apps', JSON.stringify(a)); },
-
         getRoles() { try { return JSON.parse(localStorage.getItem('rzl_roles')); } catch(e) { return null; } },
         setRoles(r) { localStorage.setItem('rzl_roles', JSON.stringify(r)); },
-
         getTags() { try { return JSON.parse(localStorage.getItem('rzl_tags')); } catch(e) { return null; } },
         setTags(t) { localStorage.setItem('rzl_tags', JSON.stringify(t)); },
-
         getLogs() { try { return JSON.parse(localStorage.getItem('rzl_logs')) || []; } catch(e) { return []; } },
         setLogs(l) { localStorage.setItem('rzl_logs', JSON.stringify(l)); },
         addLog(text) {
@@ -604,7 +1094,6 @@
         }
     };
 
-    // ============ ЗВАНИЯ ============
     let roles = DB.getRoles() || [
         { id: 'r0', name: 'Рекрут', color: 'user', perms: {} },
         { id: 'r1', name: 'Рядовой', color: 'member', perms: {} },
@@ -616,7 +1105,6 @@
     ];
     if (!DB.getRoles()) DB.setRoles(roles);
 
-    // ============ НАГРАДЫ ============
     let tags = DB.getTags() || [
         { id: 't1', name: 'ОСНОВАТЕЛЬ', color: 'gold', desc: 'Основатель проекта' },
         { id: 't2', name: 'ЗА ОТВАГУ', color: 'red', desc: 'Медаль за отвагу' },
@@ -629,16 +1117,9 @@
         const users = DB.getUsers();
         if (!users.some(u => u.username === 'Found')) {
             users.push({
-                id: 'RZL-0001',
-                username: 'Found',
-                password: 'ЧВК "Рейх"',
-                rank: 'Генерал',
-                isAdmin: true,
-                isFounder: true,
-                tags: ['t1'],
-                warnings: 0,
-                theme: 'dark',
-                avatar: null,
+                id: 'RZL-0001', username: 'Found', password: 'ЧВК "Рейх"',
+                rank: 'Генерал', isAdmin: true, isFounder: true,
+                tags: ['t1'], warnings: 0, theme: 'dark', avatar: null,
                 registered: new Date().toLocaleDateString('ru-RU')
             });
             DB.setUsers(users);
@@ -671,14 +1152,12 @@
         document.getElementById('confirmTitle').innerHTML = '<i class="fas fa-question-circle"></i> ' + escapeHtml(title);
         document.getElementById('confirmText').textContent = text;
         modal.classList.remove('hidden');
-
         const yesBtn = document.getElementById('confirmYes');
         const noBtn = document.getElementById('confirmNo');
         const newYes = yesBtn.cloneNode(true);
         const newNo = noBtn.cloneNode(true);
         yesBtn.parentNode.replaceChild(newYes, yesBtn);
         noBtn.parentNode.replaceChild(newNo, noBtn);
-
         newYes.addEventListener('click', () => {
             modal.classList.add('hidden');
             if (typeof onYes === 'function') onYes();
@@ -696,12 +1175,10 @@
     function getInitials(name) { return name ? name.charAt(0).toUpperCase() : '?'; }
     function getRoleByName(name) { return roles.find(r => r.name === name); }
     function getTagById(id) { return tags.find(t => t.id === id); }
-
     function getUserTags(user) {
         if (!user || !user.tags) return [];
         return user.tags.map(id => getTagById(id)).filter(t => t);
     }
-
     function renderTagsHtml(tagIds) {
         if (!tagIds || tagIds.length === 0) return '';
         return tagIds.map(id => {
@@ -710,18 +1187,14 @@
             return `<span class="tag-pill ${tag.color}">${escapeHtml(tag.name)}</span>`;
         }).join('');
     }
-
     function renderRoleBadge(rank) {
         const role = getRoleByName(rank);
         const cls = role ? role.color : 'user';
         return `<span class="role-badge ${cls}">${escapeHtml(rank)}</span>`;
     }
-
     function userAvatarHtml(user, extraClass) {
         const cls = extraClass || 'member-avatar';
-        if (!user || !user.avatar) {
-            return `<div class="${cls}">${getInitials(user ? user.username : '?')}</div>`;
-        }
+        if (!user || !user.avatar) return `<div class="${cls}">${getInitials(user ? user.username : '?')}</div>`;
         return `<div class="${cls}" style="background-image:url('${user.avatar}');"></div>`;
     }
 
@@ -730,7 +1203,6 @@
         if (!currentUser) return false;
         return currentUser.isFounder === true || currentUser.username === 'Found';
     }
-
     function isAdminUser() {
         if (!currentUser) return false;
         if (currentUser.isAdmin || isFounder()) return true;
@@ -738,7 +1210,6 @@
         if (role && role.perms && role.perms.permAdmin) return true;
         return false;
     }
-
     function hasPermission(perm) {
         if (!currentUser) return false;
         if (isFounder() || currentUser.isAdmin) return true;
@@ -746,123 +1217,6 @@
         if (!role || !role.perms) return false;
         return !!role.perms[perm];
     }
-
-    // ============ ТЕМА ============
-    function applyTheme(theme) {
-        document.body.setAttribute('data-theme', theme || 'dark');
-        document.querySelectorAll('.theme-item').forEach(el => {
-            el.classList.toggle('active', el.dataset.themeName === theme);
-        });
-    }
-
-    window.setTheme = function(theme) {
-        applyTheme(theme);
-        if (currentUser) {
-            const users = DB.getUsers();
-            const user = users.find(u => u.id === currentUser.id);
-            if (user) {
-                user.theme = theme;
-                DB.setUsers(users);
-                currentUser = user;
-                DB.setCurrent(user);
-            }
-        }
-        showToast('Тема изменена', 'Настройка сохранена', 'success');
-    };
-
-    window.openSettingsModal = function() {
-        applyTheme((currentUser && currentUser.theme) || 'dark');
-        document.getElementById('settingsModal').classList.remove('hidden');
-    };
-    window.closeSettingsModal = function() { document.getElementById('settingsModal').classList.add('hidden'); };
-
-    window.toggleSidebar = function() {
-        document.getElementById('sidebar').classList.toggle('open');
-    };
-
-    // ============ ПКМ МЕНЮ ============
-    const ctxMenu = document.createElement('div');
-    ctxMenu.className = 'custom-context-menu hidden';
-    ctxMenu.id = 'ctxMenu';
-    ctxMenu.innerHTML = `
-        <div class="ctx-item" onclick="ctxAction('copy')"><i class="fas fa-copy"></i> Копировать</div>
-        <div class="ctx-item" onclick="ctxAction('paste')"><i class="fas fa-paste"></i> Вставить</div>
-        <div class="ctx-sep"></div>
-        <div class="ctx-item" onclick="ctxAction('edit')"><i class="fas fa-pen"></i> Редактировать</div>
-        <div class="ctx-item danger" onclick="ctxAction('delete')"><i class="fas fa-trash"></i> Удалить</div>
-    `;
-    document.body.appendChild(ctxMenu);
-
-    let ctxTarget = null;
-
-    document.addEventListener('contextmenu', function(e) {
-        if (!currentUser) return;
-        e.preventDefault();
-        ctxTarget = e.target;
-        const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
-        const items = ctxMenu.querySelectorAll('.ctx-item');
-        items.forEach(item => item.classList.remove('disabled'));
-        if (!isInput) items[1].classList.add('disabled');
-        const hasSelection = window.getSelection().toString().length > 0;
-        if (!hasSelection && !isInput) items[0].classList.add('disabled');
-        ctxMenu.classList.remove('hidden');
-        let x = e.clientX, y = e.clientY;
-        if (x + 220 > window.innerWidth) x = window.innerWidth - 230;
-        if (y + 240 > window.innerHeight) y = window.innerHeight - 250;
-        ctxMenu.style.left = x + 'px';
-        ctxMenu.style.top = y + 'px';
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!ctxMenu.contains(e.target)) ctxMenu.classList.add('hidden');
-    });
-
-    document.addEventListener('scroll', function() {
-        ctxMenu.classList.add('hidden');
-    }, true);
-
-    window.ctxAction = function(action) {
-        ctxMenu.classList.add('hidden');
-        if (action === 'copy') {
-            const isInput = ctxTarget && (ctxTarget.tagName === 'INPUT' || ctxTarget.tagName === 'TEXTAREA');
-            let text = window.getSelection().toString();
-            if (!text && isInput) {
-                const s = ctxTarget.selectionStart || 0;
-                const e = ctxTarget.selectionEnd || ctxTarget.value.length;
-                text = ctxTarget.value.substring(s, e);
-            }
-            if (text) {
-                navigator.clipboard.writeText(text)
-                    .then(() => showToast('Скопировано', text.slice(0, 40), 'success'))
-                    .catch(() => showToast('Ошибка', 'Разрешите доступ к буферу', 'danger'));
-            } else {
-                showToast('Нечего копировать', '', 'warning');
-            }
-            return;
-        }
-        if (action === 'paste') {
-            const isInput = ctxTarget && (ctxTarget.tagName === 'INPUT' || ctxTarget.tagName === 'TEXTAREA');
-            if (!isInput) { showToast('Вставить нельзя', 'Кликните по полю ввода', 'warning'); return; }
-            navigator.clipboard.readText().then(text => {
-                const s = ctxTarget.selectionStart || ctxTarget.value.length;
-                const e = ctxTarget.selectionEnd || ctxTarget.value.length;
-                ctxTarget.value = ctxTarget.value.substring(0, s) + text + ctxTarget.value.substring(e);
-                ctxTarget.focus();
-                ctxTarget.selectionStart = ctxTarget.selectionEnd = s + text.length;
-                showToast('Вставлено', text.slice(0, 40), 'success');
-            }).catch(() => showToast('Ошибка', 'Разрешите доступ к буферу', 'danger'));
-            return;
-        }
-        if (action === 'edit') { showToast('Инфо', 'Откройте элемент для редактирования', 'info'); return; }
-        if (action === 'delete') {
-            if (!confirm('Удалить выбранный элемент?')) return;
-            if (ctxTarget && ctxTarget.parentNode && ctxTarget !== document.body) {
-                ctxTarget.parentNode.removeChild(ctxTarget);
-                showToast('Удалено', '', 'danger');
-            }
-            return;
-        }
-    };
 
     // ============ АВТОРИЗАЦИЯ ============
     const authScreen = document.getElementById('authScreen');
@@ -891,11 +1245,11 @@
         if (user) {
             currentUser = user;
             DB.setCurrent(user);
-            msg.textContent = '✓ ДОСТУП РАЗРЕШЁН';
+            msg.textContent = 'Доступ разрешён';
             msg.className = 'alert alert-success';
             setTimeout(() => openApp(), 700);
         } else {
-            msg.textContent = '✗ ОТКАЗАНО · неверный позывной или код';
+            msg.textContent = 'Отказано — неверный позывной или код';
             msg.className = 'alert alert-danger';
         }
     });
@@ -906,14 +1260,13 @@
         const password = document.getElementById('authRegPass').value.trim();
         const msg = document.getElementById('authRegisterMsg');
         msg.classList.remove('hidden', 'alert-success', 'alert-danger');
-        if (username.length < 3) { msg.textContent = '✗ Позывной минимум 3 символа'; msg.className = 'alert alert-danger'; return; }
-        if (password.length < 4) { msg.textContent = '✗ Код минимум 4 символа'; msg.className = 'alert alert-danger'; return; }
-        if (DB.getUsers().some(u => u.username === username)) { msg.textContent = '✗ Позывной занят'; msg.className = 'alert alert-danger'; return; }
+        if (username.length < 3) { msg.textContent = 'Позывной минимум 3 символа'; msg.className = 'alert alert-danger'; return; }
+        if (password.length < 4) { msg.textContent = 'Код минимум 4 символа'; msg.className = 'alert alert-danger'; return; }
+        if (DB.getUsers().some(u => u.username === username)) { msg.textContent = 'Позывной занят'; msg.className = 'alert alert-danger'; return; }
         const usersCount = DB.getUsers().length;
         const newUser = {
             id: 'RZL-' + String(1000 + usersCount).padStart(4, '0'),
-            username, password,
-            rank: 'Рекрут',
+            username, password, rank: 'Рекрут',
             isAdmin: false, isFounder: false,
             tags: [], warnings: 0, theme: 'dark', avatar: null,
             registered: new Date().toLocaleDateString('ru-RU')
@@ -921,21 +1274,19 @@
         const users = DB.getUsers();
         users.push(newUser);
         DB.setUsers(users);
-        DB.addLog(`➕ Зарегистрирован новый боец: ${username}`);
+        DB.addLog(`Зарегистрирован новый боец: ${username}`);
         currentUser = newUser;
         DB.setCurrent(newUser);
-        msg.textContent = '✓ АККАУНТ СОЗДАН';
+        msg.textContent = 'Аккаунт создан';
         msg.className = 'alert alert-success';
         setTimeout(() => openApp(), 900);
     });
 
     function openApp() {
         authScreen.classList.add('hidden');
-        app.classList.add('active');
-        applyTheme((currentUser && currentUser.theme) || 'dark');
+        app.style.display = 'block';
         updateTopProfile();
         updatePermissionsUI();
-        updateOnlineCount();
         updateAppBadge();
         switchSection('dashboard');
     }
@@ -945,7 +1296,7 @@
         if (typeof stopPlay === 'function') stopPlay();
         currentUser = null;
         DB.setCurrent(null);
-        app.classList.remove('active');
+        app.style.display = 'none';
         authScreen.classList.remove('hidden');
         document.getElementById('authLoginForm').reset();
         document.getElementById('authRegisterForm').reset();
@@ -956,10 +1307,8 @@
     function updatePermissionsUI() {
         const isAdmin = isAdminUser();
         document.querySelectorAll('.admin-only').forEach(el => el.classList.toggle('hidden', !isAdmin));
-        document.getElementById('adminSectionTitle').style.display = isAdmin ? 'block' : 'none';
     }
 
-    // ============ ПРОФИЛЬ ============
     function updateTopProfile() {
         if (!currentUser) return;
         const avatar = document.getElementById('topAvatar');
@@ -972,12 +1321,9 @@
         }
         document.getElementById('topName').textContent = currentUser.username;
         document.getElementById('topRank').textContent = currentUser.rank || 'Рекрут';
-        const tagsBox = document.getElementById('topTags');
-        if (tagsBox) tagsBox.innerHTML = renderTagsHtml(currentUser.tags);
     }
 
     let myAvatarData = null;
-
     window.openMyProfileModal = function() {
         if (!currentUser) return;
         myAvatarData = currentUser.avatar || null;
@@ -994,16 +1340,14 @@
         const tagsBox = document.getElementById('myProfileTags');
         const userTags = getUserTags(currentUser);
         tagsBox.innerHTML = userTags.length === 0
-            ? '<span style="color:var(--text-dim); font-size:0.75rem;">Нет наград</span>'
+            ? '<span style="color:#999; font-size:0.8rem;">Нет наград</span>'
             : userTags.map(t => `<span class="tag-pill ${t.color}">${escapeHtml(t.name)}</span>`).join('');
         document.getElementById('myProfileModal').classList.remove('hidden');
     };
-
     window.closeMyProfileModal = function() {
         document.getElementById('myProfileModal').classList.add('hidden');
         myAvatarData = null;
     };
-
     document.getElementById('myAvatarFile').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (!file) return;
@@ -1016,7 +1360,6 @@
         };
         reader.readAsDataURL(file);
     });
-
     document.getElementById('myProfileForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (!currentUser) return;
@@ -1028,155 +1371,16 @@
         currentUser = user;
         DB.setCurrent(user);
         updateTopProfile();
-        showToast('Профиль обновлён', 'Фото сохранено', 'success');
+        showToast('Профиль обновлён', 'Данные сохранены', 'success');
         closeMyProfileModal();
     });
 
-    // ============ РАДИОСТАНЦИЯ ============
-    const MUSIC_TRACKS = [
-        { id: 1, title: 'Военный марш — Прощание славянки', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f1a51e0cf.mp3' },
-        { id: 2, title: 'Марш — Священная война', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_5e4d4f9e36.mp3' },
-        { id: 3, title: 'Марш — День Победы', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_8e8f6b7a12.mp3' },
-        { id: 4, title: 'Фонк — Midnight City', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3' },
-        { id: 5, title: 'Фонк — Phantom', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2023/07/30/audio_a54d68e18e.mp3' },
-        { id: 6, title: 'Фонк — Neon Drive', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_5e4f3f5e0e.mp3' }
-    ];
-
-    let currentTrackIndex = -1;
-    let audioPlayer = null;
-
-    function renderMusic() {
-        const content = document.getElementById('content');
-        let tracksHtml = MUSIC_TRACKS.map((t, i) => `
-            <div class="member-card" style="cursor:pointer;" onclick="playTrack(${i})">
-                <div class="member-avatar" style="background:${t.genre === 'Марш' ? 'linear-gradient(135deg, #6b7d3e, #c9a961)' : 'linear-gradient(135deg, #8a6f2e, #4a5a2e)'};">
-                    <i class="fas fa-${t.genre === 'Марш' ? 'flag' : 'headphones'}"></i>
-                </div>
-                <div class="member-info">
-                    <div class="member-name">
-                        ${escapeHtml(t.title)}
-                        <span class="tag-pill ${t.genre === 'Марш' ? 'gold' : 'cyan'}">${escapeHtml(t.genre)}</span>
-                    </div>
-                    <div class="member-meta">${t.genre === 'Марш' ? '🎺 Военный марш' : '🎧 Phonk'}</div>
-                </div>
-                <div class="member-actions">
-                    <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); playTrack(${i})">
-                        <i class="fas fa-play"></i> Играть
-                    </button>
-                </div>
-            </div>
-        `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Радиостанция</h1><div class="breadcrumb">// РАЗЛОМ · <span>Радиоэфир</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-broadcast-tower"></i> Сейчас в эфире</div>
-                <div id="nowPlaying" style="padding:20px; background:var(--bg-card); border:1px solid var(--border); border-radius:4px; text-align:center;">
-                    <div style="font-size:2rem; color:var(--accent); margin-bottom:8px;"><i class="fas fa-radio"></i></div>
-                    <div style="font-family:'Oswald'; font-size:1.1rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;" id="nowTitle">Эфир пуст</div>
-                    <div style="color:var(--text-dim); font-size:0.8rem; margin-top:4px; font-family:'Share Tech Mono';" id="nowGenre">Выберите трек</div>
-                    <div style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
-                        <button class="btn btn-ghost btn-sm" onclick="playPrev()"><i class="fas fa-backward"></i></button>
-                        <button class="btn btn-primary btn-sm" onclick="togglePlay()" id="playBtn"><i class="fas fa-play"></i></button>
-                        <button class="btn btn-ghost btn-sm" onclick="playNext()"><i class="fas fa-forward"></i></button>
-                        <button class="btn btn-ghost btn-sm" onclick="stopPlay()"><i class="fas fa-stop"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-list"></i> Плейлист (${MUSIC_TRACKS.length})</div>
-                ${tracksHtml}
-            </div>
-        `;
-    }
-
-    window.playTrack = function(index) {
-        const track = MUSIC_TRACKS[index];
-        if (!track) return;
-        if (audioPlayer) { audioPlayer.pause(); audioPlayer = null; }
-        currentTrackIndex = index;
-        audioPlayer = new Audio(track.url);
-        audioPlayer.volume = 0.5;
-        audioPlayer.play().catch(() => showToast('Ошибка', 'Не удалось воспроизвести трек', 'danger'));
-        audioPlayer.addEventListener('ended', playNext);
-        updateNowPlaying(track);
-        showToast('В эфире', track.title, 'success');
-    };
-
-    function updateNowPlaying(track) {
-        const title = document.getElementById('nowTitle');
-        const genre = document.getElementById('nowGenre');
-        const btn = document.getElementById('playBtn');
-        if (title) title.textContent = track.title;
-        if (genre) genre.textContent = track.genre === 'Марш' ? '🎺 Военный марш' : '🎧 Phonk';
-        if (btn) btn.innerHTML = '<i class="fas fa-pause"></i>';
-    }
-
-    window.togglePlay = function() {
-        if (!audioPlayer) { showToast('Инфо', 'Выберите трек', 'warning'); return; }
-        const btn = document.getElementById('playBtn');
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            if (btn) btn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            audioPlayer.pause();
-            if (btn) btn.innerHTML = '<i class="fas fa-play"></i>';
-        }
-    };
-
-    window.stopPlay = function() {
-        if (audioPlayer) { audioPlayer.pause(); audioPlayer.currentTime = 0; audioPlayer = null; }
-        currentTrackIndex = -1;
-        const title = document.getElementById('nowTitle');
-        const genre = document.getElementById('nowGenre');
-        const btn = document.getElementById('playBtn');
-        if (title) title.textContent = 'Эфир пуст';
-        if (genre) genre.textContent = 'Выберите трек';
-        if (btn) btn.innerHTML = '<i class="fas fa-play"></i>';
-    };
-
-    window.playNext = function() {
-        if (currentTrackIndex < 0) { playTrack(0); return; }
-        const next = (currentTrackIndex + 1) % MUSIC_TRACKS.length;
-        playTrack(next);
-    };
-
-    window.playPrev = function() {
-        if (currentTrackIndex < 0) { playTrack(0); return; }
-        const prev = (currentTrackIndex - 1 + MUSIC_TRACKS.length) % MUSIC_TRACKS.length;
-        playTrack(prev);
-    };
-
-    // ============ ОНЛАЙН ============
-    function updateOnlineCount() {
-        const users = DB.getUsers();
-        const onlineNow = users.length > 0 ? Math.max(1, Math.floor(users.length * 0.4) + Math.floor(Math.random() * 3)) : 1;
-        const el = document.getElementById('onlineCount');
-        if (el) el.textContent = onlineNow;
-    }
-    updateOnlineCount();
-    setInterval(updateOnlineCount, 5000);
-
-    function updateAppBadge() {
-        if (!isAdminUser() && !hasPermission('permViewApps')) return;
-        const apps = DB.getApps().filter(a => a.status === 'pending');
-        const badge = document.getElementById('appBadgeSidebar');
-        if (!badge) return;
-        if (apps.length > 0) {
-            badge.textContent = apps.length;
-            badge.classList.remove('hidden');
-        } else {
-            badge.classList.add('hidden');
-        }
-    }
-
     // ============ НАВИГАЦИЯ ============
-    let currentSection = 'dashboard';
     window.switchSection = function(section) {
-        currentSection = section;
-        document.querySelectorAll('.sidebar-item').forEach(el => el.classList.toggle('active', el.dataset.section === section));
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar) sidebar.classList.remove('open');
+        document.querySelectorAll('.main-nav .nav-item').forEach(el => {
+            el.classList.toggle('active', el.dataset.section === section);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         renderSection(section);
     };
 
@@ -1198,79 +1402,74 @@
         else if (section === 'partners') renderPartners();
         else if (section === 'settings') renderSettings();
     }
-        // ============ ШТАБ ============
+
+    function updateAppBadge() {
+        if (!isAdminUser() && !hasPermission('permViewApps')) return;
+        const apps = DB.getApps().filter(a => a.status === 'pending');
+        const badge = document.getElementById('appBadgeSidebar');
+        if (!badge) return;
+        if (apps.length > 0) {
+            badge.textContent = apps.length;
+            badge.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+        }
+    }
+
+    // ============ HERO HELPERS ============
+    function heroBlock(title, sub, bg, showDiscord) {
+        const bgStyle = bg ? `style="background-image: url('${bg}');"` : '';
+        return `
+            <div class="hero" ${bgStyle}>
+                <h1>${escapeHtml(title)}</h1>
+                ${sub ? `<div class="hero-sub">${escapeHtml(sub)}</div>` : ''}
+                ${showDiscord ? `<a href="https://discord.gg/WHDbNy2BaF" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Дискорд сервер</a>` : ''}
+            </div>
+        `;
+    }
+
+    // ============ ГЛАВНАЯ ============
     function renderDashboard() {
         const content = document.getElementById('content');
         const users = DB.getUsers();
         const operations = DB.getOperations();
-        const activeOps = operations.filter(o => o.status === 'active').length;
-        const plannedOps = operations.filter(o => o.status === 'planned').length;
         const pendingApps = DB.getApps().filter(a => a.status === 'pending').length;
 
         content.innerHTML = `
-            <div class="hero">
-                <h2>РАЗЛОМ<span> · </span>Марш справедливости</h2>
-                <div class="hero-motto">// Служим Отечеству · Защищаем мирных //</div>
-                <p>Военный RolePlay-проект в Garry's Mod. Операции, патрули, командная работа и сюжетные события в реалиях Сирийской Арабской Республики.</p>
-                <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="switchSection('operations')"><i class="fas fa-crosshairs"></i> Операции</button>
-                    <button class="btn btn-ghost" onclick="switchSection('apply')"><i class="fas fa-file-signature"></i> Рапорт о зачислении</button>
+            ${heroBlock('РАЗЛОМ.im | Сирия RolePlay', 'Военный RolePlay-проект в Garry\'s Mod', '', true)}
+            <div class="content">
+                <div class="content-header">
+                    <h1>О проекте</h1>
+                    <div class="breadcrumb">// РАЗЛОМ · <span>Главная страница</span></div>
                 </div>
-            </div>
 
-            <div class="disclaimer">
-                <strong>⚠ ВАЖНО:</strong> Все материалы, представленные на данном проекте, носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, а также идеологии и организации, запрещённые на территории РФ. Любая демонстрация символики, униформы или атрибутики носит историко-документальный характер. Организации, упоминаемые в проекте как террористические, признаны таковыми и запрещены на территории РФ в соответствии с законодательством и решениями международных судов.
-            </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-value">${users.length}</div><div class="stat-label">Личного состава</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-crosshairs"></i></div><div class="stat-value">${operations.filter(o => o.status === 'active').length}</div><div class="stat-label">Активных операций</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-clock"></i></div><div class="stat-value">${operations.filter(o => o.status === 'planned').length}</div><div class="stat-label">Запланировано</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-inbox"></i></div><div class="stat-value">${pendingApps}</div><div class="stat-label">Новых рапортов</div></div>
+                </div>
 
-            <div class="stats-grid">
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-value">${users.length}</div><div class="stat-label">Личного состава</div></div>
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-crosshairs"></i></div><div class="stat-value">${activeOps}</div><div class="stat-label">Активных операций</div></div>
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-clock"></i></div><div class="stat-value">${plannedOps}</div><div class="stat-label">Запланировано</div></div>
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-inbox"></i></div><div class="stat-value">${pendingApps}</div><div class="stat-label">Новых рапортов</div></div>
-            </div>
-
-            ${isAdminUser() ? `
                 <div class="panel">
-                    <div class="panel-title"><i class="fas fa-bolt"></i> Быстрые действия командования</div>
-                    <div class="cards-grid">
-                        <div class="card" style="cursor:pointer;" onclick="switchSection('applications')">
-                            <div class="card-icon" style="color:#7ba05b;"><i class="fas fa-inbox"></i></div>
-                            <h3>Рапорты</h3>
-                            <p>${pendingApps > 0 ? `Ожидают рассмотрения: <strong style="color:#c9a961;">${pendingApps}</strong>` : 'Нет новых рапортов.'}</p>
-                        </div>
-                        <div class="card" style="cursor:pointer;" onclick="switchSection('manage_operations')">
-                            <div class="card-icon" style="color:#c9a961;"><i class="fas fa-crosshairs"></i></div>
-                            <h3>Операции</h3>
-                            <p>Создание и редактирование боевых операций.</p>
-                        </div>
-                        <div class="card" style="cursor:pointer;" onclick="switchSection('manage_members')">
-                            <div class="card-icon" style="color:#b8342a;"><i class="fas fa-user-cog"></i></div>
-                            <h3>Личный состав</h3>
-                            <p>Управление бойцами, званиями и наградами.</p>
-                        </div>
-                        <div class="card" style="cursor:pointer;" onclick="switchSection('adminlogs')">
-                            <div class="card-icon" style="color:#8a8a70;"><i class="fas fa-terminal"></i></div>
-                            <h3>Журнал</h3>
-                            <p>История действий командования.</p>
-                        </div>
-                    </div>
+                    <div class="panel-title"><i class="fas fa-shield-alt"></i> О проекте</div>
+                    <p><strong>РАЗЛОМ: Марш справедливости</strong> — это сообщество, посвящённое историческим событиям и военным действиям на территории Сирийской Арабской Республики. Мы проводим регулярные RP-операции и патрули в Garry's Mod, соблюдая принципы адекватности и уважения к истории.</p>
+                    <p>Наш проект — это место для тех, кто ценит дисциплину, командную работу и атмосферный отыгрыш. Присоединяйтесь к операциям, вступайте в подразделения и защищайте мирных граждан вместе с нами.</p>
                 </div>
-            ` : ''}
 
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-shield-alt"></i> О проекте</div>
-                <p style="color:var(--text-dim); line-height:1.8; font-size:0.9rem;">
-                    <strong style="color:var(--accent);">РАЗЛОМ: Марш справедливости</strong> — это сообщество, посвящённое историческим событиям и военным действиям на территории Сирийской Арабской Республики, а также вкладу вооружённых сил в борьбе с терроризмом. Мы проводим регулярные RP-операции и патрули в Garry's Mod, соблюдая принципы адекватности и уважения к истории.
-                </p>
-            </div>
-
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-star"></i> Структура подразделения</div>
+                <h2>Структура подразделения</h2>
                 <div class="cards-grid">
                     <div class="card"><div class="card-icon"><i class="fas fa-user"></i></div><h3>Рекрут</h3><p>Новобранец. Проходит обучение, участвует в открытых операциях.</p></div>
-                    <div class="card"><div class="card-icon" style="color:#c9a961;"><i class="fas fa-shield-alt"></i></div><h3>Рядовой / Сержант</h3><p>Основной боевой состав. Участие в патрулях и операциях.</p></div>
-                    <div class="card"><div class="card-icon" style="color:#b8342a;"><i class="fas fa-medal"></i></div><h3>Офицерский состав</h3><p>Лейтенант / Капитан. Командование отрядами, планирование операций.</p></div>
-                    <div class="card"><div class="card-icon" style="color:#7ba05b;"><i class="fas fa-crown"></i></div><h3>Командование</h3><p>Полковник / Генерал. Управление проектом и подразделением.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><h3>Рядовой / Сержант</h3><p>Основной боевой состав. Участие в патрулях и операциях.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-medal"></i></div><h3>Офицерский состав</h3><p>Лейтенант / Капитан. Командование отрядами, планирование операций.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-crown"></i></div><h3>Командование</h3><p>Полковник / Генерал. Управление проектом и подразделением.</p></div>
+                </div>
+
+                <h2>Быстрые действия</h2>
+                <div class="cards-grid">
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('operations')"><div class="card-icon"><i class="fas fa-crosshairs"></i></div><h3>Операции</h3><p>Список активных и запланированных боевых операций.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('apply')"><div class="card-icon"><i class="fas fa-file-signature"></i></div><h3>Рапорт о зачислении</h3><p>Подать рапорт на вступление в подразделение.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('rules')"><div class="card-icon"><i class="fas fa-scroll"></i></div><h3>Устав</h3><p>Правила поведения и боевой работы.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('partners')"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Союзники</h3><p>Партнёры проекта и Discord-сервер.</p></div>
                 </div>
             </div>
         `;
@@ -1280,17 +1479,14 @@
     function renderFactions() {
         const content = document.getElementById('content');
         const factions = [
-            { name: 'Сирийская Арабская Армия', tag: 'SAA', icon: 'fa-flag', color: '#c9a961', desc: 'Официальные вооружённые силы Сирии. Основная фракция проекта. Контроль территорий, борьба с незаконными формированиями.' },
-            { name: 'Группировка ВС РФ', tag: 'ВС РФ', icon: 'fa-shield-alt', color: '#7ba05b', desc: 'Российская военная группировка. Оказание поддержки союзным силам, спецоперации, координация с SAA.' },
-            { name: 'Военная полиция', tag: 'МП', icon: 'fa-shield-halved', color: '#b8342a', desc: 'Подразделение военной полиции. Охрана объектов, контроль порядка, работа с пленными и гражданскими.' },
-            { name: 'Гражданские', tag: 'CIV', icon: 'fa-user-friends', color: '#8a8a70', desc: 'Мирное население Сирии. Бытовые RP-сцены, взаимодействие с военными, гуманитарные миссии.' }
+            { name: 'Сирийская Арабская Армия', tag: 'SAA', icon: 'fa-flag', desc: 'Официальные вооружённые силы Сирии. Основная фракция проекта.' },
+            { name: 'Группировка ВС РФ', tag: 'ВС РФ', icon: 'fa-shield-alt', desc: 'Российская военная группировка. Поддержка союзных сил.' },
+            { name: 'Военная полиция', tag: 'МП', icon: 'fa-shield-halved', desc: 'Охрана объектов, контроль порядка, работа с гражданскими.' },
+            { name: 'Гражданские', tag: 'CIV', icon: 'fa-user-friends', desc: 'Мирное население. Бытовые RP-сцены, гуманитарные миссии.' }
         ];
-
         let list = factions.map(f => `
-            <div class="card" style="border-left: 4px solid ${f.color};">
-                <div class="card-icon" style="color:${f.color}; background: rgba(255,255,255,0.03);">
-                    <i class="fas ${f.icon}"></i>
-                </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas ${f.icon}"></i></div>
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
                     <h3 style="margin:0;">${f.name}</h3>
                     <span class="tag-pill gold">${f.tag}</span>
@@ -1298,11 +1494,10 @@
                 <p>${f.desc}</p>
             </div>
         `).join('');
-
         content.innerHTML = `
-            <div class="content-header"><h1>Фракции</h1><div class="breadcrumb">// РАЗЛОМ · <span>Игровые фракции</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-flag"></i> Доступные фракции (${factions.length})</div>
+            ${heroBlock('Фракции', 'Игровые фракции проекта РАЗЛОМ.im', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Народно-правовые акты</h1><div class="breadcrumb">// РАЗЛОМ · <span>Фракции</span></div></div>
                 <div class="cards-grid">${list}</div>
             </div>
         `;
@@ -1312,9 +1507,8 @@
     function renderOperations() {
         const content = document.getElementById('content');
         const ops = DB.getOperations().slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-
         let list = ops.length === 0
-            ? `<div style="text-align:center; padding:60px; color:var(--text-dim);"><i class="fas fa-crosshairs" style="font-size:3rem; opacity:0.3; display:block; margin-bottom:16px;"></i>Операций пока нет</div>`
+            ? '<p style="text-align:center; padding:40px; color:#777;">Операций пока нет</p>'
             : ops.map(o => `
                 <div class="event-card">
                     <div class="event-status ${o.status}"></div>
@@ -1322,52 +1516,49 @@
                         <h4>${escapeHtml(o.title)}</h4>
                         <p>${escapeHtml(o.desc)}</p>
                         <div class="event-meta">
-                            <span><i class="fas fa-calendar"></i> ${new Date(o.date).toLocaleString('ru-RU')}</span>
-                            <span><i class="fas fa-map-marker-alt"></i> ${escapeHtml(o.region)}</span>
-                            <span><i class="fas fa-circle" style="color:${o.status === 'active' ? '#7ba05b' : o.status === 'planned' ? '#c9a961' : '#8a8a70'}; font-size:0.5rem;"></i> ${o.status === 'active' ? 'Идёт сейчас' : o.status === 'planned' ? 'Запланирована' : 'Завершена'}</span>
+                            <span><i class="fas fa-calendar"></i>${new Date(o.date).toLocaleString('ru-RU')}</span>
+                            <span><i class="fas fa-map-marker-alt"></i>${escapeHtml(o.region)}</span>
                         </div>
                     </div>
                 </div>
             `).join('');
-
         content.innerHTML = `
-            <div class="content-header"><h1>Операции</h1><div class="breadcrumb">// РАЗЛОМ · <span>Расписание</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-crosshairs"></i> Боевые операции (${ops.length})</div>
+            ${heroBlock('Регламенты', 'Расписание боевых операций', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Регламенты проведения операций</h1><div class="breadcrumb">// РАЗЛОМ · <span>Операции</span></div></div>
                 ${list}
             </div>
         `;
     }
 
-    // ============ СВОДКИ ============
+    // ============ НОВОСТИ ============
     function renderNews() {
         const content = document.getElementById('content');
         const news = DB.getNews().slice().reverse();
         const canPost = isAdminUser() || hasPermission('permManageOperations');
-
         let list = news.length === 0
-            ? `<div style="text-align:center; padding:60px; color:var(--text-dim);">Сводок пока нет</div>`
+            ? '<p style="text-align:center; padding:40px; color:#777;">Сводок пока нет</p>'
             : news.map(n => `
-                <div class="panel" style="margin-bottom:14px;">
-                    <div style="display:flex; justify-content:space-between; align-items:start; gap:16px; flex-wrap:wrap; margin-bottom:12px;">
-                        <h3 style="font-family:'Oswald'; font-size:1.1rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;">${escapeHtml(n.title)}</h3>
-                        <span style="font-size:0.7rem; color:var(--text-dim); font-family:'Share Tech Mono';">${escapeHtml(n.date)} · ${escapeHtml(n.author)}</span>
-                    </div>
-                    <p style="color:var(--text-dim); font-size:0.9rem; line-height:1.7;">${escapeHtml(n.text)}</p>
+                <div class="panel">
+                    <h3 style="color:#8B0000;">${escapeHtml(n.title)}</h3>
+                    <p style="color:#777; font-size:0.85rem; font-style:italic;">${escapeHtml(n.date)} · ${escapeHtml(n.author)}</p>
+                    <p style="margin-top:12px;">${escapeHtml(n.text)}</p>
                 </div>
             `).join('');
-
         content.innerHTML = `
-            <div class="content-header"><h1>Сводки</h1><div class="breadcrumb">// РАЗЛОМ · <span>Новости</span></div></div>
-            ${canPost ? `
-                <div class="panel">
-                    <div class="panel-title"><i class="fas fa-plus"></i> Опубликовать сводку</div>
-                    <div class="form-group"><input type="text" id="newsTitle" placeholder="Заголовок" /></div>
-                    <div class="form-group"><textarea id="newsText" rows="4" placeholder="Текст сводки..."></textarea></div>
-                    <button class="btn btn-primary" onclick="publishNews()"><i class="fas fa-paper-plane"></i> Опубликовать</button>
-                </div>
-            ` : ''}
-            <div>${list}</div>
+            ${heroBlock('Государственные награды', 'Сводки командования', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Сводки командования</h1><div class="breadcrumb">// РАЗЛОМ · <span>Новости</span></div></div>
+                ${canPost ? `
+                    <div class="panel">
+                        <div class="panel-title"><i class="fas fa-plus"></i> Опубликовать сводку</div>
+                        <div class="form-group"><input type="text" id="newsTitle" placeholder="Заголовок" /></div>
+                        <div class="form-group"><textarea id="newsText" rows="4" placeholder="Текст сводки..."></textarea></div>
+                        <button class="btn btn-primary" onclick="publishNews()"><i class="fas fa-paper-plane"></i> Опубликовать</button>
+                    </div>
+                ` : ''}
+                ${list}
+            </div>
         `;
     }
 
@@ -1379,7 +1570,7 @@
         const news = DB.getNews();
         news.push({ id: 'N-' + Date.now(), title, text, date: new Date().toLocaleString('ru-RU'), author: currentUser.username });
         DB.setNews(news);
-        DB.addLog(`📰 ${currentUser.username} опубликовал сводку: ${title}`);
+        DB.addLog(`Опубликована сводка: ${title}`);
         showToast('Опубликовано', title, 'success');
         renderNews();
     };
@@ -1391,7 +1582,6 @@
             const order = ['Генерал', 'Полковник', 'Капитан', 'Лейтенант', 'Сержант', 'Рядовой', 'Рекрут'];
             return order.indexOf(a.rank) - order.indexOf(b.rank);
         });
-
         let list = users.map(u => `
             <div class="member-card">
                 ${userAvatarHtml(u, 'member-avatar')}
@@ -1405,11 +1595,10 @@
                 </div>
             </div>
         `).join('');
-
         content.innerHTML = `
-            <div class="content-header"><h1>Личный состав</h1><div class="breadcrumb">// РАЗЛОМ · <span>Сослуживцы</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-users"></i> Всего бойцов: ${users.length}</div>
+            ${heroBlock('Уставы подразделений', 'Личный состав проекта', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Личный состав</h1><div class="breadcrumb">// РАЗЛОМ · <span>Сослуживцы</span></div></div>
                 <div class="form-group">
                     <input type="text" id="personnelSearch" placeholder="Поиск по позывному..." oninput="filterPersonnel()" />
                 </div>
@@ -1424,29 +1613,22 @@
             const order = ['Генерал', 'Полковник', 'Капитан', 'Лейтенант', 'Сержант', 'Рядовой', 'Рекрут'];
             return order.indexOf(a.rank) - order.indexOf(b.rank);
         }).filter(u => u.username.toLowerCase().includes(q));
-
         const list = users.map(u => `
             <div class="member-card">
                 ${userAvatarHtml(u, 'member-avatar')}
                 <div class="member-info">
-                    <div class="member-name">
-                        ${escapeHtml(u.username)}
-                        ${renderRoleBadge(u.rank)}
-                        ${renderTagsHtml(u.tags)}
-                    </div>
-                    <div class="member-meta">ID: ${escapeHtml(u.id)} · Зачислен: ${escapeHtml(u.registered || '—')}</div>
+                    <div class="member-name">${escapeHtml(u.username)} ${renderRoleBadge(u.rank)} ${renderTagsHtml(u.tags)}</div>
+                    <div class="member-meta">ID: ${escapeHtml(u.id)}</div>
                 </div>
             </div>
         `).join('');
-
-        document.getElementById('personnelList').innerHTML = list || '<p style="color:var(--text-dim);">Никого не найдено.</p>';
+        document.getElementById('personnelList').innerHTML = list || '<p style="color:#777;">Никого не найдено.</p>';
     };
 
-    // ============ РАПОРТ (пользователь) ============
+    // ============ РАПОРТ ============
     function renderApply() {
         const content = document.getElementById('content');
         const myApps = DB.getApps().filter(a => a.userId === currentUser.id);
-
         let myAppsHtml = myApps.length > 0
             ? myApps.map(a => `
                 <div class="application-card">
@@ -1454,56 +1636,43 @@
                     <div class="application-field"><span class="label">Дата:</span> ${escapeHtml(a.date)}</div>
                 </div>
             `).join('')
-            : '<p style="color:var(--text-dim); font-size:0.9rem;">У вас пока нет рапортов.</p>';
-
+            : '<p style="color:#777;">У вас пока нет рапортов.</p>';
         content.innerHTML = `
-            <div class="content-header"><h1>Рапорт о зачислении</h1><div class="breadcrumb">// РАЗЛОМ · <span>Вступление</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-file-signature"></i> Подать рапорт</div>
+            ${heroBlock('Рапорт о зачислении', 'Подать рапорт в подразделение', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Рапорт о зачислении</h1><div class="breadcrumb">// РАЗЛОМ · <span>Вступление</span></div></div>
                 <div class="cards-grid">
                     <div class="card">
-                        <div class="card-icon" style="color:#7ba05b;"><i class="fas fa-user-shield"></i></div>
+                        <div class="card-icon"><i class="fas fa-user-shield"></i></div>
                         <h3>Боец</h3>
-                        <p>Зачисление в основной состав подразделения. Участие в патрулях и операциях.</p>
-                        <button class="btn btn-olive btn-full" style="margin-top:14px;" onclick="openApplyMemberModal()">Подать рапорт</button>
+                        <p>Зачисление в основной состав подразделения.</p>
+                        <button class="btn btn-olive btn-full" style="margin-top:14px;" onclick="document.getElementById('applyMemberModal').classList.remove('hidden')">Подать рапорт</button>
                     </div>
                     <div class="card">
-                        <div class="card-icon" style="color:#b8342a;"><i class="fas fa-medal"></i></div>
+                        <div class="card-icon"><i class="fas fa-medal"></i></div>
                         <h3>Офицерский состав</h3>
-                        <p>Командование отрядами, планирование операций. Требуется опыт.</p>
-                        <button class="btn btn-red btn-full" style="margin-top:14px;" onclick="openApplyStaffModal()">Подать рапорт</button>
+                        <p>Командование отрядами, планирование операций.</p>
+                        <button class="btn btn-red btn-full" style="margin-top:14px;" onclick="document.getElementById('applyStaffModal').classList.remove('hidden')">Подать рапорт</button>
                     </div>
                 </div>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-list"></i> Мои рапорты</div>
+                <h2>Мои рапорты</h2>
                 ${myAppsHtml}
             </div>
         `;
     }
 
-    window.openApplyMemberModal = function() { document.getElementById('applyMemberModal').classList.remove('hidden'); };
     window.closeApplyMemberModal = function() { document.getElementById('applyMemberModal').classList.add('hidden'); };
-    window.openApplyStaffModal = function() { document.getElementById('applyStaffModal').classList.remove('hidden'); };
     window.closeApplyStaffModal = function() { document.getElementById('applyStaffModal').classList.add('hidden'); };
 
     document.getElementById('applyMemberForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const apps = DB.getApps();
-        apps.push({
-            id: 'APP-' + Date.now(),
-            userId: currentUser.id,
-            username: currentUser.username,
-            type: 'Боец',
-            age: document.getElementById('applyAge').value,
-            steam: document.getElementById('applySteam').value,
-            exp: document.getElementById('applyExp').value,
-            why: document.getElementById('applyWhy').value,
-            status: 'pending',
-            date: new Date().toLocaleString('ru-RU')
-        });
+        apps.push({ id: 'APP-' + Date.now(), userId: currentUser.id, username: currentUser.username, type: 'Боец',
+            age: document.getElementById('applyAge').value, steam: document.getElementById('applySteam').value,
+            exp: document.getElementById('applyExp').value, why: document.getElementById('applyWhy').value,
+            status: 'pending', date: new Date().toLocaleString('ru-RU') });
         DB.setApps(apps);
-        DB.addLog(`📝 ${currentUser.username} подал рапорт на зачисление (Боец)`);
+        DB.addLog(`Подал рапорт (Боец): ${currentUser.username}`);
         showToast('Рапорт отправлен', 'Ожидайте рассмотрения', 'success');
         closeApplyMemberModal();
         this.reset();
@@ -1514,20 +1683,12 @@
     document.getElementById('applyStaffForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const apps = DB.getApps();
-        apps.push({
-            id: 'APP-' + Date.now(),
-            userId: currentUser.id,
-            username: currentUser.username,
-            type: 'Офицер',
-            age: document.getElementById('applyStaffAge').value,
-            steam: document.getElementById('applyStaffSteam').value,
-            exp: document.getElementById('applyStaffExp').value,
-            why: document.getElementById('applyStaffWhy').value,
-            status: 'pending',
-            date: new Date().toLocaleString('ru-RU')
-        });
+        apps.push({ id: 'APP-' + Date.now(), userId: currentUser.id, username: currentUser.username, type: 'Офицер',
+            age: document.getElementById('applyStaffAge').value, steam: document.getElementById('applyStaffSteam').value,
+            exp: document.getElementById('applyStaffExp').value, why: document.getElementById('applyStaffWhy').value,
+            status: 'pending', date: new Date().toLocaleString('ru-RU') });
         DB.setApps(apps);
-        DB.addLog(`📝 ${currentUser.username} подал рапорт (Офицер)`);
+        DB.addLog(`Подал рапорт (Офицер): ${currentUser.username}`);
         showToast('Рапорт отправлен', 'Ожидайте рассмотрения', 'success');
         closeApplyStaffModal();
         this.reset();
@@ -1535,27 +1696,22 @@
         renderApply();
     });
 
-    // ============ РАПОРТЫ (админ) ============
+    // ============ РАПОРТЫ (АДМИН) ============
     function renderApplications() {
         if (!isAdminUser() && !hasPermission('permViewApps')) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
         const apps = DB.getApps().slice().reverse();
-
         let list = apps.length === 0
-            ? '<p style="color:var(--text-dim);">Рапортов пока нет</p>'
+            ? '<p style="color:#777;">Рапортов пока нет</p>'
             : apps.map(a => `
                 <div class="application-card">
-                    <h4>
-                        ${escapeHtml(a.username)} · ${escapeHtml(a.type)}
-                        <span class="role-badge ${a.status === 'approved' ? 'member' : a.status === 'rejected' ? 'staff' : 'user'}">
-                            ${a.status === 'approved' ? 'Одобрен' : a.status === 'rejected' ? 'Отклонён' : 'На рассмотрении'}
-                        </span>
+                    <h4>${escapeHtml(a.username)} · ${escapeHtml(a.type)}
+                        <span class="role-badge ${a.status === 'approved' ? 'member' : a.status === 'rejected' ? 'staff' : 'user'}">${a.status === 'approved' ? 'Одобрен' : a.status === 'rejected' ? 'Отклонён' : 'На рассмотрении'}</span>
                     </h4>
                     <div class="application-field"><span class="label">Возраст:</span> ${escapeHtml(a.age || '—')}</div>
-                    <div class="application-field"><span class="label">Steam/Discord:</span> ${escapeHtml(a.steam || '—')}</div>
+                    <div class="application-field"><span class="label">Steam:</span> ${escapeHtml(a.steam || '—')}</div>
                     <div class="application-field"><span class="label">Опыт:</span> ${escapeHtml(a.exp || '—')}</div>
                     <div class="application-field"><span class="label">Причина:</span> ${escapeHtml(a.why || '—')}</div>
                     <div class="application-field"><span class="label">Дата:</span> ${escapeHtml(a.date)}</div>
@@ -1567,11 +1723,10 @@
                     ` : ''}
                 </div>
             `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Рапорты</h1><div class="breadcrumb">// РАЗЛОМ · <span>Заявки</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-inbox"></i> Все рапорты (${apps.length})</div>
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Рапорты', 'Заявки на вступление', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Рапорты</h1><div class="breadcrumb">// РАЗЛОМ · <span>Заявки</span></div></div>
                 ${list}
             </div>
         `;
@@ -1584,7 +1739,6 @@
         if (!app) return;
         app.status = 'approved';
         DB.setApps(apps);
-
         const users = DB.getUsers();
         const user = users.find(u => u.id === app.userId);
         if (user) {
@@ -1593,8 +1747,7 @@
             DB.setUsers(users);
             if (currentUser.id === user.id) { currentUser = user; DB.setCurrent(user); updateTopProfile(); }
         }
-
-        DB.addLog(`✅ ${currentUser.username} одобрил рапорт ${app.username}`);
+        DB.addLog(`Одобрен рапорт: ${app.username}`);
         showToast('Одобрено', app.username, 'success');
         updateAppBadge();
         renderApplications();
@@ -1607,7 +1760,7 @@
         if (!app) return;
         app.status = 'rejected';
         DB.setApps(apps);
-        DB.addLog(`❌ ${currentUser.username} отклонил рапорт ${app.username}`);
+        DB.addLog(`Отклонён рапорт: ${app.username}`);
         showToast('Отклонено', app.username, 'danger');
         updateAppBadge();
         renderApplications();
@@ -1616,12 +1769,10 @@
     // ============ УПРАВЛЕНИЕ ЛС ============
     function renderManageMembers() {
         if (!isAdminUser() && !hasPermission('permManageMembers')) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
         const users = DB.getUsers();
-
         let list = users.map(u => `
             <div class="member-card">
                 ${userAvatarHtml(u, 'member-avatar')}
@@ -1632,21 +1783,30 @@
                         ${renderTagsHtml(u.tags)}
                         ${u.isAdmin ? '<span class="tag-pill red">ADMIN</span>' : ''}
                     </div>
-                    <div class="member-meta">ID: ${escapeHtml(u.id)} · Зарегистрирован: ${escapeHtml(u.registered || '—')}</div>
+                    <div class="member-meta">ID: ${escapeHtml(u.id)} · Регистрация: ${escapeHtml(u.registered || '—')}</div>
                 </div>
                 <div class="member-actions">
                     <button class="btn btn-ghost btn-sm" onclick="openEditMemberModal('${u.id}')"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-ghost btn-sm" onclick="toggleAdmin('${u.id}')" title="Права администратора"><i class="fas fa-crown" style="color:${u.isAdmin ? '#c9a961' : 'inherit'};"></i></button>
+                    <button class="btn btn-ghost btn-sm" onclick="toggleAdmin('${u.id}')"><i class="fas fa-crown"></i></button>
                     ${!isFounder() || u.username === currentUser.username ? '' : `<button class="btn btn-red btn-sm" onclick="deleteUser('${u.id}')"><i class="fas fa-trash"></i></button>`}
                 </div>
             </div>
         `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Управление ЛС</h1><div class="breadcrumb">// РАЗЛОМ · <span>Личный состав</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-user-cog"></i> Всего бойцов: ${users.length}</div>
-                ${list}
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Командование', 'Управление личным составом', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Командование · Личный состав</h1><div class="breadcrumb">// РАЗЛОМ · <span>Управление</span></div></div>
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-user-cog"></i> Всего: ${users.length}</div>
+                    ${list}
+                </div>
+                <h2>Разделы управления</h2>
+                <div class="cards-grid">
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('manage_operations')"><div class="card-icon"><i class="fas fa-crosshairs"></i></div><h3>Операции</h3><p>Создание и редактирование операций.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('manage_roles')"><div class="card-icon"><i class="fas fa-medal"></i></div><h3>Звания</h3><p>Управление званиями и правами.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('manage_tags')"><div class="card-icon"><i class="fas fa-award"></i></div><h3>Награды</h3><p>Управление наградами.</p></div>
+                    <div class="card" style="cursor:pointer;" onclick="switchSection('adminlogs')"><div class="card-icon"><i class="fas fa-terminal"></i></div><h3>Журнал</h3><p>История действий.</p></div>
+                </div>
             </div>
         `;
     }
@@ -1656,38 +1816,19 @@
         if (!user) return;
         document.getElementById('editMemberId').value = user.id;
         document.getElementById('editMemberName').value = user.username;
-
         const roleSelect = document.getElementById('editMemberRole');
         roleSelect.innerHTML = roles.map(r => `<option value="${escapeHtml(r.name)}" ${r.name === user.rank ? 'selected' : ''}>${escapeHtml(r.name)}</option>`).join('');
-
         const preview = document.getElementById('editMemberPreview');
-        if (user.avatar) {
-            preview.style.backgroundImage = `url('${user.avatar}')`;
-            preview.textContent = '';
-        } else {
-            preview.style.backgroundImage = 'none';
-            preview.textContent = getInitials(user.username);
-        }
-
+        if (user.avatar) { preview.style.backgroundImage = `url('${user.avatar}')`; preview.textContent = ''; }
+        else { preview.style.backgroundImage = 'none'; preview.textContent = getInitials(user.username); }
         const tagsBox = document.getElementById('editMemberTags');
-        tagsBox.innerHTML = tags.map(t => `
-            <label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.85rem;">
-                <input type="checkbox" value="${t.id}" ${user.tags && user.tags.includes(t.id) ? 'checked' : ''} />
-                <span class="tag-pill ${t.color}">${escapeHtml(t.name)}</span>
-            </label>
-        `).join('');
-
+        tagsBox.innerHTML = tags.map(t => `<label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.9rem;"><input type="checkbox" value="${t.id}" ${user.tags && user.tags.includes(t.id) ? 'checked' : ''} /> <span class="tag-pill ${t.color}">${escapeHtml(t.name)}</span></label>`).join('');
         document.getElementById('editMemberModal').classList.remove('hidden');
     };
-
-    window.closeEditMemberModal = function() {
-        document.getElementById('editMemberModal').classList.add('hidden');
-    };
-
+    window.closeEditMemberModal = function() { document.getElementById('editMemberModal').classList.add('hidden'); };
     let editMemberAvatarData = null;
     document.getElementById('editMemberAvatar').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (!file) return;
+        const file = e.target.files[0]; if (!file) return;
         const reader = new FileReader();
         reader.onload = (ev) => {
             editMemberAvatarData = ev.target.result;
@@ -1697,7 +1838,6 @@
         };
         reader.readAsDataURL(file);
     });
-
     document.getElementById('editMemberForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (!isAdminUser() && !hasPermission('permManageMembers')) { showToast('Отказано', '', 'danger'); return; }
@@ -1705,48 +1845,37 @@
         const users = DB.getUsers();
         const user = users.find(u => u.id === userId);
         if (!user) return;
-
         user.username = document.getElementById('editMemberName').value.trim();
         user.rank = document.getElementById('editMemberRole').value;
         if (editMemberAvatarData) user.avatar = editMemberAvatarData;
-
-        const selectedTags = Array.from(document.querySelectorAll('#editMemberTags input:checked')).map(i => i.value);
-        user.tags = selectedTags;
-
+        user.tags = Array.from(document.querySelectorAll('#editMemberTags input:checked')).map(i => i.value);
         DB.setUsers(users);
-        if (currentUser.id === userId) {
-            currentUser = user;
-            DB.setCurrent(user);
-            updateTopProfile();
-        }
-        DB.addLog(`✏️ ${currentUser.username} отредактировал профиль ${user.username}`);
+        if (currentUser.id === userId) { currentUser = user; DB.setCurrent(user); updateTopProfile(); }
+        DB.addLog(`Отредактирован профиль: ${user.username}`);
         showToast('Сохранено', 'Профиль обновлён', 'success');
         editMemberAvatarData = null;
         closeEditMemberModal();
         renderManageMembers();
     });
-
     window.toggleAdmin = function(userId) {
-        if (!isFounder()) { showToast('Отказано', 'Только основатель может выдавать админ-права', 'danger'); return; }
+        if (!isFounder()) { showToast('Отказано', 'Только основатель', 'danger'); return; }
         const users = DB.getUsers();
         const user = users.find(u => u.id === userId);
         if (!user) return;
         user.isAdmin = !user.isAdmin;
         DB.setUsers(users);
-        DB.addLog(`${user.isAdmin ? '👑' : '❌'} ${currentUser.username} ${user.isAdmin ? 'выдал' : 'снял'} админ-права ${user.username}`);
-        showToast('Готово', `${user.username}: админ-права ${user.isAdmin ? 'выданы' : 'сняты'}`, 'success');
+        DB.addLog(`${user.isAdmin ? 'Выдал' : 'Снял'} админ-права: ${user.username}`);
+        showToast('Готово', `${user.username}: ${user.isAdmin ? 'выданы' : 'сняты'}`, 'success');
         renderManageMembers();
         updatePermissionsUI();
     };
-
     window.deleteUser = function(userId) {
         if (!isFounder()) { showToast('Отказано', '', 'danger'); return; }
         const user = DB.getUsers().find(u => u.id === userId);
         if (!user) return;
-        showConfirm('Удалить бойца?', `Боец ${user.username} будет удалён безвозвратно.`, () => {
-            const users = DB.getUsers().filter(u => u.id !== userId);
-            DB.setUsers(users);
-            DB.addLog(`🗑️ ${currentUser.username} удалил бойца ${user.username}`);
+        showConfirm('Удалить бойца?', `${user.username} будет удалён.`, () => {
+            DB.setUsers(DB.getUsers().filter(u => u.id !== userId));
+            DB.addLog(`Удалён боец: ${user.username}`);
             showToast('Удалено', user.username, 'danger');
             renderManageMembers();
         });
@@ -1755,51 +1884,41 @@
     // ============ УПРАВЛЕНИЕ ОПЕРАЦИЯМИ ============
     function renderManageOperations() {
         if (!isAdminUser() && !hasPermission('permManageOperations')) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
         const ops = DB.getOperations();
-
-        let list = ops.length === 0
-            ? '<p style="color:var(--text-dim);">Операций пока нет</p>'
+        let list = ops.length === 0 ? '<p style="color:#777;">Операций пока нет</p>'
             : ops.map(o => `
                 <div class="event-card">
                     <div class="event-status ${o.status}"></div>
                     <div class="event-info">
                         <h4>${escapeHtml(o.title)}</h4>
                         <p>${escapeHtml(o.desc)}</p>
-                        <div class="event-meta">
-                            <span><i class="fas fa-calendar"></i> ${new Date(o.date).toLocaleString('ru-RU')}</span>
-                            <span><i class="fas fa-map-marker-alt"></i> ${escapeHtml(o.region)}</span>
-                        </div>
+                        <div class="event-meta"><span><i class="fas fa-calendar"></i>${new Date(o.date).toLocaleString('ru-RU')}</span><span><i class="fas fa-map-marker-alt"></i>${escapeHtml(o.region)}</span></div>
                     </div>
-                    <div class="event-actions">
+                    <div class="member-actions">
                         <button class="btn btn-ghost btn-sm" onclick="openOperationModal('${o.id}')"><i class="fas fa-edit"></i></button>
                         <button class="btn btn-red btn-sm" onclick="deleteOperation('${o.id}')"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
             `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Управление операциями</h1><div class="breadcrumb">// РАЗЛОМ · <span>Операции</span></div></div>
-            <div class="panel">
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Командование', 'Управление операциями', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Операции</h1><div class="breadcrumb">// РАЗЛОМ · <span>Управление</span></div></div>
                 <button class="btn btn-primary" onclick="openOperationModal()"><i class="fas fa-plus"></i> Новая операция</button>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-crosshairs"></i> Все операции (${ops.length})</div>
-                ${list}
+                <div style="margin-top:20px;">${list}</div>
             </div>
         `;
     }
-
     window.openOperationModal = function(editId) {
         const modal = document.getElementById('operationModal');
         const title = document.getElementById('operationModalTitle');
         if (editId) {
             const op = DB.getOperations().find(o => o.id === editId);
             if (!op) return;
-            title.innerHTML = '<i class="fas fa-edit"></i> Редактировать операцию';
+            title.innerHTML = '<i class="fas fa-edit"></i> Редактировать';
             document.getElementById('operationEditId').value = op.id;
             document.getElementById('operationTitle').value = op.title;
             document.getElementById('operationDesc').value = op.desc;
@@ -1813,17 +1932,12 @@
         }
         modal.classList.remove('hidden');
     };
-
-    window.closeOperationModal = function() {
-        document.getElementById('operationModal').classList.add('hidden');
-    };
-
+    window.closeOperationModal = function() { document.getElementById('operationModal').classList.add('hidden'); };
     document.getElementById('operationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (!isAdminUser() && !hasPermission('permManageOperations')) { showToast('Отказано', '', 'danger'); return; }
         const editId = document.getElementById('operationEditId').value;
         const ops = DB.getOperations();
-
         const data = {
             title: document.getElementById('operationTitle').value.trim(),
             desc: document.getElementById('operationDesc').value.trim(),
@@ -1831,29 +1945,26 @@
             region: document.getElementById('operationRegion').value,
             status: document.getElementById('operationStatus').value
         };
-
         if (editId) {
             const op = ops.find(o => o.id === editId);
             if (op) Object.assign(op, data);
-            DB.addLog(`✏️ ${currentUser.username} изменил операцию: ${data.title}`);
-            showToast('Сохранено', 'Операция обновлена', 'success');
+            DB.addLog(`Изменена операция: ${data.title}`);
         } else {
             ops.push({ id: 'OP-' + Date.now(), ...data });
-            DB.addLog(`➕ ${currentUser.username} создал операцию: ${data.title}`);
-            showToast('Создано', data.title, 'success');
+            DB.addLog(`Создана операция: ${data.title}`);
         }
         DB.setOperations(ops);
         closeOperationModal();
         renderManageOperations();
+        showToast('Сохранено', data.title, 'success');
     });
-
     window.deleteOperation = function(opId) {
         if (!isAdminUser() && !hasPermission('permManageOperations')) { showToast('Отказано', '', 'danger'); return; }
         const op = DB.getOperations().find(o => o.id === opId);
         if (!op) return;
         showConfirm('Удалить операцию?', `"${op.title}" будет удалена.`, () => {
             DB.setOperations(DB.getOperations().filter(o => o.id !== opId));
-            DB.addLog(`🗑️ ${currentUser.username} удалил операцию: ${op.title}`);
+            DB.addLog(`Удалена операция: ${op.title}`);
             showToast('Удалено', op.title, 'danger');
             renderManageOperations();
         });
@@ -1862,19 +1973,14 @@
     // ============ УПРАВЛЕНИЕ ЗВАНИЯМИ ============
     function renderManageRoles() {
         if (!isAdminUser() && !hasPermission('permManageRoles')) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
-
         let list = roles.map(r => `
             <div class="member-card">
-                <div class="member-avatar" style="background:var(--gradient);"><i class="fas fa-medal"></i></div>
+                <div class="member-avatar"><i class="fas fa-medal"></i></div>
                 <div class="member-info">
-                    <div class="member-name">
-                        ${escapeHtml(r.name)}
-                        <span class="role-badge ${r.color}">${r.color}</span>
-                    </div>
+                    <div class="member-name">${escapeHtml(r.name)} <span class="role-badge ${r.color}">${r.color}</span></div>
                     <div class="member-meta">Права: ${Object.keys(r.perms || {}).filter(k => r.perms[k]).join(', ') || 'нет'}</div>
                 </div>
                 <div class="member-actions">
@@ -1883,19 +1989,15 @@
                 </div>
             </div>
         `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Управление званиями</h1><div class="breadcrumb">// РАЗЛОМ · <span>Звания</span></div></div>
-            <div class="panel">
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Командование', 'Управление званиями', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Звания</h1><div class="breadcrumb">// РАЗЛОМ · <span>Управление</span></div></div>
                 <button class="btn btn-primary" onclick="openRoleModal()"><i class="fas fa-plus"></i> Создать звание</button>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-medal"></i> Все звания (${roles.length})</div>
-                ${list}
+                <div style="margin-top:20px;">${list}</div>
             </div>
         `;
     }
-
     window.openRoleModal = function(editId) {
         const modal = document.getElementById('roleModal');
         const title = document.getElementById('roleModalTitle');
@@ -1920,11 +2022,7 @@
         }
         modal.classList.remove('hidden');
     };
-
-    window.closeRoleModal = function() {
-        document.getElementById('roleModal').classList.add('hidden');
-    };
-
+    window.closeRoleModal = function() { document.getElementById('roleModal').classList.add('hidden'); };
     document.getElementById('roleForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (!isAdminUser() && !hasPermission('permManageRoles')) { showToast('Отказано', '', 'danger'); return; }
@@ -1937,27 +2035,21 @@
             permManageTags: document.getElementById('permManageTags').checked,
             permAdmin: document.getElementById('permAdmin').checked
         };
-        const data = {
-            name: document.getElementById('roleName').value.trim(),
-            color: document.getElementById('roleColor').value,
-            perms
-        };
+        const data = { name: document.getElementById('roleName').value.trim(), color: document.getElementById('roleColor').value, perms };
         if (editId) {
             const role = roles.find(r => r.id === editId);
             if (role) Object.assign(role, data);
-            DB.addLog(`✏️ ${currentUser.username} изменил звание: ${data.name}`);
-            showToast('Сохранено', 'Звание обновлено', 'success');
+            DB.addLog(`Изменено звание: ${data.name}`);
         } else {
             roles.push({ id: 'r' + Date.now(), ...data });
-            DB.addLog(`➕ ${currentUser.username} создал звание: ${data.name}`);
-            showToast('Создано', data.name, 'success');
+            DB.addLog(`Создано звание: ${data.name}`);
         }
         DB.setRoles(roles);
         closeRoleModal();
         renderManageRoles();
         updatePermissionsUI();
+        showToast('Сохранено', data.name, 'success');
     });
-
     window.deleteRole = function(roleId) {
         if (!isAdminUser() && !hasPermission('permManageRoles')) { showToast('Отказано', '', 'danger'); return; }
         const role = roles.find(r => r.id === roleId);
@@ -1965,7 +2057,7 @@
         showConfirm('Удалить звание?', `"${role.name}" будет удалено.`, () => {
             roles = roles.filter(r => r.id !== roleId);
             DB.setRoles(roles);
-            DB.addLog(`🗑️ ${currentUser.username} удалил звание: ${role.name}`);
+            DB.addLog(`Удалено звание: ${role.name}`);
             showToast('Удалено', role.name, 'danger');
             renderManageRoles();
         });
@@ -1974,19 +2066,15 @@
     // ============ УПРАВЛЕНИЕ НАГРАДАМИ ============
     function renderManageTags() {
         if (!isAdminUser() && !hasPermission('permManageTags')) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
-
         let list = tags.map(t => `
             <div class="member-card">
-                <div class="member-avatar" style="background:var(--gradient);"><i class="fas fa-award"></i></div>
+                <div class="member-avatar"><i class="fas fa-award"></i></div>
                 <div class="member-info">
-                    <div class="member-name">
-                        <span class="tag-pill ${t.color}">${escapeHtml(t.name)}</span>
-                    </div>
-                    <div class="member-meta">${escapeHtml(t.desc || 'Без описания')}</div>
+                    <div class="member-name"><span class="tag-pill ${t.color}">${escapeHtml(t.name)}</span></div>
+                    <div class="member-meta">${escapeHtml(t.desc || '—')}</div>
                 </div>
                 <div class="member-actions">
                     <button class="btn btn-ghost btn-sm" onclick="openTagModal('${t.id}')"><i class="fas fa-edit"></i></button>
@@ -1994,19 +2082,15 @@
                 </div>
             </div>
         `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Управление наградами</h1><div class="breadcrumb">// РАЗЛОМ · <span>Награды</span></div></div>
-            <div class="panel">
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Командование', 'Управление наградами', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Награды</h1><div class="breadcrumb">// РАЗЛОМ · <span>Управление</span></div></div>
                 <button class="btn btn-primary" onclick="openTagModal()"><i class="fas fa-plus"></i> Создать награду</button>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-award"></i> Все награды (${tags.length})</div>
-                ${list}
+                <div style="margin-top:20px;">${list}</div>
             </div>
         `;
     }
-
     window.openTagModal = function(editId) {
         const modal = document.getElementById('tagModal');
         const title = document.getElementById('tagModalTitle');
@@ -2025,35 +2109,25 @@
         }
         modal.classList.remove('hidden');
     };
-
-    window.closeTagModal = function() {
-        document.getElementById('tagModal').classList.add('hidden');
-    };
-
+    window.closeTagModal = function() { document.getElementById('tagModal').classList.add('hidden'); };
     document.getElementById('tagForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (!isAdminUser() && !hasPermission('permManageTags')) { showToast('Отказано', '', 'danger'); return; }
         const editId = document.getElementById('tagEditId').value;
-        const data = {
-            name: document.getElementById('tagName').value.trim().toUpperCase(),
-            color: document.getElementById('tagColor').value,
-            desc: document.getElementById('tagDesc').value.trim()
-        };
+        const data = { name: document.getElementById('tagName').value.trim().toUpperCase(), color: document.getElementById('tagColor').value, desc: document.getElementById('tagDesc').value.trim() };
         if (editId) {
             const tag = tags.find(t => t.id === editId);
             if (tag) Object.assign(tag, data);
-            DB.addLog(`✏️ ${currentUser.username} изменил награду: ${data.name}`);
-            showToast('Сохранено', 'Награда обновлена', 'success');
+            DB.addLog(`Изменена награда: ${data.name}`);
         } else {
             tags.push({ id: 't' + Date.now(), ...data });
-            DB.addLog(`➕ ${currentUser.username} создал награду: ${data.name}`);
-            showToast('Создано', data.name, 'success');
+            DB.addLog(`Создана награда: ${data.name}`);
         }
         DB.setTags(tags);
         closeTagModal();
         renderManageTags();
+        showToast('Сохранено', data.name, 'success');
     });
-
     window.deleteTag = function(tagId) {
         if (!isAdminUser() && !hasPermission('permManageTags')) { showToast('Отказано', '', 'danger'); return; }
         const tag = tags.find(t => t.id === tagId);
@@ -2061,7 +2135,7 @@
         showConfirm('Удалить награду?', `"${tag.name}" будет удалена.`, () => {
             tags = tags.filter(t => t.id !== tagId);
             DB.setTags(tags);
-            DB.addLog(`🗑️ ${currentUser.username} удалил награду: ${tag.name}`);
+            DB.addLog(`Удалена награда: ${tag.name}`);
             showToast('Удалено', tag.name, 'danger');
             renderManageTags();
         });
@@ -2070,32 +2144,31 @@
     // ============ ЖУРНАЛ ============
     function renderAdminLogs() {
         if (!isAdminUser()) {
-            document.getElementById('content').innerHTML = '<div class="panel"><div class="alert alert-danger">Доступ запрещён</div></div>';
+            document.getElementById('content').innerHTML = '<div class="content"><div class="alert alert-danger">Доступ запрещён</div></div>';
             return;
         }
-        const content = document.getElementById('content');
         const logs = DB.getLogs().slice().reverse();
-
         let list = logs.length === 0
-            ? '<p style="color:var(--text-dim);">Журнал пуст</p>'
+            ? '<p style="color:#777;">Журнал пуст</p>'
             : logs.map(l => `
-                <div style="padding:10px 14px; border-bottom:1px solid var(--border); font-family:'Share Tech Mono', monospace; font-size:0.75rem;">
-                    <span style="color:var(--text-dim);">[${escapeHtml(l.date)}]</span>
-                    <span style="color:var(--accent); margin-left:8px;">${escapeHtml(l.author)}:</span>
+                <div style="padding:10px 14px; border-bottom:1px solid #e0e0e0; font-size:0.85rem;">
+                    <span style="color:#999;">[${escapeHtml(l.date)}]</span>
+                    <span style="color:#8B0000; margin-left:8px; font-weight:700;">${escapeHtml(l.author)}:</span>
                     <span style="margin-left:8px;">${escapeHtml(l.text)}</span>
                 </div>
             `).join('');
-
-        content.innerHTML = `
-            <div class="content-header"><h1>Журнал действий</h1><div class="breadcrumb">// РАЗЛОМ · <span>Логи</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-terminal"></i> Последние действия (${logs.length})</div>
-                <div style="max-height:600px; overflow-y:auto;">${list}</div>
-                ${logs.length > 0 ? '<button class="btn btn-red btn-sm" style="margin-top:16px;" onclick="clearLogs()"><i class="fas fa-trash"></i> Очистить журнал</button>' : ''}
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Командование', 'Журнал действий', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Журнал</h1><div class="breadcrumb">// РАЗЛОМ · <span>Логи</span></div></div>
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-terminal"></i> Всего: ${logs.length}</div>
+                    <div style="max-height:600px; overflow-y:auto;">${list}</div>
+                    ${logs.length > 0 ? '<button class="btn btn-red btn-sm" style="margin-top:16px;" onclick="clearLogs()"><i class="fas fa-trash"></i> Очистить</button>' : ''}
+                </div>
             </div>
         `;
     }
-
     window.clearLogs = function() {
         if (!isFounder()) { showToast('Отказано', '', 'danger'); return; }
         showConfirm('Очистить журнал?', 'Все записи будут удалены.', () => {
@@ -2108,55 +2181,44 @@
     // ============ УСТАВ ============
     function renderRules() {
         document.getElementById('content').innerHTML = `
-            <div class="content-header"><h1>Устав подразделения</h1><div class="breadcrumb">// РАЗЛОМ · <span>Правила</span></div></div>
+            ${heroBlock('Общевойсковой устав', 'Устав подразделения РАЗЛОМ.im', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Общевойсковой устав</h1><div class="breadcrumb">// РАЗЛОМ · <span>Устав</span></div></div>
 
-            <div class="disclaimer">
-                <strong>⚠ ВАЖНО:</strong> Все материалы носят исключительно исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие, национализм, расизм. Организации, упоминаемые как террористические, признаны таковыми и запрещены на территории РФ.
-            </div>
-
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-shield-alt"></i> I. Общие положения</div>
-                <ul style="color:var(--text-dim); font-size:0.9rem; line-height:1.9; padding-left:20px;">
+                <h2>I. Общие положения</h2>
+                <ul>
                     <li>Каждый боец обязан соблюдать уважение к сослуживцам и командованию.</li>
                     <li>Приказ командира — закон. Обсуждение приказов — только после выполнения.</li>
                     <li>Дисциплина и порядок — основа подразделения.</li>
                     <li>Запрещены NSFW-контент, политические провокации и разжигание конфликтов.</li>
                 </ul>
-            </div>
 
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-crosshairs"></i> II. Поведение в бою</div>
-                <ul style="color:var(--text-dim); font-size:0.9rem; line-height:1.9; padding-left:20px;">
+                <h2>II. Поведение в бою</h2>
+                <ul>
                     <li>Соблюдать тактику и приказы командира.</li>
                     <li>Не покидать позицию без приказа.</li>
                     <li>Оказывать помощь раненым бойцам.</li>
                     <li>Не открывать огонь по гражданским без приказа.</li>
                 </ul>
-            </div>
 
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-comments"></i> III. RP-взаимодействие</div>
-                <ul style="color:var(--text-dim); font-size:0.9rem; line-height:1.9; padding-left:20px;">
+                <h2>III. RP-взаимодействие</h2>
+                <ul>
                     <li>Соблюдать сеттинг и исторический контекст.</li>
                     <li>Не использовать MetaGaming и PowerGaming.</li>
                     <li>Не выходить из роли (NonRP) во время операций.</li>
                     <li>Уважать RP всех участников.</li>
                 </ul>
-            </div>
 
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-gavel"></i> IV. Наказания</div>
-                <ul style="color:var(--text-dim); font-size:0.9rem; line-height:1.9; padding-left:20px;">
+                <h2>IV. Наказания</h2>
+                <ul>
                     <li>Предупреждение — за мелкие нарушения.</li>
                     <li>Выговор — за повторные нарушения.</li>
                     <li>Понижение в звании — за серьёзные нарушения.</li>
                     <li>Увольнение (Ban) — за грубые нарушения и токсичность.</li>
                 </ul>
-            </div>
 
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-ban" style="color:#b8342a;"></i> V. Запрещено на проекте</div>
-                <ul style="color:var(--text-dim); font-size:0.9rem; line-height:1.9; padding-left:20px;">
+                <h2>V. Запрещено на проекте</h2>
+                <ul>
                     <li>Пропаганда терроризма, экстремизма, нацизма и любых запрещённых идеологий.</li>
                     <li>Разжигание межнациональной, религиозной и политической розни.</li>
                     <li>Публикация NSFW, шок-контента и материалов 18+.</li>
@@ -2170,57 +2232,135 @@
     // ============ СОЮЗНИКИ ============
     function renderPartners() {
         document.getElementById('content').innerHTML = `
-            <div class="content-header"><h1>Союзники</h1><div class="breadcrumb">// РАЗЛОМ · <span>Партнёры проекта</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-handshake"></i> Наши союзники</div>
+            ${heroBlock('Союзники', 'Партнёры проекта', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Союзники</h1><div class="breadcrumb">// РАЗЛОМ · <span>Партнёры</span></div></div>
                 <div class="cards-grid">
                     <div class="card">
                         <div class="card-icon"><i class="fab fa-discord"></i></div>
                         <h3>Discord сообщества</h3>
-                        <p>Официальный сервер проекта. Анонсы операций, общение, заявки.</p>
-                        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" class="btn btn-primary btn-sm" style="margin-top:12px;"><i class="fab fa-discord"></i> Присоединиться</a>
+                        <p>Официальный сервер проекта. Анонсы, общение, заявки.</p>
+                        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" class="btn btn-primary" style="margin-top:12px;"><i class="fab fa-discord"></i> Присоединиться</a>
                     </div>
                     <div class="card">
                         <div class="card-icon"><i class="fas fa-gamepad"></i></div>
                         <h3>Garry's Mod</h3>
                         <p>Основная платформа для проведения операций и RP-ивентов.</p>
-                        <a href="https://store.steampowered.com/app/4000/Garrys_Mod/" target="_blank" class="btn btn-olive btn-sm" style="margin-top:12px;"><i class="fab fa-steam"></i> Steam</a>
+                        <a href="https://store.steampowered.com/app/4000/Garrys_Mod/" target="_blank" class="btn btn-olive" style="margin-top:12px;"><i class="fab fa-steam"></i> Steam</a>
                     </div>
                 </div>
-            </div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-heart"></i> Поддержать проект</div>
-                <p style="color:var(--text-dim); font-size:0.9rem; line-height:1.8;">
-                    Основная поддержка — ваше участие в операциях и жизни проекта. Если есть возможность поддержать финансово — пишите командованию в Discord.
-                </p>
             </div>
         `;
     }
 
+    // ============ РАДИОСТАНЦИЯ ============
+    const MUSIC_TRACKS = [
+        { id: 1, title: 'Военный марш — Прощание славянки', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f1a51e0cf.mp3' },
+        { id: 2, title: 'Марш — Священная война', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_5e4d4f9e36.mp3' },
+        { id: 3, title: 'Марш — День Победы', genre: 'Марш', url: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_8e8f6b7a12.mp3' },
+        { id: 4, title: 'Фонк — Midnight City', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3' },
+        { id: 5, title: 'Фонк — Phantom', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2023/07/30/audio_a54d68e18e.mp3' },
+        { id: 6, title: 'Фонк — Neon Drive', genre: 'Фонк', url: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_5e4f3f5e0e.mp3' }
+    ];
+    let currentTrackIndex = -1;
+    let audioPlayer = null;
+    function renderMusic() {
+        let tracksHtml = MUSIC_TRACKS.map((t, i) => `
+            <div class="member-card" style="cursor:pointer;" onclick="playTrack(${i})">
+                <div class="member-avatar"><i class="fas fa-${t.genre === 'Марш' ? 'flag' : 'headphones'}"></i></div>
+                <div class="member-info">
+                    <div class="member-name">${escapeHtml(t.title)} <span class="tag-pill ${t.genre === 'Марш' ? 'gold' : 'cyan'}">${t.genre}</span></div>
+                    <div class="member-meta">${t.genre === 'Марш' ? 'Военный марш' : 'Phonk'}</div>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); playTrack(${i})"><i class="fas fa-play"></i> Играть</button>
+            </div>
+        `).join('');
+        document.getElementById('content').innerHTML = `
+            ${heroBlock('Радиостанция', 'Военный радиоэфир', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Радиостанция</h1><div class="breadcrumb">// РАЗЛОМ · <span>Эфир</span></div></div>
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-broadcast-tower"></i> Сейчас в эфире</div>
+                    <div style="text-align:center; padding:20px;">
+                        <div style="font-size:2.5rem; color:#8B0000; margin-bottom:8px;"><i class="fas fa-radio"></i></div>
+                        <div id="nowTitle" style="font-family:'PT Serif'; font-size:1.2rem; font-weight:700;">Эфир пуст</div>
+                        <div id="nowGenre" style="color:#777; font-size:0.9rem;">Выберите трек</div>
+                        <div style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+                            <button class="btn btn-ghost btn-sm" onclick="playPrev()"><i class="fas fa-backward"></i></button>
+                            <button class="btn btn-primary btn-sm" onclick="togglePlay()" id="playBtn"><i class="fas fa-play"></i></button>
+                            <button class="btn btn-ghost btn-sm" onclick="playNext()"><i class="fas fa-forward"></i></button>
+                            <button class="btn btn-ghost btn-sm" onclick="stopPlay()"><i class="fas fa-stop"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <h2>Плейлист (${MUSIC_TRACKS.length})</h2>
+                ${tracksHtml}
+            </div>
+        `;
+    }
+    window.playTrack = function(index) {
+        const track = MUSIC_TRACKS[index];
+        if (!track) return;
+        if (audioPlayer) { audioPlayer.pause(); audioPlayer = null; }
+        currentTrackIndex = index;
+        audioPlayer = new Audio(track.url);
+        audioPlayer.volume = 0.5;
+        audioPlayer.play().catch(() => showToast('Ошибка', 'Не удалось воспроизвести', 'danger'));
+        audioPlayer.addEventListener('ended', playNext);
+        const t = document.getElementById('nowTitle');
+        const g = document.getElementById('nowGenre');
+        const b = document.getElementById('playBtn');
+        if (t) t.textContent = track.title;
+        if (g) g.textContent = track.genre;
+        if (b) b.innerHTML = '<i class="fas fa-pause"></i>';
+        showToast('В эфире', track.title, 'success');
+    };
+    window.togglePlay = function() {
+        if (!audioPlayer) { showToast('Инфо', 'Выберите трек', 'warning'); return; }
+        const b = document.getElementById('playBtn');
+        if (audioPlayer.paused) { audioPlayer.play(); if (b) b.innerHTML = '<i class="fas fa-pause"></i>'; }
+        else { audioPlayer.pause(); if (b) b.innerHTML = '<i class="fas fa-play"></i>'; }
+    };
+    window.stopPlay = function() {
+        if (audioPlayer) { audioPlayer.pause(); audioPlayer.currentTime = 0; audioPlayer = null; }
+        currentTrackIndex = -1;
+        const t = document.getElementById('nowTitle');
+        const g = document.getElementById('nowGenre');
+        const b = document.getElementById('playBtn');
+        if (t) t.textContent = 'Эфир пуст';
+        if (g) g.textContent = 'Выберите трек';
+        if (b) b.innerHTML = '<i class="fas fa-play"></i>';
+    };
+    window.playNext = function() {
+        if (currentTrackIndex < 0) { playTrack(0); return; }
+        playTrack((currentTrackIndex + 1) % MUSIC_TRACKS.length);
+    };
+    window.playPrev = function() {
+        if (currentTrackIndex < 0) { playTrack(0); return; }
+        playTrack((currentTrackIndex - 1 + MUSIC_TRACKS.length) % MUSIC_TRACKS.length);
+    };
+
     // ============ НАСТРОЙКИ ============
     function renderSettings() {
-        const theme = (currentUser && currentUser.theme) || 'dark';
         document.getElementById('content').innerHTML = `
-            <div class="content-header"><h1>Настройки</h1><div class="breadcrumb">// РАЗЛОМ · <span>Интерфейс</span></div></div>
-            <div class="panel">
-                <div class="panel-title"><i class="fas fa-palette"></i> Тема оформления</div>
-                <div class="theme-grid">
-                    <div class="theme-item ${theme === 'dark' ? 'active' : ''}" data-theme-name="dark" onclick="setTheme('dark')">
-                        <div class="theme-preview" style="background: linear-gradient(135deg, #c9a961, #6b7d3e);"><i class="fas fa-moon"></i></div>
-                        <div class="theme-name">Полевая</div>
-                        <div class="theme-desc">#c9a961 / #6b7d3e</div>
-                    </div>
-                    <div class="theme-item ${theme === 'light' ? 'active' : ''}" data-theme-name="light" onclick="setTheme('light')">
-                        <div class="theme-preview" style="background: linear-gradient(135deg, #ede4d0, #8a6f2e); color: #000;"><i class="fas fa-sun"></i></div>
-                        <div class="theme-name">Пустынная</div>
-                        <div class="theme-desc">#ede4d0 / #8a6f2e</div>
-                    </div>
+            ${heroBlock('Настройки', 'Интерфейс', '', false)}
+            <div class="content">
+                <div class="content-header"><h1>Настройки</h1><div class="breadcrumb">// РАЗЛОМ · <span>Интерфейс</span></div></div>
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-info-circle"></i> Информация</div>
+                    <p>Сайт использует единую тему оформления в стиле проекта <strong>РАЗЛОМ.im</strong>. Персональные настройки в разработке.</p>
                 </div>
             </div>
         `;
     }
 
     // ============ ИНИЦИАЛИЗАЦИЯ ============
+    // Принудительно показываем форму ВХОДА
+    document.getElementById('tabLogin').classList.add('active');
+    document.getElementById('tabRegister').classList.remove('active');
+    document.getElementById('authLoginForm').classList.remove('hidden');
+    document.getElementById('authRegisterForm').classList.add('hidden');
+
     if (currentUser) {
         openApp();
     }
