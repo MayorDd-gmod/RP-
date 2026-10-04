@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Разлом: Марш Справедливости 2023</title>
+  <title>Разлом: Марш Войны | URF.im</title>
   
   <style>
     :root {
       --bg-color: #050505;
-      --header-bg: rgba(0, 0, 0, 0.85);
+      --header-bg: rgba(0, 0, 0, 0.95);
       --text-main: #ffffff;
       --text-muted: #aaaaaa;
-      --accent: #ff4d4d;
-      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #ff4d4d; /* Красный цвет акцента */
+      --card-bg: rgba(255, 255, 255, 0.03);
       --border-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -23,7 +23,7 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
-      /* ФОН */
+      /* Фон (можно заменить на свою картинку) */
       background-image: url('https://cdn.forbes.ru/forbes-static/new/2023/06/IMG-1565-649b029cc08b8.jpeg');
       background-size: cover;
       background-position: center;
@@ -31,11 +31,12 @@
       min-height: 100vh;
     }
 
+    /* Затемнение фона */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.75);
       z-index: -1;
     }
 
@@ -68,13 +69,11 @@
     }
 
     .logo-img { width: 40px; height: 40px; object-fit: contain; border-radius: 4px; }
-    
     .logo-text-main { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; }
     .logo-text-sub { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; font-weight: 600; }
 
     /* NAVIGATION */
     .main-nav ul { list-style: none; display: flex; gap: 5px; }
-
     .main-nav a {
       color: var(--text-main);
       text-decoration: none;
@@ -91,7 +90,8 @@
     }
 
     .dropdown { position: relative; }
-
+    
+    /* ВАЖНО: Меню скрыто по умолчанию */
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -99,29 +99,73 @@
       background-color: #111;
       border: 1px solid var(--border-color);
       min-width: 220px;
-      display: none; /* Скрыто по умолчанию */
+      display: none; /* СКРЫТО */
       flex-direction: column;
       z-index: 1001;
       padding: 10px 0;
       box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      animation: fadeIn 0.2s ease-out;
     }
 
-    /* Логика открытия меню ТОЛЬКО при наличии класса .open */
+    /* Показываем меню ТОЛЬКО когда есть класс .open */
     .dropdown.open .dropdown-menu { display: flex; }
-
+    
     .dropdown-menu li a {
       padding: 10px 20px;
       border-bottom: 1px solid #222;
       color: #ccc;
     }
-
     .dropdown-menu li a:hover {
       background-color: rgba(255,255,255,0.05);
       color: var(--accent);
     }
 
     .arrow { font-size: 0.7rem; margin-left: 5px; color: #888; }
-    .search-btn { background: none; border: none; color: #fff; cursor: pointer; font-size: 1.2rem; padding: 5px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTIONS STYLES */
+    section { padding: 60px 0; }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      margin: 10px auto 0;
+    }
+
+    .content-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .content-box h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .content-box ul { margin-top: 15px; }
+    .content-box ul li { margin-bottom: 10px; color: #ccc; }
+    .content-box ul li::before { content: "•"; color: var(--accent); margin-right: 10px; }
 
     /* HERO SECTION */
     .hero {
@@ -129,7 +173,6 @@
       text-align: center;
       color: #fff;
     }
-
     .hero h1 {
       font-size: 3.5rem;
       margin-bottom: 1rem;
@@ -137,16 +180,13 @@
       letter-spacing: 3px;
       text-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
-
     .hero p {
       font-size: 1.3rem;
       color: var(--text-muted);
       max-width: 700px;
       margin: 0 auto 3rem auto;
-      line-height: 1.5;
     }
 
-    /* BUTTONS */
     .btn {
       display: inline-block;
       padding: 15px 40px;
@@ -157,16 +197,12 @@
       transition: 0.3s;
       text-transform: uppercase;
       font-size: 0.95rem;
-    }
-
-    .btn-primary {
       background-color: var(--accent);
       color: #000;
       border: 2px solid var(--accent);
       box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
     }
-
-    .btn-primary:hover {
+    .btn:hover {
       background-color: #fff;
       color: #000;
       box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
@@ -174,7 +210,7 @@
 
     /* FOOTER */
     .site-footer {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
       border-top: 1px solid var(--border-color);
       padding: 40px 0;
       margin-top: 60px;
@@ -182,19 +218,12 @@
       text-align: center;
     }
 
-    .disclaimer {
-      font-size: 0.75rem;
-      line-height: 1.5;
-      margin-bottom: 2rem;
-      border-top: 1px solid var(--border-color);
-      padding-top: 20px;
-    }
-
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
       .main-nav ul { flex-direction: column; width: 100%; text-align: center; }
       .dropdown-menu { position: static; box-shadow: none; border: none; }
       .dropdown.open .dropdown-menu { display: flex; }
+      .hero h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -203,125 +232,218 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <!-- Вставь сюда ссылку на свой Discord лого -->
-        <img src="ССЫЛКА_НА_ТВОЙ_ЛОГО_DISCORD" alt="Logo" class="logo-img">
+        <!-- !!! ВСТАВЬ СЮДА СВОЮ ССЫЛКУ НА ЛОГО ВМЕСТО ТЕСТОВОЙ !!! -->
+        <img src="https://via.placeholder.com/40" alt="Logo" class="logo-img">
         <div>
           <span class="logo-text-main">URF.im</span>
-          <span class="logo-text-sub">| Сирия</span>
+          <span class="logo-text-sub">| Разлом: Марш Войны</span>
         </div>
       </a>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="#">Главная</a></li>
+          <li><a href="#home">Главная</a></li>
           
           <li class="dropdown">
             <a href="#" class="toggle-dropdown">Общевойсковой устав <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Руководство</a></li>
-              <li><a href="#">Правопорядок и надзор</a></li>
-              <li><a href="#">Сухопутные войска</a></li>
-              <li><a href="#">Силы Специальных Операций</a></li>
-              <li><a href="#">ВКС</a></li>
+              <li><a href="#guidance">Руководство</a></li>
+              <li><a href="#law-order">Правопорядок и надзор</a></li>
+              <li><a href="#ground-forces">Сухопутные войска</a></li>
+              <li><a href="#special-ops">Силы Специальных Операций</a></li>
+              <li><a href="#vks">ВКС</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="#" class="toggle-dropdown">Регламенты <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Дежурства и наряды</a></li>
-              <li><a href="#">Учебные стрельбы</a></li>
-              <li><a href="#">Эксплуатация техники</a></li>
+              <li><a href="#duty">Дежурства и наряды</a></li>
+              <li><a href="#shooting">Учебные стрельбы</a></li>
+              <li><a href="#tech">Эксплуатация техники</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="#" class="toggle-dropdown">НПА <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Федеральные законы</a></li>
-              <li><a href="#">Указы Президента</a></li>
-              <li><a href="#">Приказы МО</a></li>
+              <li><a href="#laws">Федеральные законы</a></li>
+              <li><a href="#decrees">Указы Президента</a></li>
+              <li><a href="#orders">Приказы МО</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="#" class="toggle-dropdown">Уставы подразделений <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Раздел 1</a></li>
-              <li><a href="#">Раздел 2</a></li>
+              <li><a href="#reg-1">Раздел 1</a></li>
+              <li><a href="#reg-2">Раздел 2</a></li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#" class="toggle-dropdown">Государственные награды <span class="arrow">▼</span></a>
+            <a href="#" class="toggle-dropdown">Гос. награды <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Ордена</a></li>
-              <li><a href="#">Медали</a></li>
-              <li><a href="#">Нагрудные знаки</a></li>
+              <li><a href="#orders">Ордена</a></li>
+              <li><a href="#medals">Медали</a></li>
+              <li><a href="#signs">Нагрудные знаки</a></li>
             </ul>
           </li>
-          
-          <li><button class="search-btn">🔍</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section id="home" class="hero">
     <div class="container">
-      <h1>Общевойсковой устав</h1>
-      <p>Нормативно-правовые акты и регламенты для участников проекта «Марш Справедливости 2023».</p>
-      <a href="#" class="btn btn-primary">Изучить устав</a>
+      <h1>Разлом: Марш Войны</h1>
+      <p>Акты и регламенты для участников проекта «Марш Справедливости 2023».</p>
+      <a href="#guidance" class="btn">Изучить устав</a>
+    </div>
+  </section>
+
+  <!-- РАЗДЕЛ: РУКОВОДСТВО -->
+  <section id="guidance">
+    <div class="container">
+      <h2 class="section-title">Руководство</h2>
+      <div class="content-box">
+        <h3>Полномочия высшего командования</h3>
+        <p>Руководство является высшим звеном управления в структуре проекта. В пределах предоставленных полномочий руководство утверждает нормативные правовые акты, приказы и иные официальные документы, регулирующие деятельность подразделений.</p>
+        <br>
+        <p>Основные функции руководства:</p>
+        <ul>
+          <li>Утверждение структуры подразделений и штатного расписания.</li>
+          <li>Издание распоряжений, обязательных к исполнению всеми подчиненными органами.</li>
+          <li>Контроль за соблюдением законности и правопорядка в рядах участников.</li>
+          <li>Принятие решений по вопросам дисциплинарной ответственности.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАЗДЕЛ: ПРАВОПОРЯДОК И НАДЗОР -->
+  <section id="law-order">
+    <div class="container">
+      <h2 class="section-title">Правопорядок и надзор</h2>
+      <div class="content-box">
+        <h3>Военно-правовые органы и Военная полиция</h3>
+        <p>Военно-правовые органы — это особая юридическая служба армии. Их главная задача — следить, чтобы внутри вооружённых сил всё происходило по закону. Командиры не злоупотребляли властью, а солдаты соблюдали порядок.</p>
+        
+        <h4>Основные подразделения:</h4>
+        <ul>
+          <li><strong>Военная полиция:</strong> Обеспечивает порядок и безопасность в армии, следит за выполнением воинской дисциплины, предотвращает преступления среди военнослужащих.</li>
+          <li><strong>Военная прокуратура:</strong> Надзирает за соблюдением законодательства, расследует военные преступления и поддерживает обвинение в суде.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАЗДЕЛ: СУХОПУТНЫЕ ВОЙСКА -->
+  <section id="ground-forces">
+    <div class="container">
+      <h2 class="section-title">Сухопутные войска</h2>
+      <div class="content-box">
+        <h3>Структура и задачи</h3>
+        <p>Сухопутные войска (СВ) являются основным видом вооружённых сил, предназначенным для ведения боевых действий преимущественно на суше. В рамках проекта они отвечают за наземные операции, удержание территорий и взаимодействие с гражданскими властями.</p>
+        <ul>
+          <li>Ведение оборонительных и наступательных операций.</li>
+          <li>Обеспечение безопасности ключевых объектов инфраструктуры.</li>
+          <li>Проведение гуманитарных миссий и эвакуация гражданского населения.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАЗДЕЛ: ССО -->
+  <section id="special-ops">
+    <div class="container">
+      <h2 class="section-title">Силы Специальных Операций (ССО)</h2>
+      <div class="content-box">
+        <h3>Особенности применения</h3>
+        <p>ССО — это элитные подразделения, предназначенные для выполнения задач в глубоком тылу противника, разведки, диверсий и освобождения заложников. Действуют малыми группами с максимальной скрытностью.</p>
+        <ul>
+          <li>Проведение точечных операций высокой сложности.</li>
+          <li>Сбор разведывательных данных в тылу врага.</li>
+          <li>Обучение и консультирование местных сил.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАЗДЕЛ: ВКС -->
+  <section id="vks">
+    <div class="container">
+      <h2 class="section-title">Воздушно-космические силы (ВКС)</h2>
+      <div class="content-box">
+        <h3>Воздушная поддержка</h3>
+        <p>ВКС обеспечивают господство в воздухе, поддержку наземных войск с воздуха, а также стратегическую разведку. В рамках проекта функции ВКС могут быть ограничены симуляцией авиаударов или координацией с наземными силами.</p>
+        <ul>
+          <li>Авиационная поддержка наступающих подразделений.</li>
+          <li>Переброска грузов и десанта.</li>
+          <li>Контроль воздушного пространства над зоной ответственности.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="container">
-      <div class="disclaimer">
-        Все материалы носят исключительно познавательный и исторический характер. Проект не пропагандирует терроризм, экстремизм, милитаризм, насилие в любой форме.
-      </div>
-      <p>&copy; 2023 URF.im. Любое копирование материалов допускается только с разрешения создателя.</p>
+      <p>&copy; 2023 URF.im. Все права защищены. Проект носит исключительно игровой характер.</p>
+      <p style="font-size: 0.8rem; margin-top: 10px; color: #333;">Материалы основаны на открытых источниках и адаптированы для ролевой игры.</p>
     </div>
   </footer>
 
-  <!-- ВАЖНЫЙ СКРИПТ -->
+  <!-- JAVASCRIPT ДЛЯ МЕНЮ -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Логика для открытия/закрытия меню по КЛИКУ (работает и на ПК, и на телефоне)
       const dropdowns = document.querySelectorAll('.dropdown');
       
+      // Открытие/закрытие меню по клику (ЛКМ)
       dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.toggle-dropdown');
         toggle.addEventListener('click', (e) => {
-          e.preventDefault(); // Чтобы страница не прыгала вверх
-          dropdown.classList.toggle('open');
+          e.preventDefault();
+          
+          // 1. Сначала закрываем ВСЕ открытые меню
+          dropdowns.forEach(d => d.classList.remove('open'));
+          
+          // 2. Проверяем, не было ли уже открыто это меню (чтобы можно было закрыть повторным кликом)
+          const isCurrentlyOpen = dropdown.classList.contains('open');
+          
+          // 3. Если не было открыто - открываем его
+          if (!isCurrentlyOpen) {
+            dropdown.classList.add('open');
+          }
+          // Если было открыто - мы его уже закрыли в пункте 1, так что ничего не делаем (оно останется закрытым)
         });
       });
 
-      // 2. Закрывать меню, если кликнули в любое другое место экрана
+      // Закрытие меню при клике в любое другое место экрана
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
           dropdowns.forEach(d => d.classList.remove('open'));
         }
       });
 
-      // 3. Блокировка ссылок (чтобы сайт не выдавал ошибку 404, пока мы не создали страницы)
-      const links = document.querySelectorAll('a[href^="#"], a:not([href])');
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
+      // Плавный скролл к якорям
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          alert('Эта страница еще в разработке! Скоро здесь будет контент.');
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+          
+          // Подсветка активной ссылки
+          document.querySelectorAll('.main-nav a').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
         });
       });
-      
-      // Обработка кнопки "Изучить устав"
-      const btn = document.querySelector('.btn-primary');
-      if(btn) {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          alert('Переход к тексту устава... (Здесь будет ссылка на PDF или новую страницу)');
-        });
-      }
     });
   </script>
 </body>
