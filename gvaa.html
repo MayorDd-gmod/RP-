@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>16-я ГвБАА · Устав | Разлом: Марш Справедливости</title>
-    <meta name="description" content="Полный устав 16-й гвардейской бригады армейской авиации проекта Разлом: Марш Справедливости." />
+    <meta name="description" content="Устав 16-й гвардейской бригады армейской авиации ВС РФ по Ростовской области." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body style="background-image: url('images/Авиация.png');">
 
 <!-- ШАПКА -->
 <div class="top-bar">
     <a class="top-brand" href="index.html">
-        <img src="images/Марш справедливости.png" alt="Разлом" class="logo-icon" />
         <span>РАЗЛОМ</span>
         <span class="brand-sep">|</span>
         <span class="brand-sub">Марш Справедливости</span>
     </a>
     <nav class="main-nav">
         <a class="nav-item" href="index.html"><i class="fas fa-home"></i> Главная</a>
+        <a class="nav-item" href="hq.html"><i class="fas fa-star"></i> Штаб</a>
         <a class="nav-item" href="msp.html"><i class="fas fa-shield-alt"></i> 252-ГвМСП</a>
         <a class="nav-item" href="tp.html"><i class="fas fa-tank"></i> 237-ТП</a>
         <a class="nav-item" href="gvaa.html"><i class="fas fa-fighter-jet"></i> 16-ГвБАА</a>
@@ -33,7 +33,7 @@
 </div>
 
 <!-- HERO -->
-<div class="hero" style="background-image: url('images/Авиация.jpg');">
+<div class="hero">
     <div class="hero-badge gvaa">Армейская авиация</div>
     <h1>16-я Гвардейская Бригада Армейской Авиации</h1>
     <p class="hero-sub">Воздушная поддержка с неба. Разведка, огневое прикрытие, эвакуация и десантирование.</p>
@@ -81,57 +81,59 @@
     </ul>
 
     <!-- III -->
-    <h2 id="s3">III. Структура бригады</h2>
-    <p>16-ГвБАА имеет следующую структуру:</p>
-    <h3>Командование</h3>
-    <ul>
-        <li><strong>Командир бригады</strong> — полковник, общее руководство.</li>
-        <li><strong>Заместитель командира</strong> — подполковник, оперативное управление.</li>
-        <li><strong>Начальник штаба</strong> — майор, координация эскадрилий.</li>
-        <li><strong>Штурман бригады</strong> — майор, навигация и планирование маршрутов.</li>
-    </ul>
-    <h3>Боевые подразделения</h3>
-    <ul>
-        <li><strong>1-я вертолётная эскадрилья</strong> — ударные вертолёты Ми-24, Ка-52.</li>
-        <li><strong>2-я вертолётная эскадрилья</strong> — транспортные Ми-8.</li>
-        <li><strong>3-я вертолётная эскадрилья</strong> — разведывательные Ми-24Р.</li>
-        <li><strong>Эскадрилья БПЛА</strong> — беспилотники «Орлан», «Форпост».</li>
-    </ul>
-    <h3>Обеспечение</h3>
-    <ul>
-        <li><strong>Инженерно-техническая служба</strong> — обслуживание техники.</li>
-        <li><strong>Служба связи</strong> — обеспечение связи.</li>
-        <li><strong>Медицинская служба</strong> — медицинское обеспечение.</li>
-        <li><strong>Служба вооружения</strong> — подготовка боеприпасов.</li>
-    </ul>
-
-    <!-- IV -->
-    <h2 id="s4">IV. Звания и иерархия</h2>
+    <h2 id="s3">III. Звания и должности</h2>
     <table class="ranks-table">
         <thead>
             <tr>
                 <th>Звание</th>
                 <th>Должность</th>
-                <th>Срок выслуги</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>Полковник</td><td>Командир бригады</td><td>—</td></tr>
-            <tr><td>Подполковник</td><td>Заместитель командира</td><td>—</td></tr>
-            <tr><td>Майор</td><td>Командир эскадрильи</td><td>30 дней</td></tr>
-            <tr><td>Капитан</td><td>Командир звена</td><td>20 дней</td></tr>
-            <tr><td>Старший лейтенант</td><td>Командир экипажа</td><td>14 дней</td></tr>
-            <tr><td>Лейтенант</td><td>Второй пилот</td><td>10 дней</td></tr>
-            <tr><td>Старший прапорщик</td><td>Штурман</td><td>10 дней</td></tr>
-            <tr><td>Прапорщик</td><td>Бортовой техник</td><td>7 дней</td></tr>
-            <tr><td>Старшина</td><td>Стрелок</td><td>5 дней</td></tr>
-            <tr><td>Старший сержант</td><td>Бортовой инженер</td><td>3 дня</td></tr>
-            <tr><td>Сержант</td><td>Оператор БПЛА</td><td>—</td></tr>
-            <tr><td>Младший сержант</td><td>Механик</td><td>—</td></tr>
-            <tr><td>Ефрейтор</td><td>Опытный боец</td><td>—</td></tr>
-            <tr><td>Рядовой</td><td>Курсант</td><td>—</td></tr>
+            <tr><td>Старший лейтенант</td><td>Командир бригады</td></tr>
+            <tr><td>Лейтенант</td><td>Зам. командира бригады и КМД</td></tr>
+            <tr><td>Младший лейтенант</td><td>Зам. командира бригады</td></tr>
+            <tr><td>Старший прапорщик</td><td>—</td></tr>
+            <tr><td>Прапорщик</td><td>—</td></tr>
+            <tr><td>Старшина</td><td>—</td></tr>
+            <tr><td>Старший сержант</td><td>—</td></tr>
+            <tr><td>Сержант</td><td>—</td></tr>
+            <tr><td>Младший сержант</td><td>—</td></tr>
+            <tr><td>Ефрейтор</td><td>—</td></tr>
+            <tr><td>Рядовой</td><td>—</td></tr>
         </tbody>
     </table>
+
+    <!-- IV -->
+    <h2 id="s4">IV. Обязанности личного состава</h2>
+    <h3>Командир бригады</h3>
+    <ul>
+        <li>Общее руководство бригадой.</li>
+        <li>Принятие решений по операциям.</li>
+        <li>Взаимодействие со Штабом.</li>
+        <li>Утверждение планов вылетов.</li>
+    </ul>
+    <h3>Зам. командира бригады и КМД</h3>
+    <ul>
+        <li>Помощь командиру бригады.</li>
+        <li>Командование в отсутствие командира.</li>
+        <li>Контроль дисциплины.</li>
+        <li>Организация подготовки пилотов.</li>
+    </ul>
+    <h3>Зам. командира бригады</h3>
+    <ul>
+        <li>Организация тылового обеспечения.</li>
+        <li>Взаимодействие с другими подразделениями.</li>
+        <li>Ведение отчётности.</li>
+    </ul>
+    <h3>Бойцы бригады</h3>
+    <ul>
+        <li>Выполнение приказов командиров.</li>
+        <li>Соблюдение воинской дисциплины.</li>
+        <li>Поддержание боевой готовности.</li>
+        <li>Участие в операциях и вылетах.</li>
+        <li>Обслуживание техники.</li>
+    </ul>
 
     <!-- V -->
     <h2 id="s5">V. Экипаж вертолёта</h2>
@@ -154,19 +156,27 @@
 
     <!-- VI -->
     <h2 id="s6">VI. Распорядок дня</h2>
-    <p>В 16-ГвБАА действует следующий распорядок:</p>
-    <ul>
-        <li><strong>05:30</strong> — Подъём, предполётный осмотр.</li>
-        <li><strong>06:00–07:00</strong> — Утренняя физическая зарядка.</li>
-        <li><strong>07:00–08:00</strong> — Завтрак, предполётная подготовка.</li>
-        <li><strong>08:00–09:00</strong> — Постановка задач на день, разбор погоды.</li>
-        <li><strong>09:00–13:00</strong> — Учебно-тренировочные полёты.</li>
-        <li><strong>13:00–14:00</strong> — Обед.</li>
-        <li><strong>14:00–18:00</strong> — Боевые вылеты, работа с техникой.</li>
-        <li><strong>18:00–19:00</strong> — Ужин.</li>
-        <li><strong>19:00–21:00</strong> — Разбор полётов, самоподготовка.</li>
-        <li><strong>21:00–22:00</strong> — Вечерняя поверка, отбой.</li>
-    </ul>
+    <table class="ranks-table">
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Занятие</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>06:00</td><td>Подъём, утренний туалет, осмотр</td></tr>
+            <tr><td>06:15–07:00</td><td>Утренняя зарядка (лёгкий бег, разминка, растяжка)</td></tr>
+            <tr><td>07:00–09:00</td><td>Завтрак + личное время</td></tr>
+            <tr><td>09:00–11:00</td><td>Первая тренировка (основная, тяжёлая)</td></tr>
+            <tr><td>11:00–13:00</td><td>Теоретические занятия / Лекции / Тактика</td></tr>
+            <tr><td>13:00–15:00</td><td>Обед + тихий час</td></tr>
+            <tr><td>15:00–17:00</td><td>Вторая тренировка (специфическая, техническая)</td></tr>
+            <tr><td>17:00–19:00</td><td>Ужин + личное время</td></tr>
+            <tr><td>19:00–21:00</td><td>Свободное время / Культурные мероприятия</td></tr>
+            <tr><td>21:00–21:45</td><td>Вечерняя прогулка, подготовка ко сну, поверка</td></tr>
+            <tr><td>22:00</td><td>Отбой</td></tr>
+        </tbody>
+    </table>
 
     <!-- VII -->
     <h2 id="s7">VII. Лётная подготовка</h2>
@@ -299,17 +309,12 @@
 
 <!-- ФУТЕР -->
 <footer>
-    <div class="social">
-        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" title="Discord"><i class="fab fa-discord"></i></a>
-        <a href="#" title="VK"><i class="fab fa-vk"></i></a>
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-    </div>
     <div class="disclaimer-text">
         Все материалы, представленные на данном проекте, носят исключительно познавательный и исторический характер. Проект не пропагандирует: терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологии или организации, запрещённые на территории Российской Федерации.
     </div>
     <div class="footer-bottom">
-        <div>© Разлом: Марш Справедливости. RP-сообщество серверов в Garry's Mod.</div>
-        <div class="slogan">garry's mod — значит Разлом</div>
+        <div>© Разлом: Марш Справедливости. Уставник ВС РФ по Ростовской области.</div>
+        <div class="slogan">Разлом — значит Марш Справедливости</div>
     </div>
 </footer>
 
