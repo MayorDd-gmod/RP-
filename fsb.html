@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ФСБ · Устав | Разлом: Марш Справедливости</title>
-    <meta name="description" content="Полный устав Федеральной Службы Безопасности проекта Разлом: Марш Справедливости." />
+    <meta name="description" content="Устав Федеральной Службы Безопасности ВС РФ по Ростовской области." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body style="background-image: url('images/ФСБ.png');">
 
 <!-- ШАПКА -->
 <div class="top-bar">
     <a class="top-brand" href="index.html">
-        <img src="images/Марш справедливости.png" alt="Разлом" class="logo-icon" />
         <span>РАЗЛОМ</span>
         <span class="brand-sep">|</span>
         <span class="brand-sub">Марш Справедливости</span>
     </a>
     <nav class="main-nav">
         <a class="nav-item" href="index.html"><i class="fas fa-home"></i> Главная</a>
+        <a class="nav-item" href="hq.html"><i class="fas fa-star"></i> Штаб</a>
         <a class="nav-item" href="msp.html"><i class="fas fa-shield-alt"></i> 252-ГвМСП</a>
         <a class="nav-item" href="tp.html"><i class="fas fa-tank"></i> 237-ТП</a>
         <a class="nav-item" href="gvaa.html"><i class="fas fa-fighter-jet"></i> 16-ГвБАА</a>
@@ -33,7 +33,7 @@
 </div>
 
 <!-- HERO -->
-<div class="hero" style="background-image: url('images/bg-dark.png');">
+<div class="hero">
     <div class="hero-badge fsb">Служба безопасности</div>
     <h1>Федеральная Служба Безопасности</h1>
     <p class="hero-sub">Контрразведка · Антитеррор · Защита государственной тайны.</p>
@@ -80,23 +80,25 @@
     </ul>
 
     <!-- III -->
-    <h2 id="s3">III. Структура</h2>
-    <p>ФСБ имеет следующую структуру:</p>
-    <h3>Командование</h3>
-    <ul>
-        <li><strong>Директор ФСБ</strong> — генерал-полковник, общее руководство.</li>
-        <li><strong>Первый заместитель</strong> — генерал-лейтенант, оперативное управление.</li>
-        <li><strong>Начальник штаба</strong> — генерал-майор, координация отделов.</li>
-    </ul>
-    <h3>Управления</h3>
-    <ul>
-        <li><strong>Управление контрразведки</strong> — выявление врагов внутри.</li>
-        <li><strong>Управление антитеррора</strong> — борьба с терроризмом.</li>
-        <li><strong>Управление охраны гостайны</strong> — защита секретов.</li>
-        <li><strong>Пограничное управление</strong> — контроль КПП и границ.</li>
-        <li><strong>Следственное управление</strong> — расследования.</li>
-        <li><strong>Спецназ ФСБ (группа «Альфа-ФСБ»)</strong> — силовая поддержка.</li>
-    </ul>
+    <h2 id="s3">III. Звания и должности</h2>
+    <p>В ФСБ минимальное звание — <strong>прапорщик</strong>. Ефрейторов и рядовых в службе нет.</p>
+    <table class="ranks-table">
+        <thead>
+            <tr>
+                <th>Звание</th>
+                <th>Должность</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Майор</td><td>Командир</td></tr>
+            <tr><td>Капитан</td><td>Зам. командира и КМД</td></tr>
+            <tr><td>Старший лейтенант</td><td>Зам. командира</td></tr>
+            <tr><td>Лейтенант</td><td>—</td></tr>
+            <tr><td>Младший лейтенант</td><td>—</td></tr>
+            <tr><td>Старший прапорщик</td><td>—</td></tr>
+            <tr><td>Прапорщик</td><td>—</td></tr>
+        </tbody>
+    </table>
 
     <!-- IV -->
     <h2 id="s4">IV. Полномочия сотрудников</h2>
@@ -161,7 +163,7 @@
         <li><strong>Предотвращение терактов:</strong> выявление ячеек, планов и подготовки.</li>
         <li><strong>Зачистка объектов:</strong> освобождение захваченных зданий и районов.</li>
         <li><strong>Обезвреживание взрывных устройств:</strong> работа сапёров ФСБ.</li>
-        <li><strong>Штурмовые операции:</strong> силовая поддержка с привлечением группы «Альфа-ФСБ».</li>
+        <li><strong>Штурмовые операции:</strong> силовая поддержка с привлечением спецназа ФСБ.</li>
         <li><strong>Переговоры:</strong> снятие напряжённости при захвате заложников.</li>
     </ul>
     <p>При проведении антитеррористической операции сотрудники ФСБ имеют приоритет над другими подразделениями.</p>
@@ -211,32 +213,7 @@
     <p><strong>Правило:</strong> в зоне ответственности ФСБ сотрудники ФСБ имеют приоритет в принятии решений.</p>
 
     <!-- XI -->
-    <h2 id="s11">XI. Звания и иерархия</h2>
-    <table class="ranks-table">
-        <thead>
-            <tr>
-                <th>Звание</th>
-                <th>Должность</th>
-                <th>Срок выслуги</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Генерал-полковник</td><td>Директор ФСБ</td><td>—</td></tr>
-            <tr><td>Генерал-лейтенант</td><td>Первый заместитель</td><td>—</td></tr>
-            <tr><td>Генерал-майор</td><td>Начальник штаба</td><td>—</td></tr>
-            <tr><td>Полковник</td><td>Начальник управления</td><td>30 дней</td></tr>
-            <tr><td>Подполковник</td><td>Заместитель начальника управления</td><td>20 дней</td></tr>
-            <tr><td>Майор</td><td>Начальник отдела</td><td>14 дней</td></tr>
-            <tr><td>Капитан</td><td>Старший оперуполномоченный</td><td>14 дней</td></tr>
-            <tr><td>Старший лейтенант</td><td>Оперуполномоченный</td><td>10 дней</td></tr>
-            <tr><td>Лейтенант</td><td>Младший оперуполномоченный</td><td>7 дней</td></tr>
-            <tr><td>Прапорщик</td><td>Следователь</td><td>—</td></tr>
-            <tr><td>Старшина</td><td>Стажёр</td><td>—</td></tr>
-        </tbody>
-    </table>
-
-    <!-- XII -->
-    <h2 id="s12">XII. Дисциплина и взыскания</h2>
+    <h2 id="s11">XI. Дисциплина и взыскания</h2>
     <h3>Поощрения</h3>
     <ul>
         <li><strong>Благодарность</strong> — за добросовестную службу.</li>
@@ -267,17 +244,12 @@
 
 <!-- ФУТЕР -->
 <footer>
-    <div class="social">
-        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" title="Discord"><i class="fab fa-discord"></i></a>
-        <a href="#" title="VK"><i class="fab fa-vk"></i></a>
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-    </div>
     <div class="disclaimer-text">
         Все материалы, представленные на данном проекте, носят исключительно познавательный и исторический характер. Проект не пропагандирует: терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологии или организации, запрещённые на территории Российской Федерации.
     </div>
     <div class="footer-bottom">
-        <div>© Разлом: Марш Справедливости. RP-сообщество серверов в Garry's Mod.</div>
-        <div class="slogan">garry's mod — значит Разлом</div>
+        <div>© Разлом: Марш Справедливости. Уставник ВС РФ по Ростовской области.</div>
+        <div class="slogan">Разлом — значит Марш Справедливости</div>
     </div>
 </footer>
 
