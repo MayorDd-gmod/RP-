@@ -1,5 +1,6 @@
 /* ============================================================
    РАЗЛОМ: МАРШ СПРАВЕДЛИВОСТИ — Общие стили (тёмная тема)
+   Фон — фото на весь экран
    ============================================================ */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,15 +12,14 @@
 
 :root {
     --bg-dark: #0d0d0d;
-    --bg-panel: #141414;
-    --bg-card: #1a1a1a;
+    --bg-panel: rgba(10, 10, 10, 0.85);
+    --bg-card: rgba(15, 15, 15, 0.8);
     --bg-header: rgba(0, 0, 0, 0.92);
     --accent-gold: #d4af37;
     --accent-gold-dim: #8a7020;
     --accent-red: #c00;
     --accent-green: #2e8b57;
     --accent-blue: #1565c0;
-    --accent-purple: #6a1b9a;
     --text-main: #e0e0e0;
     --text-muted: #999;
     --text-dim: #666;
@@ -32,13 +32,32 @@
 body {
     font-family: 'PT Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
     color: var(--text-main);
-    background-color: var(--bg-dark);
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     line-height: 1.7;
     min-height: 100vh;
     font-size: 15px;
+    position: relative;
 }
 
+/* Затемнение фона для читаемости текста */
 body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.75) 50%,
+        rgba(0, 0, 0, 0.85) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Сетка поверх фона */
+body::after {
     content: '';
     position: fixed;
     inset: 0;
@@ -78,13 +97,6 @@ body::before {
     transition: 0.25s;
 }
 .top-brand:hover { text-shadow: 0 0 15px var(--accent-gold); }
-.top-brand .logo-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
-}
 .top-brand .brand-sep { color: var(--text-dim); font-weight: 400; }
 .top-brand .brand-sub { color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
 
@@ -136,10 +148,7 @@ body::before {
 /* ============ HERO ============ */
 .hero {
     position: relative;
-    min-height: 400px;
-    background: var(--bg-dark);
-    background-size: cover;
-    background-position: center;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -148,16 +157,7 @@ body::before {
     overflow: hidden;
     padding: 70px 20px 60px;
     z-index: 1;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg,
-        rgba(0,0,0,0.75) 0%,
-        rgba(0,0,0,0.55) 50%,
-        rgba(13,13,13,1) 100%);
-    z-index: 1;
+    background: transparent;
 }
 .hero > * { position: relative; z-index: 2; }
 .hero .hero-badge {
@@ -170,7 +170,7 @@ body::before {
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 22px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     backdrop-filter: blur(4px);
 }
 .hero .hero-badge.sso { color: var(--accent-green); border-color: var(--accent-green); }
@@ -178,7 +178,7 @@ body::before {
 .hero .hero-badge.msp { color: var(--accent-blue); border-color: var(--accent-blue); }
 .hero .hero-badge.tp { color: var(--accent-gold); border-color: var(--accent-gold); }
 .hero .hero-badge.gvaa { color: #4fc3f7; border-color: #4fc3f7; }
-.hero .hero-badge.vsrf { color: var(--accent-gold); border-color: var(--accent-gold); }
+.hero .hero-badge.hq { color: var(--accent-gold); border-color: var(--accent-gold); }
 .hero h1 {
     font-family: 'PT Serif', 'Georgia', serif;
     color: #fff;
@@ -208,7 +208,7 @@ body::before {
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
     text-decoration: none;
     transition: 0.25s;
     cursor: pointer;
@@ -223,13 +223,16 @@ body::before {
 
 /* ============ КОНТЕНТ ============ */
 .content {
-    background: var(--bg-dark);
+    position: relative;
+    z-index: 1;
     padding: 60px 40px;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
     min-height: calc(100vh - 450px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-left: 1px solid rgba(212, 175, 55, 0.15);
+    border-right: 1px solid rgba(212, 175, 55, 0.15);
 }
 .content-header {
     text-align: center;
@@ -321,11 +324,12 @@ body::before {
 
 /* Оглавление */
 .toc {
-    background: var(--bg-panel);
+    background: rgba(15, 15, 15, 0.85);
     border-left: 4px solid var(--accent-gold);
     padding: 24px 28px;
     margin-bottom: 36px;
     box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
 }
 .toc-title {
     font-family: 'PT Serif', serif;
@@ -393,12 +397,13 @@ body::before {
 
 /* ============ ПАНЕЛИ / КАРТОЧКИ ============ */
 .panel {
-    background: var(--bg-panel);
+    background: rgba(15, 15, 15, 0.85);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent-gold);
     padding: 26px 30px;
     margin-bottom: 26px;
     box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
 }
 .panel-title {
     font-family: 'PT Serif', serif;
@@ -423,7 +428,7 @@ body::before {
     margin: 28px 0;
 }
 .card {
-    background: var(--bg-card);
+    background: rgba(15, 15, 15, 0.85);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent-gold-dim);
     padding: 24px;
@@ -433,6 +438,7 @@ body::before {
     display: block;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(6px);
 }
 .card::before {
     content: '';
@@ -448,12 +454,21 @@ body::before {
     border-left-color: var(--accent-gold);
     box-shadow: 0 6px 24px rgba(0,0,0,0.5), var(--shadow-gold);
     transform: translateY(-4px);
+    background: rgba(25, 25, 25, 0.9);
 }
 .card-icon {
     font-size: 2.2rem;
     color: var(--accent-gold);
     margin-bottom: 14px;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+.card-icon-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+    display: block;
 }
 .card h3 {
     font-family: 'PT Serif', serif;
@@ -486,6 +501,7 @@ body::before {
 .badge-msp { background: rgba(21, 101, 192, 0.15); color: var(--accent-blue); border-color: var(--accent-blue); }
 .badge-tp { background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); border-color: var(--accent-gold); }
 .badge-gvaa { background: rgba(79, 195, 247, 0.15); color: #4fc3f7; border-color: #4fc3f7; }
+.badge-hq { background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); border-color: var(--accent-gold); }
 
 /* ============ ТАБЛИЦА ЗВАНИЙ ============ */
 .ranks-table {
@@ -493,9 +509,11 @@ body::before {
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 0.9rem;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(6px);
 }
 .ranks-table th {
-    background: var(--bg-card);
+    background: rgba(20, 20, 20, 0.9);
     color: var(--accent-gold);
     padding: 12px 16px;
     text-align: left;
@@ -512,7 +530,7 @@ body::before {
     color: var(--text-main);
 }
 .ranks-table tr:hover td {
-    background: rgba(212, 175, 55, 0.04);
+    background: rgba(212, 175, 55, 0.05);
 }
 .ranks-table td:first-child {
     color: var(--accent-gold);
@@ -521,7 +539,7 @@ body::before {
 
 /* ============ ФУТЕР ============ */
 footer {
-    background: #000;
+    background: rgba(0, 0, 0, 0.92);
     color: #999;
     padding: 44px 40px 30px;
     text-align: center;
@@ -531,6 +549,7 @@ footer {
     border-top: 2px solid var(--accent-gold-dim);
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(10px);
 }
 footer .social {
     display: flex;
