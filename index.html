@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Разлом: Марш Справедливости | Главная</title>
-    <meta name="description" content="Разлом: Марш Справедливости — военный RP-проект в Garry's Mod." />
+    <meta name="description" content="Уставник Вооружённых Сил Российской Федерации по Ростовской области." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body style="background-image: url('images/Марш справедливости.png');">
 
 <!-- ШАПКА -->
 <div class="top-bar">
     <a class="top-brand" href="index.html">
-        <img src="images/Марш справедливости.png" alt="Разлом" class="logo-icon" />
         <span>РАЗЛОМ</span>
         <span class="brand-sep">|</span>
         <span class="brand-sub">Марш Справедливости</span>
     </a>
     <nav class="main-nav">
         <a class="nav-item" href="index.html"><i class="fas fa-home"></i> Главная</a>
+        <a class="nav-item" href="hq.html"><i class="fas fa-star"></i> Штаб</a>
         <a class="nav-item" href="msp.html"><i class="fas fa-shield-alt"></i> 252-ГвМСП</a>
         <a class="nav-item" href="tp.html"><i class="fas fa-tank"></i> 237-ТП</a>
         <a class="nav-item" href="gvaa.html"><i class="fas fa-fighter-jet"></i> 16-ГвБАА</a>
@@ -33,13 +33,10 @@
 </div>
 
 <!-- HERO -->
-<div class="hero" style="background-image: url('images/bg-dark.png');">
-    <div class="hero-badge vsrf">Военный RolePlay · Garry's Mod</div>
+<div class="hero">
+    <div class="hero-badge hq">Уставник проекта</div>
     <h1>Разлом<span>:</span> Марш Справедливости</h1>
-    <p class="hero-sub">«Служим Отечеству · Защищаем мирных» — военный RP-проект в реалиях Сирийской Арабской Республики.</p>
-    <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn-discord">
-        <i class="fab fa-discord"></i> Дискорд сервер
-    </a>
+    <p class="hero-sub">«Марш Справедливости (Мятеж ЧВК "Вагнер")»</p>
 </div>
 
 <!-- КОНТЕНТ -->
@@ -50,10 +47,22 @@
         <div class="breadcrumb">// РАЗЛОМ · <span>Главная страница</span></div>
     </div>
 
+    <!-- О ПРОЕКТЕ -->
+    <div class="panel">
+        <div class="panel-title"><i class="fas fa-info-circle"></i> О проекте</div>
+        <p>Вы попали в <strong>уставник Вооружённых Сил Российской Федерации по Ростовской области</strong>! Здесь находятся уставы <strong>МСП, ТП, ГВАА, ССО, ФСБ и Штаб</strong>!</p>
+    </div>
+
     <!-- СТРУКТУРА -->
+    <h2>Подразделения</h2>
     <div class="cards-grid">
+        <a class="card" href="hq.html">
+            <div class="card-icon"><i class="fas fa-star"></i></div>
+            <h3>Штаб группировки</h3>
+            <p>Командование объединённой группировкой войск. Координация операций и общее управление.</p>
+        </a>
         <a class="card" href="msp.html">
-            <img src="images/icon-252.png" alt="252-ГвМСП" style="width:60px; height:60px; object-fit:contain; margin-bottom:14px; filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));" />
+            <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
             <h3>252-й ГвМСП</h3>
             <p>252-й гвардейский мотострелковый полк — основное тактическое соединение Сухопутных войск.</p>
         </a>
@@ -68,114 +77,67 @@
             <p>16-я гвардейская бригада армейской авиации — поддержка с воздуха и огневое прикрытие.</p>
         </a>
         <a class="card" href="sso.html">
-            <img src="images/icon-spetsnaz.png" alt="ССО" style="width:60px; height:60px; object-fit:contain; margin-bottom:14px; filter: drop-shadow(0 0 10px rgba(46,139,87,0.4));" />
+            <div class="card-icon"><i class="fas fa-crosshairs"></i></div>
             <h3>ССО</h3>
             <p>Силы Специальных Операций — элитное подразделение для автономных действий в тылу врага.</p>
         </a>
         <a class="card" href="fsb.html">
-            <img src="images/icon-fsb.png" alt="ФСБ" style="width:60px; height:60px; object-fit:contain; margin-bottom:14px; filter: drop-shadow(0 0 10px rgba(192,0,0,0.4));" />
+            <div class="card-icon"><i class="fas fa-user-shield"></i></div>
             <h3>ФСБ</h3>
             <p>Федеральная служба безопасности — контрразведка, антитеррор и защита государственной тайны.</p>
         </a>
-        <a class="card" href="index.html">
-            <img src="images/icon-hq.png" alt="Штаб" style="width:60px; height:60px; object-fit:contain; margin-bottom:14px; filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));" />
-            <h3>Штаб группировки</h3>
-            <p>Командование объединённой группировкой войск. Координация операций и общее управление.</p>
-        </a>
     </div>
 
-    <!-- О ПРОЕКТЕ -->
-    <h2>О проекте</h2>
-    <p><strong>«Разлом: Марш Справедливости»</strong> — военный RolePlay-проект, посвящённый историческим событиям и боевым действиям на территории Сирийской Арабской Республики. Мы проводим регулярные RP-операции, патрули и сюжетные события в Garry's Mod, соблюдая принципы адекватности и уважения к истории.</p>
-    <p>Основная цель проекта — создание атмосферы реальной воинской службы, где каждый боец понимает своё место в структуре, действует по уставу и следует приказам командования. Мы объединяем игроков, которые ценят дисциплину, командную работу и качественный отыгрыш.</p>
+    <!-- О ПОДРАЗДЕЛЕНИЯХ -->
+    <h2>О подразделениях</h2>
 
-    <!-- ЧТО МЫ ПРЕДЛАГАЕМ -->
-    <h2>Что мы предлагаем</h2>
-    <ul>
-        <li><strong>Пять подразделений</strong> — от мотострелков до спецназа. Каждый найдёт своё призвание.</li>
-        <li><strong>Подробные уставы</strong> — на каждой странице подразделения есть большой свод правил и регламентов.</li>
-        <li><strong>Регулярные операции</strong> — ежедневные патрули, боевые выходы и сюжетные события.</li>
-        <li><strong>Дисциплина и порядок</strong> — реальная военная иерархия, звания, награды.</li>
-        <li><strong>Дружное сообщество</strong> — Discord-сервер с активным общением и поддержкой новичков.</li>
-    </ul>
-
-    <!-- ПОДРАЗДЕЛЕНИЯ -->
-    <h2>Подразделения группировки</h2>
+    <div class="panel">
+        <div class="panel-title"><i class="fas fa-star"></i> Штаб группировки</div>
+        <p>Командование объединённой группировкой войск. Осуществляет общее управление, координацию операций, распределение задач между подразделениями. В составе — командиры ВС РФ и командиры подразделений.</p>
+        <p><a href="hq.html">Читать полный устав Штаба →</a></p>
+    </div>
 
     <div class="panel">
         <div class="panel-title"><i class="fas fa-shield-alt"></i> 252-й Гвардейский Мотострелковый Полк</div>
-        <p>Основное тактическое соединение Сухопутных войск. Полк предназначен для ведения общевойскового боя в любых условиях местности: от обороны укрепрайонов до наступательных операций. В составе три мотострелковых батальона, танковый батальон, артиллерийский дивизион, разведрота и инженерно-сапёрная рота.</p>
+        <p>Основное тактическое соединение Сухопутных войск. Полк предназначен для ведения общевойскового боя в любых условиях местности: от обороны укрепрайонов до наступательных операций.</p>
         <p><a href="msp.html">Читать полный устав 252-ГвМСП →</a></p>
     </div>
 
     <div class="panel">
         <div class="panel-title"><i class="fas fa-tank"></i> 237-й Танковый Полк</div>
-        <p>Бронированный кулак группировки. Танковый полк предназначен для прорыва обороны противника, поддержки мотострелков и уничтожения бронированной техники. В составе три танковых батальона, мотострелковый батальон поддержки, зенитный дивизион и ремонтная рота.</p>
+        <p>Бронированный кулак группировки. Танковый полк предназначен для прорыва обороны противника, поддержки мотострелков и уничтожения бронированной техники противника.</p>
         <p><a href="tp.html">Читать полный устав 237-ТП →</a></p>
     </div>
 
     <div class="panel">
         <div class="panel-title"><i class="fas fa-fighter-jet"></i> 16-я Гвардейская Бригада Армейской Авиации</div>
-        <p>Воздушная поддержка группировки. Бригада выполняет задачи по разведке, огневой поддержке с воздуха, эвакуации раненых и переброске десанта. В составе вертолётные эскадрильи (Ми-24, Ми-8, Ка-52), эскадрилья БПЛА и технические службы.</p>
+        <p>Воздушная поддержка группировки. Бригада выполняет задачи по разведке, огневой поддержке с воздуха, эвакуации раненых и переброске десанта.</p>
         <p><a href="gvaa.html">Читать полный устав 16-ГвБАА →</a></p>
     </div>
 
     <div class="panel">
         <div class="panel-title"><i class="fas fa-crosshairs"></i> Силы Специальных Операций</div>
-        <p>Элита группировки. ССО действуют автономно в глубоком тылу противника или в зонах повышенной опасности. Главная цель — достижение максимального эффекта минимальными силами. Специальная разведка, диверсии, освобождение заложников, авианаведение.</p>
+        <p>Элита группировки. ССО действуют автономно в глубоком тылу противника или в зонах повышенной опасности. Специальная разведка, диверсии, освобождение заложников, авианаведение.</p>
         <p><a href="sso.html">Читать полный устав ССО →</a></p>
     </div>
 
     <div class="panel">
         <div class="panel-title"><i class="fas fa-user-shield"></i> Федеральная Служба Безопасности</div>
-        <p>Внутренняя безопасность, контрразведка и защита государственной тайны. ФСБ выявляет шпионов и предателей внутри воинских частей, предотвращает теракты, контролирует утечки информации и обеспечивает пограничный контроль.</p>
+        <p>Внутренняя безопасность, контрразведка и защита государственной тайны. ФСБ выявляет шпионов и предателей внутри воинских частей, предотвращает теракты, контролирует утечки информации.</p>
         <p><a href="fsb.html">Читать полный устав ФСБ →</a></p>
     </div>
-
-    <!-- ПРАВИЛА -->
-    <h2>Общие правила проекта</h2>
-    <ol>
-        <li>Уважительное отношение ко всем участникам проекта — обязательно.</li>
-        <li>Соблюдение воинской дисциплины и субординации.</li>
-        <li>Запрещены NSFW-контент, политические провокации и разжигание конфликтов.</li>
-        <li>Запрещено использование читов и стороннего ПО, дающего преимущество.</li>
-        <li>Не выходить из роли (NonRP) во время операций и построений.</li>
-        <li>Соблюдение сеттинга и исторического контекста проекта.</li>
-        <li>Реклама сторонних проектов — только с разрешения командования.</li>
-    </ol>
-
-    <!-- ПРИСОЕДИНИТЬСЯ -->
-    <h2>Как присоединиться</h2>
-    <p>Для вступления в подразделение группировки «Разлом: Марш Справедливости» необходимо:</p>
-    <ol>
-        <li>Зайти на наш <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer">Discord-сервер</a>.</li>
-        <li>Ознакомиться с уставом выбранного подразделения.</li>
-        <li>Подать рапорт о зачислении в соответствующем канале.</li>
-        <li>Пройти собеседование с командиром подразделения.</li>
-        <li>Пройти курс молодого бойца и влиться в коллектив.</li>
-    </ol>
-    <p style="text-align:center; margin-top:30px;">
-        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" class="btn-discord" style="background: transparent; color: var(--accent-gold); border: 2px solid var(--accent-gold); padding: 13px 40px; font-family: 'PT Serif', serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block;">
-            <i class="fab fa-discord"></i> Вступить в Discord
-        </a>
-    </p>
 
 </div>
 
 <!-- ФУТЕР -->
 <footer>
-    <div class="social">
-        <a href="https://discord.gg/WHDbNy2BaF" target="_blank" rel="noopener noreferrer" title="Discord"><i class="fab fa-discord"></i></a>
-        <a href="#" title="VK"><i class="fab fa-vk"></i></a>
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-    </div>
     <div class="disclaimer-text">
         Все материалы, представленные на данном проекте, носят исключительно познавательный и исторический характер. Проект не пропагандирует: терроризм, экстремизм, милитаризм, насилие в любой форме, национализм, расизм, ксенофобию, религиозную ненависть, идеологии или организации, запрещённые на территории Российской Федерации. Любая демонстрация символики, униформы или атрибутики носит исключительно историко-документальный характер.
     </div>
     <div class="footer-bottom">
-        <div>© Разлом: Марш Справедливости. RP-сообщество серверов в Garry's Mod.</div>
+        <div>© Разлом: Марш Справедливости. Уставник ВС РФ по Ростовской области.</div>
         <div style="margin-top:6px; font-style:italic; color:#666;">Любое использование либо копирование материалов допускается лишь с разрешения создателя.</div>
-        <div class="slogan">garry's mod — значит Разлом</div>
+        <div class="slogan">Разлом — значит Марш Справедливости</div>
     </div>
 </footer>
 
